@@ -1,0 +1,3212 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[    160897,       3204]
+NotebookOptionsPosition[    152425,       3026]
+NotebookOutlinePosition[    153289,       3054]
+CellTagsIndexPosition[    153208,       3049]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["??", "HistoryData",
+  CellTags->"New",ExpressionUUID->"61b3b724-2a44-4dce-b280-67ab7b55f691"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"428267c0-1335-48a8-a565-1a8448d769aa"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"4dfdfc2a-70d5-40f6-8c13-36ba9de910bb"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised",ExpressionUUID->"6b566cc9-ed41-428b-9965-e53e28155966"]
+}], "History",
+ CellID->1039262582,ExpressionUUID->"10a8a3d4-5a19-4947-a848-f5ccf652520d"],
+
+Cell["Created by: aleph_g on 07-17-2022 15:05:23", "AuthorDate",
+ CellID->1288686019,ExpressionUUID->"755f1c6b-48c5-4690-bd11-85b2ecc4c560"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->2010079249,ExpressionUUID->"0154ae73-3acc-4cae-a175-207be0e9d964"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->1117336111,ExpressionUUID->"4518547e-eae3-4408-831e-06d2aa453150"],
+
+Cell["ArmandoCruz/ZeroKnowledgeProofs", "Categorization",
+ CellChangeTimes->{{3.867077433519209*^9, 3.867077439695242*^9}},
+ CellLabel->"Paclet Name",
+ CellID->328307864,ExpressionUUID->"b573696c-24ec-4940-8ae1-5f0cc795353c"],
+
+Cell["ArmandoCruz`ZeroKnowledgeProofs`", "Categorization",
+ CellLabel->"Context",
+ CellID->1241217983,ExpressionUUID->"24af5050-7666-42ab-bbc0-62b74abc3416"],
+
+Cell["\<\
+ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateSolution\
+\>", "Categorization",
+ CellChangeTimes->{{3.867077444295651*^9, 3.8670774457907667`*^9}},
+ CellLabel->"URI",
+ CellID->446195472,ExpressionUUID->"d9719e54-fd4e-461e-adfd-3981fe88702f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1244506584,ExpressionUUID->"93ed6fe3-5ff3-467b-9f54-794e293de229"],
+
+Cell["ZeroKnowledgeProofs", "Keywords",
+ CellChangeTimes->{3.867077429328635*^9},
+ CellID->1120856940,ExpressionUUID->"6bc78f33-3f99-49eb-9483-ab23d2e2209f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1682687531,ExpressionUUID->"3cbf33e4-7557-44f3-a7c0-f672e2db09b0"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->2135575435,ExpressionUUID->"15448016-1974-4a2e-95af-279c16c78a50"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->1090108031,ExpressionUUID->"549872b3-c9a1-46b6-8a21-cffaeb8c6751"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->979639612,ExpressionUUID->"4796a868-1367-439e-84b3-108d97bb4b4f"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->2096051118,ExpressionUUID->"3c57d743-a1d3-4f94-b284-f74e4396680e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ZeroKnowledgePrivateSolution", "ObjectName",
+ CellID->1802631591,ExpressionUUID->"1ef7a98e-f05e-43ab-93f9-fda7707c6411"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"8b35b0d4-05b7-4ca8-a80c-558c8a1b4cbb"],
+ Cell[BoxData[
+  RowBox[{"ZeroKnowledgePrivateSolution", "[", 
+   StyleBox["assoc", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+  "8430d68d-df33-4a76-87e7-aa54bafd0613"],
+ " \[LineSeparator]represents the private solution to a public problem used \
+for a zero knowledge proof protocol."
+}], "Usage",
+ CellChangeTimes->{{3.867077128886441*^9, 3.867077187516099*^9}, {
+  3.867077244642943*^9, 3.867077248331115*^9}, {3.8670772915863457`*^9, 
+  3.867077336138359*^9}, {3.867165827204777*^9, 3.86716583727946*^9}},
+ CellID->1625862453,ExpressionUUID->"2672d7b9-e264-4426-afad-18c5afeb31a6"],
+
+Cell[" objects can be used with functions such as__.", "Notes",
+ CellChangeTimes->{{3.867087895814479*^9, 3.867087934086166*^9}, {
+  3.8671658497600813`*^9, 3.86716585155361*^9}},
+ CellID->75992956,ExpressionUUID->"2faaaa1c-5e8d-41ca-8b4c-d1d215560acf"],
+
+Cell[TextData[{
+ "Corresponding pairs of ",
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgePrivateSolution",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateSolution"]\
+], "InlineFormula",ExpressionUUID->"6fc66b1d-a54f-4352-9680-820fe6905704"],
+ " and __ objects can be generated with __."
+}], "Notes",
+ CellChangeTimes->{{3.867087703081291*^9, 3.867087742050363*^9}, {
+  3.867165858221006*^9, 3.8671658582210283`*^9}, {3.867165889966354*^9, 
+  3.867165908489071*^9}},
+ CellID->639440769,ExpressionUUID->"0c4d476d-786e-4f6f-864f-6447931bfd3e"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgePrivateSolution",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateSolution"]\
+], "InlineFormula",ExpressionUUID->"4a6f5778-aa80-4dc0-bcc2-5bcc799b4751"],
+ "[...][\"",
+ Cell[BoxData[
+  StyleBox["prop", "TI"]], "InlineFormula",ExpressionUUID->
+  "03248e09-92bb-4505-92b1-6e99613814a3"],
+ "\"] can be used to extract properties of the private solution."
+}], "Notes",
+ CellChangeTimes->{{3.867077690445713*^9, 3.867077730962069*^9}, {
+  3.867077762114135*^9, 3.867077796506589*^9}, {3.867165917857826*^9, 
+  3.867165942250222*^9}},
+ CellID->1592239419,ExpressionUUID->"9d2143a5-176f-4e18-aba9-b18c03de778f"],
+
+Cell[TextData[{
+ "Basic properties for a ",
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgePrivateSolution",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateSolution"]\
+], "InlineFormula",ExpressionUUID->"95ee7a46-8e49-4e25-9fe8-fad59fef02a8"],
+ " include:"
+}], "Notes",
+ CellChangeTimes->{{3.8670778289547977`*^9, 3.867077830465837*^9}, {
+  3.867165952117914*^9, 3.867165952828969*^9}},
+ CellID->329001905,ExpressionUUID->"178c2cf6-31d6-4e9a-9de8-90fd1b99f5d3"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "9554525b-4390-4a73-9feb-21674d52404c"], "\"\<Type\>\"", Cell[
+    "type of protocol", "TableText",ExpressionUUID->
+     "a913e379-475f-4b7f-a526-f9ff2d51f0b5"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "31318624-ada3-49e6-b28d-6f76d5d627ac"], "\"\<PrivateSolutionSize\>\"", 
+    Cell["size of private solution as requested by the protocol", "TableText",
+     ExpressionUUID->"0204cd5b-b340-42b0-b53a-b5f36cc59841"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "0a34494e-ad43-49da-a428-e02b9ab8eae0"], "\"\<PrivateSolution\>\"", Cell[
+    "private solution to the public problem", "TableText",ExpressionUUID->
+     "01aae7fc-6b38-41d8-96ac-1f0d9c08178a"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "874f8031-b6e3-4287-ab44-6d9f480ce204"], "\"\<PublicProblemSize\>\"", 
+    Cell["size of public problem as requested by the protocol", "TableText",
+     ExpressionUUID->"410e2c34-3501-449d-a9c9-e1cfa9d878d1"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "30cdd036-ddda-42d3-a51c-4b623feaa933"], "\"\<PublicProblem\>\"", Cell[
+    "public problem with protocol defined format", "TableText",ExpressionUUID->
+     "1d045ddb-e29f-4b81-924d-a448a1b9ee54"]}
+  }]], "2ColumnTableMod",
+ CellChangeTimes->{{3.8670778490206127`*^9, 3.8670778507705307`*^9}, {
+  3.867078095791807*^9, 3.867078167547059*^9}, {3.867078209746619*^9, 
+  3.8670782909490356`*^9}, {3.8670783215990047`*^9, 3.867078373308627*^9}},
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, 
+   "Rows" -> {None, None, None, None, None, None, {None}}},
+ GridBoxDividers->{
+  "Rows" -> {{True, True, True, True, True, True, True, True}}}},
+ CellID->327602145,ExpressionUUID->"32bae8b0-d3bd-4877-8d45-5f5def12e915"],
+
+Cell["\<\
+Possible types of protocols include \"zkSNARK\", \"HamilotonianCycle\" and \
+\"Isomorphism\".\
+\>", "Notes",
+ CellChangeTimes->{{3.867087758026968*^9, 3.867087812668188*^9}, {
+  3.86708913068958*^9, 3.867089137730472*^9}},
+ CellID->887741587,ExpressionUUID->"b1fd5d47-cf66-4bf8-bef7-ef9812dc06f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tech Notes", "TechNotesSection",
+ CellID->2023386594,ExpressionUUID->"1df9b7d1-5346-4823-b749-f3016b095e9d"],
+
+Cell["XXXX", "Tutorials",
+ CellID->1776990051,ExpressionUUID->"b38d812d-f679-4c90-8437-f68c907ddf0a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->138221643,ExpressionUUID->"16750fd4-f101-45ec-a467-bba4b2377046"],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1691342264,ExpressionUUID->"bfffe196-f93e-4b5f-bfa7-cb9b485b41ae"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->773896014,ExpressionUUID->"cc4b948d-d542-4dbe-a6a3-4312bea39a61"],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1308899774,ExpressionUUID->"fe98c72f-05c6-49e0-b92e-6e3c12c606ab"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1454221050,ExpressionUUID->"29343707-d7be-44d9-a76d-4aa07cb0363e"],
+
+Cell["XXXX", "SeeAlso",
+ CellID->475679421,ExpressionUUID->"a4eaf404-8d88-4b14-8e9b-e8840ac5ae63"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "MoreAboutSection",
+ CellChangeTimes->{{3.843042374232973*^9, 3.843042375545676*^9}},
+ CellID->1958047610,ExpressionUUID->"c63c8bef-f098-4985-b9ac-32c31b42589a"],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1072977206,ExpressionUUID->"7f226aa8-6a0f-4f66-91d0-ccb0a8bd1cd0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->2092101092,ExpressionUUID->"45337c2e-d73a-40c2-8800-a78f9d7482d6"],
+
+Cell["Generate private solution and public problem :", "ExampleText",
+ CellChangeTimes->{{3.867087945921048*^9, 3.867087963125654*^9}},
+ CellID->1538465975,ExpressionUUID->"5fd0bb64-d77a-4bbe-b2f1-86e5e2c67968"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"zkProof", "=", 
+  RowBox[{
+  "GenerateZeroKnowledgeProof", "[", "\"\<Isomorphism\>\"", "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.867087972119665*^9, 3.8670880161036997`*^9}},
+ CellLabel->"In[14]:=",
+ CellID->1756427177,ExpressionUUID->"ba569526-4119-4d75-8e11-7b5df02bba30"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"ZeroKnowledgePrivateSolution\"\>", "\[Rule]", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["ZeroKnowledgePrivateSolution",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+       "Ready"}, 
+       TemplateBox[{
+         PaneSelectorBox[{False -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxOpener"]], 
+                 ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ+99fEHhr//0bCDyzFwaDw/a/foLAS/sZ00Hgur0A
+GGywx6U+EAwewukgMHiE05w7t0Hgtf21q2BgLwIGU3CaT6o5uNxDa3Fq+YtU
+cWrZi0s9qeFMrXgh1Z3USj/UMn+g4pdUcVzhT6p6UuOR1PilVrlELfW0Dmdq
+lXu4zAcA3Ko+xQ==
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"Private solution size: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["20", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"Public problem size: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{"20", ",", "100"}], "}"}], "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}], True -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxCloser"]], 
+                 ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ+99fEHhr//0bCDyzFwaDw/a/foLAS/sZ00Hgur0A
+GGywx6U+EAwewukgMHiE05w7t0Hgtf21q2BgLwIGU3CaT6o5uNxDa3Fq+YtU
+cWrZi0s9qeFMrXgh1Z3USj/UMn+g4pdUcVzhT6p6UuOR1PilVrlELfW0Dmdq
+lXu4zAcA3Ko+xQ==
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"Private solution size: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["20", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"Public problem size: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{"20", ",", "100"}], "}"}], "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox["\"Private solution: \"", "SummaryItemAnnotation"],
+                     "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "\[Rule]", "17"}], ",", 
+                    RowBox[{"2", "\[Rule]", "6"}], ",", 
+                    RowBox[{"3", "\[Rule]", "10"}], ",", 
+                    RowBox[{"4", "\[Rule]", "11"}], ",", 
+                    RowBox[{"5", "\[Rule]", "15"}], ",", 
+                    RowBox[{"6", "\[Rule]", "14"}], ",", 
+                    RowBox[{"7", "\[Rule]", "12"}], ",", 
+                    RowBox[{"8", "\[Rule]", "3"}], ",", 
+                    RowBox[{"9", "\[Rule]", "20"}], ",", 
+                    RowBox[{"10", "\[Rule]", "2"}], ",", 
+                    RowBox[{"11", "\[Rule]", "13"}], ",", 
+                    RowBox[{"12", "\[Rule]", "16"}], ",", 
+                    RowBox[{"13", "\[Rule]", "9"}], ",", 
+                    RowBox[{"14", "\[Rule]", "4"}], ",", 
+                    RowBox[{"15", "\[Rule]", "5"}], ",", 
+                    RowBox[{"16", "\[Rule]", "18"}], ",", 
+                    RowBox[{"17", "\[Rule]", "7"}], ",", 
+                    RowBox[{"18", "\[Rule]", "8"}], ",", 
+                    RowBox[{"19", "\[Rule]", "1"}], ",", 
+                    RowBox[{"20", "\[Rule]", "19"}]}], "}"}], 
+                    "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox["\"Public problem: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics", 
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{1, 4, 6, 10, 13, 15, 20, 2, 3, 7, 17, 18, 19, 8, 
+                    11, 14, 16, 5, 9, 12}, {
+                    Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8,
+                     9}, {8, 2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8,
+                     12}, {8, 13}, {8, 7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {
+                    9, 16}, {9, 6}, {9, 17}, {9, 11}, {9, 12}, {9, 13}, {2, 
+                    18}, {2, 3}, {2, 10}, {2, 19}, {2, 15}, {2, 5}, {2, 16}, {
+                    2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 15}, {18, 5}, {18,
+                     6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 19}, {3, 
+                    15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+                    5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 
+                    6}, {14, 17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 
+                    20}, {19, 16}, {19, 17}, {19, 12}, {19, 13}, {19, 7}, {4, 
+                    5}, {4, 16}, {4, 6}, {4, 17}, {15, 20}, {15, 5}, {15, 
+                    6}, {15, 17}, {15, 11}, {15, 12}, {20, 5}, {20, 6}, {20, 
+                    11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 11}, {5, 
+                    12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+                    17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 
+                    7}}}, {VertexLabels -> {Automatic}}]]}, 
+                    TagBox[
+                    GraphicsGroupBox[{{
+                    Directive[
+                    Opacity[0.7], 
+                    Hue[0.6, 0.7, 0.5]], 
+                    Arrowheads[0.], {
+                    ArrowBox[CompressedData["
+1:eJyF1E9I03EYx/HftryIB8syQnMIC4IIBBeDip6fh9rB0v5Bf+gQYZdabXVx
+l6ZpdjKKsVWk2KWDsFNl0p+5gyTogiiyySiCXFjqUqdzuhlSB7u8n4PCDvJi
+3+/zfJ7nu+oL3uMXbYZhNP37WNc+U83O53ePfBVj7c/xxGa/ZV+Qtp/+5OSz
+hNAf/Crpc7jG5eT+0FAsmVK+ebgydaN4TB4ePev0BHPKa9NGe6YuJ1c3TQa2
+ZX4o71uIuEuaV+RpW33N4pYp5edG7I+PZWclvCMbb/zwW1gv66Pzfvp659/3
+bff4+wvS2eseqh0dUV7e++Jm19Yi0xdxH9rwXZ9fHwrfy3yzmIf9b6sOdswo
+f1N4N28eWJbotYrg3o5l5flYwrvHuyqJ4D6H61RO+f+cOvOPXr2OTyufO1MU
+rfFZzMDAru5E8LNyW2u0+1LDhOyu8MarAisqT+ZDZz704ZcnykrDc3K9Lnzl
+o2VJeXlkMFt8Pi/9Zad35vzzytk/nf3T2R/3lftB537S2Z96D8kv0/aWPzJw
+u7SpYWJVOeunpz9dNmNjM1LZnp71vLeadPbHflg/nfOlc7507j+d+6++j/nT
++T7o3A8686XzfdA9tsFxV8pqOkc3hu70FFSezI/O/OjcHzrzVY786MxP/d5i
+P+nMl8786MyPeTEfOveHzv7p7I/O/aDz/dHZP53vk/1y/nTOn8581PeRD537
+wXp4Pp3n09c7n/Ohc//onB+d82Oe7I/O+uicP537r+5DfnTeT2c+dNZHZ32s
+h/Ojq3zgrI+u8oPz/dBZP+vl/Om8n8776byfebB/Ouuj83yex+/T2R+d5/M9
+sX/eR+f/PP8vZD4s3g==
+                    "], 0.027574958807580333`]}}, {
+                    Directive[
+                    Hue[0.6, 0.2, 0.8], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Opacity[0.7]]]], {
+                    
+                    DiskBox[{0.44223396778568136`, 0.}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["1", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.4698089265932617, 
+                    0.027574958807580333`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.195194359921751, 0.35467001187827674`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["4", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.2227693187293314`, 
+                    0.38224497068585706`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.5692313686952443, 0.6203302248922093}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["6", TraditionalForm], 
+                    Offset[{2, 2}, {0.5968063275028246, 0.6479051836997897}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.3600153653998188, 1.410747723105521}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["10", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.38759032420739914`, 
+                    1.4383226819131014`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.3910994641617094`, 0.6544311026305658}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["13", TraditionalForm], 
+                    Offset[{2, 2}, {1.4186744229692898`, 0.6820060614381461}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7165644454646385`, 0.8151803916226382}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["15", TraditionalForm], 
+                    Offset[{2, 2}, {1.744139404272219, 0.8427553504302185}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9985740764516708, 0.93167867316622}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["20", TraditionalForm], 
+                    Offset[{2, 2}, {1.0261490352592513`, 0.9592536319738003}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.6695484374277263`, 0.20178839810188653`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["2", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.6971233962353067`, 
+                    0.22936335690946685`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.0363922839128907`, 1.437943866785727}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["3", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.0639672427204712`, 
+                    1.4655188255933074`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.6365270741998854`, 0.6524678585677588}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["7", TraditionalForm], 
+                    Offset[{2, 2}, {2.664102033007466, 0.6800428173753391}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.2338591857574435`, 0.9537683106352772}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["17", TraditionalForm], 
+                    Offset[{2, 2}, {2.261434144565024, 0.9813432694428575}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5859479485467936`, 1.1545316291751369`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["18", TraditionalForm], 
+                    Offset[{2, 2}, {1.613522907354374, 1.1821065879827173`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5151986583947934`, 1.532526560527102}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["19", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.5427736172023738`, 
+                    1.5601015193346823`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7810363019212851`, 1.9312271031161992`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["8", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.8086112607288656`, 
+                    1.9588020619237796`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.902150570745958, 1.3962928214397627`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["11", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.9297255295535385`, 
+                    1.4238677802473432`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{0., 0.8684972405533684}, 0.027574958807580333`], 
+                    
+                    InsetBox[
+                    FormBox["14", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.027574958807580333`, 
+                    0.8960721993609487}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9638358362413988, 2.350793718724516}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["16", TraditionalForm], 
+                    Offset[{2, 2}, {0.9914107950489791, 2.3783686775320962`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.179780453599271, 0.3370872998338753}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["5", TraditionalForm], 
+                    Offset[{2, 2}, {2.2073554124068515`, 0.3646622586414556}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.6970723210579312, 1.7182910831049398`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["9", TraditionalForm], 
+                    Offset[{2, 2}, {0.7246472798655115, 1.7458660419125203`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.3609464374025517`, 1.6637092384310224`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["12", TraditionalForm], 
+                    Offset[{2, 2}, {2.388521396210132, 1.6912841972386028`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}}}], 
+                    MouseAppearanceTag["NetworkGraphics"]], 
+                    AllowKernelInitialization -> False]], {
+                    FormatType -> TraditionalForm, FrameTicks -> None, 
+                    DefaultBaseStyle -> {
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]}}], ",", 
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics", 
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{17, 11, 14, 2, 9, 5, 19, 6, 10, 12, 7, 8, 1, 3, 13,
+                     4, 18, 15, 20, 16}, {
+                    Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8,
+                     9}, {8, 2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8,
+                     12}, {8, 13}, {8, 7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {
+                    9, 16}, {9, 6}, {9, 17}, {9, 11}, {9, 12}, {9, 13}, {2, 
+                    18}, {2, 3}, {2, 10}, {2, 19}, {2, 15}, {2, 5}, {2, 16}, {
+                    2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 15}, {18, 5}, {18,
+                     6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 19}, {3, 
+                    15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+                    5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 
+                    6}, {14, 17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 
+                    20}, {19, 16}, {19, 17}, {19, 12}, {19, 13}, {19, 7}, {4, 
+                    5}, {4, 16}, {4, 6}, {4, 17}, {15, 20}, {15, 5}, {15, 
+                    6}, {15, 17}, {15, 11}, {15, 12}, {20, 5}, {20, 6}, {20, 
+                    11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 11}, {5, 
+                    12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+                    17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 
+                    7}}}, {VertexLabels -> {Automatic}}]]}, 
+                    TagBox[
+                    GraphicsGroupBox[{{
+                    Directive[
+                    Opacity[0.7], 
+                    Hue[0.6, 0.7, 0.5]], 
+                    Arrowheads[0.], {
+                    ArrowBox[CompressedData["
+1:eJyF1E9I03EYx/HftryIB8syQnMIC4IIBBeDip6fh9rB0v5Bf+gQYZdabXVx
+l6ZpdjKKsVWk2KWDsFNl0p+5gyTogiiyySiCXFjqUqdzuhlSB7u8n4PCDvJi
+3+/zfJ7nu+oL3uMXbYZhNP37WNc+U83O53ePfBVj7c/xxGa/ZV+Qtp/+5OSz
+hNAf/Crpc7jG5eT+0FAsmVK+ebgydaN4TB4ePev0BHPKa9NGe6YuJ1c3TQa2
+ZX4o71uIuEuaV+RpW33N4pYp5edG7I+PZWclvCMbb/zwW1gv66Pzfvp659/3
+bff4+wvS2eseqh0dUV7e++Jm19Yi0xdxH9rwXZ9fHwrfy3yzmIf9b6sOdswo
+f1N4N28eWJbotYrg3o5l5flYwrvHuyqJ4D6H61RO+f+cOvOPXr2OTyufO1MU
+rfFZzMDAru5E8LNyW2u0+1LDhOyu8MarAisqT+ZDZz704ZcnykrDc3K9Lnzl
+o2VJeXlkMFt8Pi/9Zad35vzzytk/nf3T2R/3lftB537S2Z96D8kv0/aWPzJw
+u7SpYWJVOeunpz9dNmNjM1LZnp71vLeadPbHflg/nfOlc7507j+d+6++j/nT
++T7o3A8686XzfdA9tsFxV8pqOkc3hu70FFSezI/O/OjcHzrzVY786MxP/d5i
+P+nMl8786MyPeTEfOveHzv7p7I/O/aDz/dHZP53vk/1y/nTOn8581PeRD537
+wXp4Pp3n09c7n/Ohc//onB+d82Oe7I/O+uicP537r+5DfnTeT2c+dNZHZ32s
+h/Ojq3zgrI+u8oPz/dBZP+vl/Om8n8776byfebB/Ouuj83yex+/T2R+d5/M9
+sX/eR+f/PP8vZD4s3g==
+                    "], 0.027574958807580333`]}}, {
+                    Directive[
+                    Hue[0.6, 0.2, 0.8], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Opacity[0.7]]]], {
+                    
+                    DiskBox[{0.44223396778568136`, 0.}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["17", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.4698089265932617, 
+                    0.027574958807580333`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.195194359921751, 0.35467001187827674`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["11", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.2227693187293314`, 
+                    0.38224497068585706`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.5692313686952443, 0.6203302248922093}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["14", TraditionalForm], 
+                    Offset[{2, 2}, {0.5968063275028246, 0.6479051836997897}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.3600153653998188, 1.410747723105521}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["2", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.38759032420739914`, 
+                    1.4383226819131014`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.3910994641617094`, 0.6544311026305658}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["9", TraditionalForm], 
+                    Offset[{2, 2}, {1.4186744229692898`, 0.6820060614381461}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7165644454646385`, 0.8151803916226382}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["5", TraditionalForm], 
+                    Offset[{2, 2}, {1.744139404272219, 0.8427553504302185}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9985740764516708, 0.93167867316622}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["19", TraditionalForm], 
+                    Offset[{2, 2}, {1.0261490352592513`, 0.9592536319738003}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.6695484374277263`, 0.20178839810188653`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["6", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.6971233962353067`, 
+                    0.22936335690946685`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.0363922839128907`, 1.437943866785727}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["10", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.0639672427204712`, 
+                    1.4655188255933074`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.6365270741998854`, 0.6524678585677588}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["12", TraditionalForm], 
+                    Offset[{2, 2}, {2.664102033007466, 0.6800428173753391}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.2338591857574435`, 0.9537683106352772}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["7", TraditionalForm], 
+                    Offset[{2, 2}, {2.261434144565024, 0.9813432694428575}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5859479485467936`, 1.1545316291751369`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["8", TraditionalForm], 
+                    Offset[{2, 2}, {1.613522907354374, 1.1821065879827173`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5151986583947934`, 1.532526560527102}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["1", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.5427736172023738`, 
+                    1.5601015193346823`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7810363019212851`, 1.9312271031161992`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["3", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.8086112607288656`, 
+                    1.9588020619237796`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{1.902150570745958, 1.3962928214397627`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["13", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.9297255295535385`, 
+                    1.4238677802473432`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{0., 0.8684972405533684}, 0.027574958807580333`], 
+                    
+                    InsetBox[
+                    FormBox["4", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.027574958807580333`, 
+                    0.8960721993609487}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9638358362413988, 2.350793718724516}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["18", TraditionalForm], 
+                    Offset[{2, 2}, {0.9914107950489791, 2.3783686775320962`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.179780453599271, 0.3370872998338753}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["15", TraditionalForm], 
+                    Offset[{2, 2}, {2.2073554124068515`, 0.3646622586414556}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.6970723210579312, 1.7182910831049398`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["20", TraditionalForm], 
+                    Offset[{2, 2}, {0.7246472798655115, 1.7458660419125203`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.3609464374025517`, 1.6637092384310224`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["16", TraditionalForm], 
+                    Offset[{2, 2}, {2.388521396210132, 1.6912841972386028`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}}}], 
+                    MouseAppearanceTag["NetworkGraphics"]], 
+                    AllowKernelInitialization -> False]], {
+                    FormatType -> TraditionalForm, FrameTicks -> None, 
+                    DefaultBaseStyle -> {
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]}}]}], "}"}], "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}]}, 
+          Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+        "SummaryPanel"],
+       DynamicModuleValues:>{}], "]"}],
+     ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgePrivateSolution[<|
+      "Type" -> "Isomorphism", "PrivateSolutionSize" -> 20, 
+       "PrivateSolution" -> {
+        1 -> 17, 2 -> 6, 3 -> 10, 4 -> 11, 5 -> 15, 6 -> 14, 7 -> 12, 8 -> 3, 
+         9 -> 20, 10 -> 2, 11 -> 13, 12 -> 16, 13 -> 9, 14 -> 4, 15 -> 5, 16 -> 
+         18, 17 -> 7, 18 -> 8, 19 -> 1, 20 -> 19}, 
+       "PublicProblemSize" -> {20, 100}, "PublicProblem" -> {
+         Graph[{1, 4, 6, 10, 13, 15, 20, 2, 3, 7, 17, 18, 19, 8, 11, 14, 16, 
+          5, 9, 12}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{17, 11, 14, 2, 9, 5, 19, 6, 10, 12, 7, 8, 1, 3, 13, 4, 18, 15,
+           20, 16}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}]}|>],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", 
+   RowBox[{"\<\"ZeroKnowledgePublicProblem\"\>", "\[Rule]", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["ZeroKnowledgePublicProblem",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+       "Ready"}, 
+       TemplateBox[{
+         PaneSelectorBox[{False -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxOpener"]], 
+                 ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ+5rJewtX90v2D6tE1rk/vGXPAAWzZoLAS3u2zGOL
+Xr55Yj/3iMKGooyD9rjUf59+d3J76y37N4E75FpfPyTbnLIHcwSX7n1onwYG
+z+xfgc07aI/LHFzqSXUnqepJtZda4Uktd5IaX9QyH5d6apmDK3yoJU7rcCY1
+/ZOaj0h1D6nipNpLrfKE1uFJaryTmo9onb9wqQcAVB69cg==
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"Public problem size: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{"20", ",", "100"}], "}"}], "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}], True -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxCloser"]], 
+                 ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ+5rJewtX90v2D6tE1rk/vGXPAAWzZoLAS3u2zGOL
+Xr55Yj/3iMKGooyD9rjUf59+d3J76y37N4E75FpfPyTbnLIHcwSX7n1onwYG
+z+xfgc07aI/LHFzqSXUnqepJtZda4Uktd5IaX9QyH5d6apmDK3yoJU7rcCY1
+/ZOaj0h1D6nipNpLrfKE1uFJaryTmo9onb9wqQcAVB69cg==
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"Public problem size: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{"20", ",", "100"}], "}"}], "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox["\"Public problem: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics", 
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{1, 4, 6, 10, 13, 15, 20, 2, 3, 7, 17, 18, 19, 8, 
+                    11, 14, 16, 5, 9, 12}, {
+                    Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8,
+                     9}, {8, 2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8,
+                     12}, {8, 13}, {8, 7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {
+                    9, 16}, {9, 6}, {9, 17}, {9, 11}, {9, 12}, {9, 13}, {2, 
+                    18}, {2, 3}, {2, 10}, {2, 19}, {2, 15}, {2, 5}, {2, 16}, {
+                    2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 15}, {18, 5}, {18,
+                     6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 19}, {3, 
+                    15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+                    5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 
+                    6}, {14, 17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 
+                    20}, {19, 16}, {19, 17}, {19, 12}, {19, 13}, {19, 7}, {4, 
+                    5}, {4, 16}, {4, 6}, {4, 17}, {15, 20}, {15, 5}, {15, 
+                    6}, {15, 17}, {15, 11}, {15, 12}, {20, 5}, {20, 6}, {20, 
+                    11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 11}, {5, 
+                    12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+                    17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 
+                    7}}}, {VertexLabels -> {Automatic}}]]}, 
+                    TagBox[
+                    GraphicsGroupBox[{{
+                    Directive[
+                    Opacity[0.7], 
+                    Hue[0.6, 0.7, 0.5]], 
+                    Arrowheads[0.], {
+                    ArrowBox[CompressedData["
+1:eJyF1E9I03EYx/HftryIB8syQnMIC4IIBBeDip6fh9rB0v5Bf+gQYZdabXVx
+l6ZpdjKKsVWk2KWDsFNl0p+5gyTogiiyySiCXFjqUqdzuhlSB7u8n4PCDvJi
+3+/zfJ7nu+oL3uMXbYZhNP37WNc+U83O53ePfBVj7c/xxGa/ZV+Qtp/+5OSz
+hNAf/Crpc7jG5eT+0FAsmVK+ebgydaN4TB4ePev0BHPKa9NGe6YuJ1c3TQa2
+ZX4o71uIuEuaV+RpW33N4pYp5edG7I+PZWclvCMbb/zwW1gv66Pzfvp659/3
+bff4+wvS2eseqh0dUV7e++Jm19Yi0xdxH9rwXZ9fHwrfy3yzmIf9b6sOdswo
+f1N4N28eWJbotYrg3o5l5flYwrvHuyqJ4D6H61RO+f+cOvOPXr2OTyufO1MU
+rfFZzMDAru5E8LNyW2u0+1LDhOyu8MarAisqT+ZDZz704ZcnykrDc3K9Lnzl
+o2VJeXlkMFt8Pi/9Zad35vzzytk/nf3T2R/3lftB537S2Z96D8kv0/aWPzJw
+u7SpYWJVOeunpz9dNmNjM1LZnp71vLeadPbHflg/nfOlc7507j+d+6++j/nT
++T7o3A8686XzfdA9tsFxV8pqOkc3hu70FFSezI/O/OjcHzrzVY786MxP/d5i
+P+nMl8786MyPeTEfOveHzv7p7I/O/aDz/dHZP53vk/1y/nTOn8581PeRD537
+wXp4Pp3n09c7n/Ohc//onB+d82Oe7I/O+uicP537r+5DfnTeT2c+dNZHZ32s
+h/Ojq3zgrI+u8oPz/dBZP+vl/Om8n8776byfebB/Ouuj83yex+/T2R+d5/M9
+sX/eR+f/PP8vZD4s3g==
+                    "], 0.027574958807580333`]}}, {
+                    Directive[
+                    Hue[0.6, 0.2, 0.8], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Opacity[0.7]]]], {
+                    
+                    DiskBox[{0.44223396778568136`, 0.}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["1", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.4698089265932617, 
+                    0.027574958807580333`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.195194359921751, 0.35467001187827674`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["4", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.2227693187293314`, 
+                    0.38224497068585706`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.5692313686952443, 0.6203302248922093}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["6", TraditionalForm], 
+                    Offset[{2, 2}, {0.5968063275028246, 0.6479051836997897}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.3600153653998188, 1.410747723105521}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["10", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.38759032420739914`, 
+                    1.4383226819131014`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.3910994641617094`, 0.6544311026305658}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["13", TraditionalForm], 
+                    Offset[{2, 2}, {1.4186744229692898`, 0.6820060614381461}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7165644454646385`, 0.8151803916226382}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["15", TraditionalForm], 
+                    Offset[{2, 2}, {1.744139404272219, 0.8427553504302185}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9985740764516708, 0.93167867316622}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["20", TraditionalForm], 
+                    Offset[{2, 2}, {1.0261490352592513`, 0.9592536319738003}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.6695484374277263`, 0.20178839810188653`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["2", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.6971233962353067`, 
+                    0.22936335690946685`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{1.0363922839128907`, 1.437943866785727}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["3", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.0639672427204712`, 
+                    1.4655188255933074`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.6365270741998854`, 0.6524678585677588}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["7", TraditionalForm], 
+                    Offset[{2, 2}, {2.664102033007466, 0.6800428173753391}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.2338591857574435`, 0.9537683106352772}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["17", TraditionalForm], 
+                    Offset[{2, 2}, {2.261434144565024, 0.9813432694428575}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5859479485467936`, 1.1545316291751369`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["18", TraditionalForm], 
+                    Offset[{2, 2}, {1.613522907354374, 1.1821065879827173`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5151986583947934`, 1.532526560527102}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["19", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.5427736172023738`, 
+                    1.5601015193346823`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7810363019212851`, 1.9312271031161992`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["8", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.8086112607288656`, 
+                    1.9588020619237796`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.902150570745958, 1.3962928214397627`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["11", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.9297255295535385`, 
+                    1.4238677802473432`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{0., 0.8684972405533684}, 0.027574958807580333`], 
+                    
+                    InsetBox[
+                    FormBox["14", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.027574958807580333`, 
+                    0.8960721993609487}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9638358362413988, 2.350793718724516}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["16", TraditionalForm], 
+                    Offset[{2, 2}, {0.9914107950489791, 2.3783686775320962`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.179780453599271, 0.3370872998338753}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["5", TraditionalForm], 
+                    Offset[{2, 2}, {2.2073554124068515`, 0.3646622586414556}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.6970723210579312, 1.7182910831049398`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["9", TraditionalForm], 
+                    Offset[{2, 2}, {0.7246472798655115, 1.7458660419125203`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.3609464374025517`, 1.6637092384310224`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["12", TraditionalForm], 
+                    Offset[{2, 2}, {2.388521396210132, 1.6912841972386028`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}}}], 
+                    MouseAppearanceTag["NetworkGraphics"]], 
+                    AllowKernelInitialization -> False]], {
+                    FormatType -> TraditionalForm, FrameTicks -> None, 
+                    DefaultBaseStyle -> {
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]}}], ",", 
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics", 
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{17, 11, 14, 2, 9, 5, 19, 6, 10, 12, 7, 8, 1, 3, 13,
+                     4, 18, 15, 20, 16}, {
+                    Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8,
+                     9}, {8, 2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8,
+                     12}, {8, 13}, {8, 7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {
+                    9, 16}, {9, 6}, {9, 17}, {9, 11}, {9, 12}, {9, 13}, {2, 
+                    18}, {2, 3}, {2, 10}, {2, 19}, {2, 15}, {2, 5}, {2, 16}, {
+                    2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 15}, {18, 5}, {18,
+                     6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 19}, {3, 
+                    15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+                    5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 
+                    6}, {14, 17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 
+                    20}, {19, 16}, {19, 17}, {19, 12}, {19, 13}, {19, 7}, {4, 
+                    5}, {4, 16}, {4, 6}, {4, 17}, {15, 20}, {15, 5}, {15, 
+                    6}, {15, 17}, {15, 11}, {15, 12}, {20, 5}, {20, 6}, {20, 
+                    11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 11}, {5, 
+                    12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+                    17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 
+                    7}}}, {VertexLabels -> {Automatic}}]]}, 
+                    TagBox[
+                    GraphicsGroupBox[{{
+                    Directive[
+                    Opacity[0.7], 
+                    Hue[0.6, 0.7, 0.5]], 
+                    Arrowheads[0.], {
+                    ArrowBox[CompressedData["
+1:eJyF1E9I03EYx/HftryIB8syQnMIC4IIBBeDip6fh9rB0v5Bf+gQYZdabXVx
+l6ZpdjKKsVWk2KWDsFNl0p+5gyTogiiyySiCXFjqUqdzuhlSB7u8n4PCDvJi
+3+/zfJ7nu+oL3uMXbYZhNP37WNc+U83O53ePfBVj7c/xxGa/ZV+Qtp/+5OSz
+hNAf/Crpc7jG5eT+0FAsmVK+ebgydaN4TB4ePev0BHPKa9NGe6YuJ1c3TQa2
+ZX4o71uIuEuaV+RpW33N4pYp5edG7I+PZWclvCMbb/zwW1gv66Pzfvp659/3
+bff4+wvS2eseqh0dUV7e++Jm19Yi0xdxH9rwXZ9fHwrfy3yzmIf9b6sOdswo
+f1N4N28eWJbotYrg3o5l5flYwrvHuyqJ4D6H61RO+f+cOvOPXr2OTyufO1MU
+rfFZzMDAru5E8LNyW2u0+1LDhOyu8MarAisqT+ZDZz704ZcnykrDc3K9Lnzl
+o2VJeXlkMFt8Pi/9Zad35vzzytk/nf3T2R/3lftB537S2Z96D8kv0/aWPzJw
+u7SpYWJVOeunpz9dNmNjM1LZnp71vLeadPbHflg/nfOlc7507j+d+6++j/nT
++T7o3A8686XzfdA9tsFxV8pqOkc3hu70FFSezI/O/OjcHzrzVY786MxP/d5i
+P+nMl8786MyPeTEfOveHzv7p7I/O/aDz/dHZP53vk/1y/nTOn8581PeRD537
+wXp4Pp3n09c7n/Ohc//onB+d82Oe7I/O+uicP537r+5DfnTeT2c+dNZHZ32s
+h/Ojq3zgrI+u8oPz/dBZP+vl/Om8n8776byfebB/Ouuj83yex+/T2R+d5/M9
+sX/eR+f/PP8vZD4s3g==
+                    "], 0.027574958807580333`]}}, {
+                    Directive[
+                    Hue[0.6, 0.2, 0.8], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Opacity[0.7]]]], {
+                    
+                    DiskBox[{0.44223396778568136`, 0.}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["17", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.4698089265932617, 
+                    0.027574958807580333`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.195194359921751, 0.35467001187827674`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["11", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.2227693187293314`, 
+                    0.38224497068585706`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.5692313686952443, 0.6203302248922093}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["14", TraditionalForm], 
+                    Offset[{2, 2}, {0.5968063275028246, 0.6479051836997897}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{0.3600153653998188, 1.410747723105521}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["2", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.38759032420739914`, 
+                    1.4383226819131014`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.3910994641617094`, 0.6544311026305658}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["9", TraditionalForm], 
+                    Offset[{2, 2}, {1.4186744229692898`, 0.6820060614381461}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7165644454646385`, 0.8151803916226382}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["5", TraditionalForm], 
+                    Offset[{2, 2}, {1.744139404272219, 0.8427553504302185}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9985740764516708, 0.93167867316622}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["19", TraditionalForm], 
+                    Offset[{2, 2}, {1.0261490352592513`, 0.9592536319738003}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.6695484374277263`, 0.20178839810188653`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["6", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.6971233962353067`, 
+                    0.22936335690946685`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.0363922839128907`, 1.437943866785727}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["10", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.0639672427204712`, 
+                    1.4655188255933074`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.6365270741998854`, 0.6524678585677588}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["12", TraditionalForm], 
+                    Offset[{2, 2}, {2.664102033007466, 0.6800428173753391}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.2338591857574435`, 0.9537683106352772}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["7", TraditionalForm], 
+                    Offset[{2, 2}, {2.261434144565024, 0.9813432694428575}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5859479485467936`, 1.1545316291751369`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["8", TraditionalForm], 
+                    Offset[{2, 2}, {1.613522907354374, 1.1821065879827173`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5151986583947934`, 1.532526560527102}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["1", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.5427736172023738`, 
+                    1.5601015193346823`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7810363019212851`, 1.9312271031161992`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["3", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.8086112607288656`, 
+                    1.9588020619237796`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.902150570745958, 1.3962928214397627`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["13", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.9297255295535385`, 
+                    1.4238677802473432`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{0., 0.8684972405533684}, 0.027574958807580333`], 
+                    
+                    InsetBox[
+                    FormBox["4", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.027574958807580333`, 
+                    0.8960721993609487}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9638358362413988, 2.350793718724516}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["18", TraditionalForm], 
+                    Offset[{2, 2}, {0.9914107950489791, 2.3783686775320962`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.179780453599271, 0.3370872998338753}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["15", TraditionalForm], 
+                    Offset[{2, 2}, {2.2073554124068515`, 0.3646622586414556}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.6970723210579312, 1.7182910831049398`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["20", TraditionalForm], 
+                    Offset[{2, 2}, {0.7246472798655115, 1.7458660419125203`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.3609464374025517`, 1.6637092384310224`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["16", TraditionalForm], 
+                    Offset[{2, 2}, {2.388521396210132, 1.6912841972386028`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}}}], 
+                    MouseAppearanceTag["NetworkGraphics"]], 
+                    AllowKernelInitialization -> False]], {
+                    FormatType -> TraditionalForm, FrameTicks -> None, 
+                    DefaultBaseStyle -> {
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]}}]}], "}"}], "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}]}, 
+          Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+        "SummaryPanel"],
+       DynamicModuleValues:>{}], "]"}],
+     ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgePublicProblem[<|
+      "Type" -> "Isomorphism", "PublicProblemSize" -> {20, 100}, 
+       "PublicProblem" -> {
+         Graph[{1, 4, 6, 10, 13, 15, 20, 2, 3, 7, 17, 18, 19, 8, 11, 14, 16, 
+          5, 9, 12}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{17, 11, 14, 2, 9, 5, 19, 6, 10, 12, 7, 8, 1, 3, 13, 4, 18, 15,
+           20, 16}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}]}|>],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.867088017817926*^9},
+ CellLabel->"Out[14]=",
+ CellID->445634603,ExpressionUUID->"4e1579c5-fd96-4266-abca-846d118d491f"]
+}, Open  ]],
+
+Cell["\<\
+Generate an interactive prover with the private solution that will take 5 \
+rounds :\
+\>", "ExampleText",
+ CellChangeTimes->{{3.867088046698092*^9, 3.867088062940442*^9}, {
+  3.86708816047323*^9, 3.867088173961355*^9}},
+ CellID->1923980454,ExpressionUUID->"75d1232a-cf9f-4782-9a5d-fcd07c569b84"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"prover", "=", 
+  RowBox[{"GenerateZeroKnowledgeProver", "[", 
+   RowBox[{
+    RowBox[{"zkProof", "[", "\"\<ZeroKnowledgePrivateSolution\>\"", "]"}], 
+    ",", "5"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.867088067160989*^9, 3.867088148585397*^9}},
+ CellLabel->"In[16]:=",
+ CellID->1238070079,ExpressionUUID->"3fef36cf-c461-40e1-894d-724ef172ac8a"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"ZeroKnowledgePrivateOracle\"\>", "\[Rule]", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["ZeroKnowledgePrivateOracle",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+       "Ready"}, 
+       TemplateBox[{
+         PaneSelectorBox[{False -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxOpener"]], 
+                 ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQGwZWFNhyXV98wR7CewClX9gzYAUf7HfItb4O3HEP
+Ln/2DAi8sVe+/bMua88TguKkmo/fncSLk+dOUu2l3P343YPLfFLDk3JzSA03
+8vxFvDvJS2+0S4fU9S+p6Y3y+ILQ1EoPxIc/qeZQN5xpnQ6plX9JTW+Y6gFI
+M3JY
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"],
+                     "\[InvisibleSpace]", 
+                    TagBox["5", "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}], True -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxCloser"]], 
+                 ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQGwZWFNhyXV98wR7CewClX9gzYAUf7HfItb4O3HEP
+Ln/2DAi8sVe+/bMua88TguKkmo/fncSLk+dOUu2l3P343YPLfFLDk3JzSA03
+8vxFvDvJS2+0S4fU9S+p6Y3y+ILQ1EoPxIc/qeZQN5xpnQ6plX9JTW+Y6gFI
+M3JY
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"],
+                     "\[InvisibleSpace]", 
+                    TagBox["5", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"First private cipher solution: \"", 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"\[LeftAssociation]", 
+                    RowBox[{
+                    RowBox[{"\"Isomorphism\"", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "\[Rule]", "3"}], ",", 
+                    RowBox[{"2", "\[Rule]", "20"}], ",", 
+                    RowBox[{"3", "\[Rule]", "16"}], ",", 
+                    RowBox[{"4", "\[Rule]", "1"}], ",", 
+                    RowBox[{"5", "\[Rule]", "7"}], ",", 
+                    RowBox[{"6", "\[Rule]", "2"}], ",", 
+                    RowBox[{"7", "\[Rule]", "15"}], ",", 
+                    RowBox[{"8", "\[Rule]", "9"}], ",", 
+                    RowBox[{"9", "\[Rule]", "14"}], ",", 
+                    RowBox[{"10", "\[Rule]", "19"}], ",", 
+                    RowBox[{"11", "\[Rule]", "11"}], ",", 
+                    RowBox[{"12", "\[Rule]", "10"}], ",", 
+                    RowBox[{"13", "\[Rule]", "18"}], ",", 
+                    RowBox[{"14", "\[Rule]", "13"}], ",", 
+                    RowBox[{"15", "\[Rule]", "4"}], ",", 
+                    RowBox[{"16", "\[Rule]", "17"}], ",", 
+                    RowBox[{"17", "\[Rule]", "12"}], ",", 
+                    RowBox[{"18", "\[Rule]", "8"}], ",", 
+                    RowBox[{"19", "\[Rule]", "6"}], ",", 
+                    RowBox[{"20", "\[Rule]", "5"}]}], "}"}]}], ",", 
+                    RowBox[{"\"Solution\"", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "\[Rule]", "10"}], ",", 
+                    RowBox[{"2", "\[Rule]", "19"}], ",", 
+                    RowBox[{"3", "\[Rule]", "18"}], ",", 
+                    RowBox[{"4", "\[Rule]", "17"}], ",", 
+                    RowBox[{"5", "\[Rule]", "12"}], ",", 
+                    RowBox[{"6", "\[Rule]", "6"}], ",", 
+                    RowBox[{"7", "\[Rule]", "5"}], ",", 
+                    RowBox[{"8", "\[Rule]", "20"}], ",", 
+                    RowBox[{"9", "\[Rule]", "4"}], ",", 
+                    RowBox[{"10", "\[Rule]", "1"}], ",", 
+                    RowBox[{"11", "\[Rule]", "13"}], ",", 
+                    RowBox[{"12", "\[Rule]", "2"}], ",", 
+                    RowBox[{"13", "\[Rule]", "8"}], ",", 
+                    RowBox[{"14", "\[Rule]", "9"}], ",", 
+                    RowBox[{"15", "\[Rule]", "11"}], ",", 
+                    RowBox[{"16", "\[Rule]", "7"}], ",", 
+                    RowBox[{"17", "\[Rule]", "16"}], ",", 
+                    RowBox[{"18", "\[Rule]", "3"}], ",", 
+                    RowBox[{"19", "\[Rule]", "14"}], ",", 
+                    RowBox[{"20", "\[Rule]", "15"}]}], "}"}]}]}], 
+                    "\[RightAssociation]"}], "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"First public CipherProblem: \"", 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics", 
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    Graph[{4, 15, 19, 12, 14, 7, 2, 6, 1, 5, 16, 13, 10, 18, 
+                    11, 9, 3, 20, 8, 17}, {
+                    Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8,
+                     9}, {8, 2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8,
+                     12}, {8, 13}, {8, 7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {
+                    9, 16}, {9, 6}, {9, 17}, {9, 11}, {9, 12}, {9, 13}, {2, 
+                    18}, {2, 3}, {2, 10}, {2, 19}, {2, 15}, {2, 5}, {2, 16}, {
+                    2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 15}, {18, 5}, {18,
+                     6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 19}, {3, 
+                    15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+                    5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 
+                    6}, {14, 17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 
+                    20}, {19, 16}, {19, 17}, {19, 12}, {19, 13}, {19, 7}, {4, 
+                    5}, {4, 16}, {4, 6}, {4, 17}, {15, 20}, {15, 5}, {15, 
+                    6}, {15, 17}, {15, 11}, {15, 12}, {20, 5}, {20, 6}, {20, 
+                    11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 11}, {5, 
+                    12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+                    17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 
+                    7}}}, {VertexLabels -> {Automatic}}]]}, 
+                    TagBox[
+                    GraphicsGroupBox[{{
+                    Directive[
+                    Opacity[0.7], 
+                    Hue[0.6, 0.7, 0.5]], 
+                    Arrowheads[0.], {
+                    ArrowBox[CompressedData["
+1:eJyF1E9I03EYx/HftryIB8syQnMIC4IIBBeDip6fh9rB0v5Bf+gQYZdabXVx
+l6ZpdjKKsVWk2KWDsFNl0p+5gyTogiiyySiCXFjqUqdzuhlSB7u8n4PCDvJi
+3+/zfJ7nu+oL3uMXbYZhNP37WNc+U83O53ePfBVj7c/xxGa/ZV+Qtp/+5OSz
+hNAf/Crpc7jG5eT+0FAsmVK+ebgydaN4TB4ePev0BHPKa9NGe6YuJ1c3TQa2
+ZX4o71uIuEuaV+RpW33N4pYp5edG7I+PZWclvCMbb/zwW1gv66Pzfvp659/3
+bff4+wvS2eseqh0dUV7e++Jm19Yi0xdxH9rwXZ9fHwrfy3yzmIf9b6sOdswo
+f1N4N28eWJbotYrg3o5l5flYwrvHuyqJ4D6H61RO+f+cOvOPXr2OTyufO1MU
+rfFZzMDAru5E8LNyW2u0+1LDhOyu8MarAisqT+ZDZz704ZcnykrDc3K9Lnzl
+o2VJeXlkMFt8Pi/9Zad35vzzytk/nf3T2R/3lftB537S2Z96D8kv0/aWPzJw
+u7SpYWJVOeunpz9dNmNjM1LZnp71vLeadPbHflg/nfOlc7507j+d+6++j/nT
++T7o3A8686XzfdA9tsFxV8pqOkc3hu70FFSezI/O/OjcHzrzVY786MxP/d5i
+P+nMl8786MyPeTEfOveHzv7p7I/O/aDz/dHZP53vk/1y/nTOn8581PeRD537
+wXp4Pp3n09c7n/Ohc//onB+d82Oe7I/O+uicP537r+5DfnTeT2c+dNZHZ32s
+h/Ojq3zgrI+u8oPz/dBZP+vl/Om8n8776byfebB/Ouuj83yex+/T2R+d5/M9
+sX/eR+f/PP8vZD4s3g==
+                    "], 0.027574958807580333`]}}, {
+                    Directive[
+                    Hue[0.6, 0.2, 0.8], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Opacity[0.7]]]], {
+                    
+                    DiskBox[{0.44223396778568136`, 0.}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["4", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.4698089265932617, 
+                    0.027574958807580333`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.195194359921751, 0.35467001187827674`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["15", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.2227693187293314`, 
+                    0.38224497068585706`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.5692313686952443, 0.6203302248922093}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["19", TraditionalForm], 
+                    Offset[{2, 2}, {0.5968063275028246, 0.6479051836997897}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.3600153653998188, 1.410747723105521}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["12", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.38759032420739914`, 
+                    1.4383226819131014`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{1.3910994641617094`, 0.6544311026305658}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["14", TraditionalForm], 
+                    Offset[{2, 2}, {1.4186744229692898`, 0.6820060614381461}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7165644454646385`, 0.8151803916226382}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["7", TraditionalForm], 
+                    Offset[{2, 2}, {1.744139404272219, 0.8427553504302185}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9985740764516708, 0.93167867316622}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["2", TraditionalForm], 
+                    Offset[{2, 2}, {1.0261490352592513`, 0.9592536319738003}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.6695484374277263`, 0.20178839810188653`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["6", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.6971233962353067`, 
+                    0.22936335690946685`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.0363922839128907`, 1.437943866785727}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["1", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.0639672427204712`, 
+                    1.4655188255933074`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.6365270741998854`, 0.6524678585677588}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["5", TraditionalForm], 
+                    Offset[{2, 2}, {2.664102033007466, 0.6800428173753391}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.2338591857574435`, 0.9537683106352772}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["16", TraditionalForm], 
+                    Offset[{2, 2}, {2.261434144565024, 0.9813432694428575}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5859479485467936`, 1.1545316291751369`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["13", TraditionalForm], 
+                    Offset[{2, 2}, {1.613522907354374, 1.1821065879827173`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5151986583947934`, 1.532526560527102}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["10", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.5427736172023738`, 
+                    1.5601015193346823`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7810363019212851`, 1.9312271031161992`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["18", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.8086112607288656`, 
+                    1.9588020619237796`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.902150570745958, 1.3962928214397627`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["11", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.9297255295535385`, 
+                    1.4238677802473432`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{0., 0.8684972405533684}, 0.027574958807580333`], 
+                    
+                    InsetBox[
+                    FormBox["9", TraditionalForm], 
+                    Offset[{2, 2}, {0.027574958807580333`, 
+                    0.8960721993609487}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9638358362413988, 2.350793718724516}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["3", TraditionalForm], 
+                    Offset[{2, 2}, {0.9914107950489791, 2.3783686775320962`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.179780453599271, 0.3370872998338753}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["20", TraditionalForm], 
+                    Offset[{2, 2}, {2.2073554124068515`, 0.3646622586414556}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.6970723210579312, 1.7182910831049398`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["8", TraditionalForm], 
+                    Offset[{2, 2}, {0.7246472798655115, 1.7458660419125203`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.3609464374025517`, 1.6637092384310224`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["17", TraditionalForm], 
+                    Offset[{2, 2}, {2.388521396210132, 1.6912841972386028`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}}}], 
+                    MouseAppearanceTag["NetworkGraphics"]], 
+                    AllowKernelInitialization -> False]], {
+                    FormatType -> TraditionalForm, FrameTicks -> None, 
+                    DefaultBaseStyle -> {
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]}}], "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}]}, 
+          Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+        "SummaryPanel"],
+       DynamicModuleValues:>{}], "]"}],
+     ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgePrivateOracle[<|
+      "Type" -> "Isomorphism", 
+       "PrivateCipherSolutions" -> {<|
+         "Isomorphism" -> {
+           1 -> 3, 2 -> 20, 3 -> 16, 4 -> 1, 5 -> 7, 6 -> 2, 7 -> 15, 8 -> 9, 
+            9 -> 14, 10 -> 19, 11 -> 11, 12 -> 10, 13 -> 18, 14 -> 13, 15 -> 
+            4, 16 -> 17, 17 -> 12, 18 -> 8, 19 -> 6, 20 -> 5}, 
+          "Solution" -> {
+           1 -> 10, 2 -> 19, 3 -> 18, 4 -> 17, 5 -> 12, 6 -> 6, 7 -> 5, 8 -> 
+            20, 9 -> 4, 10 -> 1, 11 -> 13, 12 -> 2, 13 -> 8, 14 -> 9, 15 -> 
+            11, 16 -> 7, 17 -> 16, 18 -> 3, 19 -> 14, 20 -> 15}|>, <|
+         "Isomorphism" -> {
+           1 -> 16, 2 -> 18, 3 -> 15, 4 -> 5, 5 -> 12, 6 -> 11, 7 -> 10, 8 -> 
+            17, 9 -> 2, 10 -> 9, 11 -> 7, 12 -> 6, 13 -> 1, 14 -> 3, 15 -> 4, 
+            16 -> 8, 17 -> 20, 18 -> 13, 19 -> 14, 20 -> 19}, 
+          "Solution" -> {
+           1 -> 18, 2 -> 8, 3 -> 5, 4 -> 15, 5 -> 16, 6 -> 13, 7 -> 2, 8 -> 7,
+             9 -> 6, 10 -> 20, 11 -> 12, 12 -> 14, 13 -> 17, 14 -> 10, 15 -> 
+            11, 16 -> 3, 17 -> 19, 18 -> 9, 19 -> 4, 20 -> 1}|>, <|
+         "Isomorphism" -> {
+           1 -> 16, 2 -> 12, 3 -> 8, 4 -> 19, 5 -> 6, 6 -> 18, 7 -> 13, 8 -> 
+            2, 9 -> 7, 10 -> 1, 11 -> 14, 12 -> 9, 13 -> 4, 14 -> 10, 15 -> 
+            15, 16 -> 3, 17 -> 20, 18 -> 17, 19 -> 5, 20 -> 11}, 
+          "Solution" -> {
+           1 -> 18, 2 -> 16, 3 -> 3, 4 -> 1, 5 -> 14, 6 -> 8, 7 -> 9, 8 -> 6, 
+            9 -> 12, 10 -> 17, 11 -> 4, 12 -> 20, 13 -> 11, 14 -> 2, 15 -> 5, 
+            16 -> 10, 17 -> 19, 18 -> 7, 19 -> 15, 20 -> 13}|>, <|
+         "Isomorphism" -> {
+           1 -> 16, 2 -> 14, 3 -> 8, 4 -> 19, 5 -> 9, 6 -> 10, 7 -> 12, 8 -> 
+            20, 9 -> 15, 10 -> 18, 11 -> 2, 12 -> 17, 13 -> 4, 14 -> 11, 15 -> 
+            13, 16 -> 7, 17 -> 1, 18 -> 6, 19 -> 3, 20 -> 5}, 
+          "Solution" -> {
+           1 -> 18, 2 -> 4, 3 -> 3, 4 -> 1, 5 -> 20, 6 -> 2, 7 -> 16, 8 -> 19,
+             9 -> 5, 10 -> 8, 11 -> 6, 12 -> 7, 13 -> 11, 14 -> 13, 15 -> 9, 
+            16 -> 12, 17 -> 17, 18 -> 14, 19 -> 10, 20 -> 15}|>, <|
+         "Isomorphism" -> {
+           1 -> 19, 2 -> 2, 3 -> 9, 4 -> 16, 5 -> 6, 6 -> 13, 7 -> 1, 8 -> 4, 
+            9 -> 11, 10 -> 7, 11 -> 15, 12 -> 5, 13 -> 8, 14 -> 14, 15 -> 12, 
+            16 -> 20, 17 -> 3, 18 -> 17, 19 -> 18, 20 -> 10}, 
+          "Solution" -> {
+           1 -> 1, 2 -> 6, 3 -> 20, 4 -> 18, 5 -> 14, 6 -> 9, 7 -> 17, 8 -> 
+            11, 9 -> 13, 10 -> 12, 11 -> 5, 12 -> 15, 13 -> 3, 14 -> 4, 15 -> 
+            16, 16 -> 19, 17 -> 10, 18 -> 7, 19 -> 8, 20 -> 2}|>}, 
+       "PublicCipherProblems" -> {
+         Graph[{4, 15, 19, 12, 14, 7, 2, 6, 1, 5, 16, 13, 10, 18, 11, 9, 3, 
+          20, 8, 17}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{13, 15, 12, 7, 18, 3, 17, 9, 14, 11, 8, 2, 20, 16, 6, 19, 1, 
+          4, 10, 5}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{10, 13, 5, 14, 7, 15, 17, 8, 16, 9, 18, 6, 4, 3, 20, 11, 1, 
+          19, 12, 2}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{17, 13, 18, 6, 15, 9, 8, 11, 19, 16, 12, 10, 4, 3, 14, 2, 1, 
+          20, 5, 7}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{7, 8, 5, 20, 6, 11, 16, 2, 17, 10, 18, 19, 1, 13, 9, 14, 4, 
+          12, 3, 15}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}]}|>],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", 
+   RowBox[{"\<\"ZeroKnowledgePublicWitness\"\>", "\[Rule]", 
+    InterpretationBox[
+     RowBox[{
+      TagBox["ZeroKnowledgePublicWitness",
+       "SummaryHead"], "[", 
+      DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+       "Ready"}, 
+       TemplateBox[{
+         PaneSelectorBox[{False -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxOpener"]], 
+                 ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ++wZEHhjr3z7Z13Wniv2DFCAS3zWTBC4aA+hHxIU
+x2/+HXvtmP5DXzWe2MPUweQjQMIx9+3TwOCZPS71+MWJt5dU/5LnTsrdg8te
+Ut2J3/2kupPW4pSnT2rFO6npnFrxQqq/qJVOqGUvtdI/fcoB4v1Fqjit8wWp
+6RMAc1rq3Q==
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"],
+                     "\[InvisibleSpace]", 
+                    TagBox["5", "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}], True -> GridBox[{{
+               PaneBox[
+                ButtonBox[
+                 DynamicBox[
+                  FEPrivate`FrontEndResource[
+                  "FEBitmaps", "SummaryBoxCloser"]], 
+                 ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                 None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                 "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                Dynamic[{
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+               GraphicsBox[
+                RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ++wZEHhjr3z7Z13Wniv2DFCAS3zWTBC4aA+hHxIU
+x2/+HXvtmP5DXzWe2MPUweQjQMIx9+3TwOCZPS71+MWJt5dU/5LnTsrdg8te
+Ut2J3/2kupPW4pSnT2rFO6npnFrxQqq/qJVOqGUvtdI/fcoB4v1Fqjit8wWp
+6RMAc1rq3Q==
+                 "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+                FrameLabel -> {None, None}, 
+                FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+                Directive[
+                  GrayLevel[0.5, 0.4]], ImageSize -> 
+                Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+                Method -> {
+                 "DefaultBoundaryStyle" -> Automatic, 
+                  "DefaultGraphicsInteraction" -> {
+                   "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                    "Effects" -> {
+                    "Highlight" -> {"ratio" -> 2}, 
+                    "HighlightPoint" -> {"ratio" -> 2}, 
+                    "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+                  "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+               GridBox[{{
+                  RowBox[{
+                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"],
+                     "\[InvisibleSpace]", 
+                    TagBox["5", "SummaryItem"]}]}, {
+                  RowBox[{
+                    TagBox[
+                    "\"First public CipherProblem: \"", 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics", 
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{4, 15, 19, 12, 14, 7, 2, 6, 1, 5, 16, 13, 10, 18, 
+                    11, 9, 3, 20, 8, 17}, {
+                    Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8,
+                     9}, {8, 2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8,
+                     12}, {8, 13}, {8, 7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {
+                    9, 16}, {9, 6}, {9, 17}, {9, 11}, {9, 12}, {9, 13}, {2, 
+                    18}, {2, 3}, {2, 10}, {2, 19}, {2, 15}, {2, 5}, {2, 16}, {
+                    2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 15}, {18, 5}, {18,
+                     6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 19}, {3, 
+                    15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+                    5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 
+                    6}, {14, 17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 
+                    20}, {19, 16}, {19, 17}, {19, 12}, {19, 13}, {19, 7}, {4, 
+                    5}, {4, 16}, {4, 6}, {4, 17}, {15, 20}, {15, 5}, {15, 
+                    6}, {15, 17}, {15, 11}, {15, 12}, {20, 5}, {20, 6}, {20, 
+                    11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 11}, {5, 
+                    12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+                    17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 
+                    7}}}, {VertexLabels -> {Automatic}}]]}, 
+                    TagBox[
+                    GraphicsGroupBox[{{
+                    Directive[
+                    Opacity[0.7], 
+                    Hue[0.6, 0.7, 0.5]], 
+                    Arrowheads[0.], {
+                    ArrowBox[CompressedData["
+1:eJyF1E9I03EYx/HftryIB8syQnMIC4IIBBeDip6fh9rB0v5Bf+gQYZdabXVx
+l6ZpdjKKsVWk2KWDsFNl0p+5gyTogiiyySiCXFjqUqdzuhlSB7u8n4PCDvJi
+3+/zfJ7nu+oL3uMXbYZhNP37WNc+U83O53ePfBVj7c/xxGa/ZV+Qtp/+5OSz
+hNAf/Crpc7jG5eT+0FAsmVK+ebgydaN4TB4ePev0BHPKa9NGe6YuJ1c3TQa2
+ZX4o71uIuEuaV+RpW33N4pYp5edG7I+PZWclvCMbb/zwW1gv66Pzfvp659/3
+bff4+wvS2eseqh0dUV7e++Jm19Yi0xdxH9rwXZ9fHwrfy3yzmIf9b6sOdswo
+f1N4N28eWJbotYrg3o5l5flYwrvHuyqJ4D6H61RO+f+cOvOPXr2OTyufO1MU
+rfFZzMDAru5E8LNyW2u0+1LDhOyu8MarAisqT+ZDZz704ZcnykrDc3K9Lnzl
+o2VJeXlkMFt8Pi/9Zad35vzzytk/nf3T2R/3lftB537S2Z96D8kv0/aWPzJw
+u7SpYWJVOeunpz9dNmNjM1LZnp71vLeadPbHflg/nfOlc7507j+d+6++j/nT
++T7o3A8686XzfdA9tsFxV8pqOkc3hu70FFSezI/O/OjcHzrzVY786MxP/d5i
+P+nMl8786MyPeTEfOveHzv7p7I/O/aDz/dHZP53vk/1y/nTOn8581PeRD537
+wXp4Pp3n09c7n/Ohc//onB+d82Oe7I/O+uicP537r+5DfnTeT2c+dNZHZ32s
+h/Ojq3zgrI+u8oPz/dBZP+vl/Om8n8776byfebB/Ouuj83yex+/T2R+d5/M9
+sX/eR+f/PP8vZD4s3g==
+                    "], 0.027574958807580333`]}}, {
+                    Directive[
+                    Hue[0.6, 0.2, 0.8], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Opacity[0.7]]]], {
+                    
+                    DiskBox[{0.44223396778568136`, 0.}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["4", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.4698089265932617, 
+                    0.027574958807580333`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.195194359921751, 0.35467001187827674`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["15", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.2227693187293314`, 
+                    0.38224497068585706`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.5692313686952443, 0.6203302248922093}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["19", TraditionalForm], 
+                    Offset[{2, 2}, {0.5968063275028246, 0.6479051836997897}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.3600153653998188, 1.410747723105521}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["12", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.38759032420739914`, 
+                    1.4383226819131014`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.3910994641617094`, 0.6544311026305658}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["14", TraditionalForm], 
+                    Offset[{2, 2}, {1.4186744229692898`, 0.6820060614381461}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7165644454646385`, 0.8151803916226382}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["7", TraditionalForm], 
+                    Offset[{2, 2}, {1.744139404272219, 0.8427553504302185}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9985740764516708, 0.93167867316622}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["2", TraditionalForm], 
+                    Offset[{2, 2}, {1.0261490352592513`, 0.9592536319738003}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.6695484374277263`, 0.20178839810188653`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["6", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.6971233962353067`, 
+                    0.22936335690946685`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.0363922839128907`, 1.437943866785727}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["1", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.0639672427204712`, 
+                    1.4655188255933074`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.6365270741998854`, 0.6524678585677588}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["5", TraditionalForm], 
+                    Offset[{2, 2}, {2.664102033007466, 0.6800428173753391}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.2338591857574435`, 0.9537683106352772}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["16", TraditionalForm], 
+                    Offset[{2, 2}, {2.261434144565024, 0.9813432694428575}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5859479485467936`, 1.1545316291751369`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["13", TraditionalForm], 
+                    Offset[{2, 2}, {1.613522907354374, 1.1821065879827173`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.5151986583947934`, 1.532526560527102}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["10", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.5427736172023738`, 
+                    1.5601015193346823`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.7810363019212851`, 1.9312271031161992`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["18", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.8086112607288656`, 
+                    1.9588020619237796`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{1.902150570745958, 1.3962928214397627`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["11", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {1.9297255295535385`, 
+                    1.4238677802473432`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{0., 0.8684972405533684}, 0.027574958807580333`], 
+                    
+                    InsetBox[
+                    FormBox["9", TraditionalForm], 
+                    
+                    Offset[{2, 2}, {0.027574958807580333`, 
+                    0.8960721993609487}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.9638358362413988, 2.350793718724516}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["3", TraditionalForm], 
+                    Offset[{2, 2}, {0.9914107950489791, 2.3783686775320962`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    DiskBox[{2.179780453599271, 0.3370872998338753}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["20", TraditionalForm], 
+                    Offset[{2, 2}, {2.2073554124068515`, 0.3646622586414556}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{0.6970723210579312, 1.7182910831049398`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["8", TraditionalForm], 
+                    Offset[{2, 2}, {0.7246472798655115, 1.7458660419125203`}], 
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}, {
+                    
+                    DiskBox[{2.3609464374025517`, 1.6637092384310224`}, 
+                    0.027574958807580333`], 
+                    InsetBox[
+                    FormBox["17", TraditionalForm], 
+                    Offset[{2, 2}, {2.388521396210132, 1.6912841972386028`}], 
+                    
+                    ImageScaled[{0, 0}], BaseStyle -> "Graphics"]}}}], 
+                    MouseAppearanceTag["NetworkGraphics"]], 
+                    AllowKernelInitialization -> False]], {
+                    FormatType -> TraditionalForm, FrameTicks -> None, 
+                    DefaultBaseStyle -> {
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]}}], "SummaryItem"]}]}}, 
+                GridBoxAlignment -> {
+                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+                False, GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                GridBoxSpacings -> {
+                 "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                BaseStyle -> {
+                 ShowStringCharacters -> False, NumberMarks -> False, 
+                  PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             BaselinePosition -> {1, 1}]}, 
+          Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+        "SummaryPanel"],
+       DynamicModuleValues:>{}], "]"}],
+     ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgePublicWitness[<|
+      "Type" -> "Isomorphism", "PublicCipherProblems" -> {
+         Graph[{4, 15, 19, 12, 14, 7, 2, 6, 1, 5, 16, 13, 10, 18, 11, 9, 3, 
+          20, 8, 17}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{13, 15, 12, 7, 18, 3, 17, 9, 14, 11, 8, 2, 20, 16, 6, 19, 1, 
+          4, 10, 5}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{10, 13, 5, 14, 7, 15, 17, 8, 16, 9, 18, 6, 4, 3, 20, 11, 1, 
+          19, 12, 2}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{17, 13, 18, 6, 15, 9, 8, 11, 19, 16, 12, 10, 4, 3, 14, 2, 1, 
+          20, 5, 7}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}], 
+         Graph[{7, 8, 5, 20, 6, 11, 16, 2, 17, 10, 18, 19, 1, 13, 9, 14, 4, 
+          12, 3, 15}, {
+          Null, {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {8, 9}, {8, 
+           2}, {8, 3}, {8, 10}, {8, 5}, {8, 6}, {8, 11}, {8, 12}, {8, 13}, {8,
+            7}, {9, 3}, {9, 14}, {9, 4}, {9, 15}, {9, 16}, {9, 6}, {9, 17}, {
+           9, 11}, {9, 12}, {9, 13}, {2, 18}, {2, 3}, {2, 10}, {2, 19}, {2, 
+           15}, {2, 5}, {2, 16}, {2, 11}, {2, 13}, {2, 7}, {18, 10}, {18, 
+           15}, {18, 5}, {18, 6}, {18, 11}, {18, 12}, {18, 13}, {18, 7}, {3, 
+           19}, {3, 15}, {3, 16}, {3, 12}, {3, 7}, {10, 14}, {10, 20}, {10, 
+           5}, {10, 6}, {10, 11}, {14, 4}, {14, 15}, {14, 20}, {14, 6}, {14, 
+           17}, {14, 11}, {14, 12}, {14, 7}, {19, 4}, {19, 20}, {19, 16}, {19,
+            17}, {19, 12}, {19, 13}, {19, 7}, {4, 5}, {4, 16}, {4, 6}, {4, 
+           17}, {15, 20}, {15, 5}, {15, 6}, {15, 17}, {15, 11}, {15, 12}, {20,
+            5}, {20, 6}, {20, 11}, {20, 12}, {20, 13}, {5, 16}, {5, 6}, {5, 
+           11}, {5, 12}, {5, 13}, {5, 7}, {16, 7}, {6, 12}, {6, 13}, {6, 7}, {
+           17, 13}, {17, 7}, {11, 12}, {11, 7}, {12, 13}, {12, 7}}}, {
+          VertexLabels -> {Automatic}}]}|>],
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.867088129921782*^9, 3.867088149588931*^9}},
+ CellLabel->"Out[16]=",
+ CellID->1606548168,ExpressionUUID->"0615fb8b-dfc7-4608-b40b-a7d989ff6b14"]
+}, Open  ]],
+
+Cell["Generate a query to the prover's public witness:", "ExampleText",
+ CellChangeTimes->{{3.8670882442048473`*^9, 3.867088277561585*^9}},
+ CellID->405647497,ExpressionUUID->"56177b29-d6f5-4667-8ff8-3edd45973978"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"query", "=", 
+  RowBox[{"GenerateZeroKnowledgeQuery", "[", 
+   RowBox[{"prover", "[", "\"\<ZeroKnowledgePublicWitness\>\"", "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.867088294531801*^9, 3.8670883099073772`*^9}},
+ CellLabel->"In[17]:=",
+ CellID->1558813917,ExpressionUUID->"bf8dce58-c200-4000-9644-376552e66fc1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["ZeroKnowledgeQuery",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ26zTMeHphUv2xmDwGEoftn+gO2HBD8Nr9kE75Fpf
+Bz6wZ4ACXOK4zMElviXy685bXU+h/Nf2B79qxPQfOopTPa3txSXuXvST/+X2
+53BxmP243EOqv0gVJzUccLkflzupFe/UCk9Sw4Fa5pOaTgYqv1Arfkk1H5c4
+qf4iNb6oFZ7UCn9q5Udap09c4gBaBXMo
+              "], {{0, 0}, {8, 8}}, {0, 1}], 
+             Frame -> None, FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["5", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ26zTMeHphUv2xmDwGEoftn+gO2HBD8Nr9kE75Fpf
+Bz6wZ4ACXOK4zMElviXy685bXU+h/Nf2B79qxPQfOopTPa3txSXuXvST/+X2
+53BxmP243EOqv0gVJzUccLkflzupFe/UCk9Sw4Fa5pOaTgYqv1Arfkk1H5c4
+qf4iNb6oFZ7UCn9q5Udap09c4gBaBXMo
+              "], {{0, 0}, {8, 8}}, {0, 1}], 
+             Frame -> None, FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["5", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"First query: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Solution\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgeQuery[<|
+   "Type" -> "Isomorphism", 
+    "Queries" -> {
+     "Solution", "Solution", "Solution", "Isomorphism", "Solution"}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.867088312651763*^9},
+ CellLabel->"Out[17]=",
+ CellID->849617135,ExpressionUUID->"13540191-606e-4406-9236-d71f0518024f"]
+}, Open  ]],
+
+Cell["Respond to the query with the prover's oracle", "ExampleText",
+ CellChangeTimes->{{3.867088322404379*^9, 3.867088346346838*^9}},
+ CellID->1618437933,ExpressionUUID->"89360a62-eced-4d5c-9f86-25a0d5269bf6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"response", "=", 
+  RowBox[{"GenerateZeroKnowledgeResponse", "[", 
+   RowBox[{
+    RowBox[{"prover", "[", "\"\<ZeroKnowledgePrivateOracle\>\"", "]"}], ",", 
+    "query"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8670883758680468`*^9, 3.8670883815635157`*^9}},
+ CellLabel->"In[18]:=",
+ CellID->1310984524,ExpressionUUID->"39455135-8025-4fa0-88f7-b9e63f45c6a8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["ZeroKnowledgeResponse",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ+8CGPz+3PXhm7xHwR6I4/LG9jrqbtbD9ZvvfL+2z
+6/68s5/8VGXKPoF39rsf6roJ39tkn/wuysku45395SUiJdWer+0zzX/N4OfY
+gFM9LnFc9m5ZPeHT5Kwn9ubL1HU+MjyyrxaVlJ3QcgGnemqJU8tf1HI/qe7B
+pR6Xe0h1P6nqSRWnln9JDYeBcj+p8U5qvFArPQ9U/qVW/qJW/iU1vZEaL7Qu
+h3GpBwB6dPyR
+              "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+             FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["5", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ+8CGPz+3PXhm7xHwR6I4/LG9jrqbtbD9ZvvfL+2z
+6/68s5/8VGXKPoF39rsf6roJ39tkn/wuysku45395SUiJdWer+0zzX/N4OfY
+gFM9LnFc9m5ZPeHT5Kwn9ubL1HU+MjyyrxaVlJ3QcgGnemqJU8tf1HI/qe7B
+pR6Xe0h1P6nqSRWnln9JDYeBcj+p8U5qvFArPQ9U/qVW/qJW/iU1vZEaL7Qu
+h3GpBwB6dPyR
+              "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+             FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Isomorphism\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Number of rounds: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["5", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"First query: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Solution\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"First response: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "\[Rule]", "10"}], ",", 
+                    RowBox[{"2", "\[Rule]", "19"}], ",", 
+                    RowBox[{"3", "\[Rule]", "18"}], ",", 
+                    RowBox[{"4", "\[Rule]", "17"}], ",", 
+                    RowBox[{"5", "\[Rule]", "12"}], ",", 
+                    RowBox[{"6", "\[Rule]", "6"}], ",", 
+                    RowBox[{"7", "\[Rule]", "5"}], ",", 
+                    RowBox[{"8", "\[Rule]", "20"}], ",", 
+                    RowBox[{"9", "\[Rule]", "4"}], ",", 
+                    RowBox[{"10", "\[Rule]", "1"}], ",", 
+                    RowBox[{"11", "\[Rule]", "13"}], ",", 
+                    RowBox[{"12", "\[Rule]", "2"}], ",", 
+                    RowBox[{"13", "\[Rule]", "8"}], ",", 
+                    RowBox[{"14", "\[Rule]", "9"}], ",", 
+                    RowBox[{"15", "\[Rule]", "11"}], ",", 
+                    RowBox[{"16", "\[Rule]", "7"}], ",", 
+                    RowBox[{"17", "\[Rule]", "16"}], ",", 
+                    RowBox[{"18", "\[Rule]", "3"}], ",", 
+                    RowBox[{"19", "\[Rule]", "14"}], ",", 
+                    RowBox[{"20", "\[Rule]", "15"}]}], "}"}], 
+                  "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgeResponse[<|
+   "Type" -> "Isomorphism", 
+    "Queries" -> {
+     "Solution", "Solution", "Solution", "Isomorphism", "Solution"}, 
+    "Responses" -> {{
+      1 -> 10, 2 -> 19, 3 -> 18, 4 -> 17, 5 -> 12, 6 -> 6, 7 -> 5, 8 -> 20, 9 -> 
+       4, 10 -> 1, 11 -> 13, 12 -> 2, 13 -> 8, 14 -> 9, 15 -> 11, 16 -> 7, 17 -> 
+       16, 18 -> 3, 19 -> 14, 20 -> 15}, {
+      1 -> 18, 2 -> 8, 3 -> 5, 4 -> 15, 5 -> 16, 6 -> 13, 7 -> 2, 8 -> 7, 9 -> 
+       6, 10 -> 20, 11 -> 12, 12 -> 14, 13 -> 17, 14 -> 10, 15 -> 11, 16 -> 3,
+        17 -> 19, 18 -> 9, 19 -> 4, 20 -> 1}, {
+      1 -> 18, 2 -> 16, 3 -> 3, 4 -> 1, 5 -> 14, 6 -> 8, 7 -> 9, 8 -> 6, 9 -> 
+       12, 10 -> 17, 11 -> 4, 12 -> 20, 13 -> 11, 14 -> 2, 15 -> 5, 16 -> 10, 
+       17 -> 19, 18 -> 7, 19 -> 15, 20 -> 13}, {
+      1 -> 16, 2 -> 14, 3 -> 8, 4 -> 19, 5 -> 9, 6 -> 10, 7 -> 12, 8 -> 20, 9 -> 
+       15, 10 -> 18, 11 -> 2, 12 -> 17, 13 -> 4, 14 -> 11, 15 -> 13, 16 -> 7, 
+       17 -> 1, 18 -> 6, 19 -> 3, 20 -> 5}, {
+      1 -> 1, 2 -> 6, 3 -> 20, 4 -> 18, 5 -> 14, 6 -> 9, 7 -> 17, 8 -> 11, 9 -> 
+       13, 10 -> 12, 11 -> 5, 12 -> 15, 13 -> 3, 14 -> 4, 15 -> 16, 16 -> 19, 
+       17 -> 10, 18 -> 7, 19 -> 8, 20 -> 2}}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.867088383921689*^9},
+ CellLabel->"Out[18]=",
+ CellID->1655411787,ExpressionUUID->"eb954ac1-cf97-438d-be03-60e19a50f102"]
+}, Open  ]],
+
+Cell["Verify the proof:", "ExampleText",
+ CellChangeTimes->{{3.867088389556808*^9, 3.8670884135069447`*^9}, {
+  3.867088492819253*^9, 3.867088498994967*^9}},
+ CellID->1832531525,ExpressionUUID->"a8fb1f23-2bc1-4874-ada9-4725a63e4541"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"VerifyZeroKnowledgeProof", "[", 
+  RowBox[{
+   RowBox[{"zkProof", "[", "\"\<ZeroKnowledgePublicProblem\>\"", "]"}], ",", 
+   RowBox[{"prover", "[", "\"\<ZeroKnowledgePublicWitness\>\"", "]"}], ",", 
+   "query", ",", "response"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8670885239251947`*^9, 3.867088543828244*^9}},
+ CellLabel->"In[19]:=",
+ CellID->1288975674,ExpressionUUID->"73252799-acfc-467a-b0d5-69b642a8f951"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.8670885477288313`*^9},
+ CellLabel->"Out[19]=",
+ CellID->701041724,ExpressionUUID->"7a0aff3b-a02b-49ae-9b64-5a07b991d5d2"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->263448019,ExpressionUUID->"f0982299-322a-43a3-a0e1-a86ac511b565"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "b4c91f0f-6954-4355-bc7b-dc3405d6da7f"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->211794852,ExpressionUUID->"36be331f-dc80-49bb-a778-5553fe3d64b2"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "ea208c2c-8ca6-41dc-84cc-c0cca934e10a"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1211499143,ExpressionUUID->"f9b81565-8a84-4776-ad57-989a90bf4edf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "6d41700b-71a7-45ba-8318-99966b991bc6"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2002224432,ExpressionUUID->"1f7ec995-ed74-431a-ad79-ebcfeec9c436"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "94dc18f1-a287-43d0-a52a-b5e83834f549"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1251057434,ExpressionUUID->"59f88d13-5789-4622-8fa5-e2f9ba122683"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "1f086cdb-d16c-46d6-a070-2f3a79dd1430"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1074094744,ExpressionUUID->"b49743e2-de04-4ad0-bcfe-bbd773ca010e"]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "6db9161f-3865-4058-a7df-a5986afc75d6"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->972076895,ExpressionUUID->"6b684a51-5417-4ff1-b75a-1c1116f3bcad"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "0ef96480-e48b-4d24-adbc-4e2a2e20131e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1579365298,ExpressionUUID->"b758c277-60b2-4249-bd61-e0c7c60b29c2"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "e1134c23-eaee-4df0-9583-74a34db43726"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->167829079,ExpressionUUID->"31c3e8c6-d953-40ce-989e-1f2a4010b43a"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "dbfee9c7-f8dc-4e55-8663-0911b74cd3a6"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1418272367,ExpressionUUID->"2dab370c-e126-4622-9030-b0e8eef3a530"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "ec218c17-4a2c-439b-b439-37f0ac76d66a"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->676388235,ExpressionUUID->"4ac982f6-c1c2-417d-a0a2-906c2380b114"]
+}, Open  ]]
+},
+WindowSize->{643.5, 734.25},
+WindowMargins->{{Automatic, 3}, {3, Automatic}},
+TaggingRules-><|
+ "Author" -> "aleph_g", "CreationDate" -> "07-17-2022 15:05:23", "Paclet" -> 
+  "ArmandoCruz/ZeroKnowledgeProofs"|>,
+CellContext->"Global`",
+FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 21, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"51d60768-5f2d-480f-8c6b-4a9b808d4829"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[149683, 2948, 154, 2, 55, "ExtendedExamplesSection",ExpressionUUID->"f0982299-322a-43a3-a0e1-a86ac511b565",
+   CellTags->"ExtendedExamples",
+   CellID->263448019]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 153013, 3042}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 599, 14, 26, "History",ExpressionUUID->"10a8a3d4-5a19-4947-a848-f5ccf652520d",
+ CellID->1039262582],
+Cell[1163, 36, 140, 1, 21, "AuthorDate",ExpressionUUID->"755f1c6b-48c5-4690-bd11-85b2ecc4c560",
+ CellID->1288686019],
+Cell[CellGroupData[{
+Cell[1328, 41, 123, 1, 31, "CategorizationSection",ExpressionUUID->"0154ae73-3acc-4cae-a175-207be0e9d964",
+ CellID->2010079249],
+Cell[1454, 44, 135, 2, 35, "Categorization",ExpressionUUID->"4518547e-eae3-4408-831e-06d2aa453150",
+ CellID->1117336111],
+Cell[1592, 48, 225, 3, 35, "Categorization",ExpressionUUID->"b573696c-24ec-4940-8ae1-5f0cc795353c",
+ CellID->328307864],
+Cell[1820, 53, 157, 2, 35, "Categorization",ExpressionUUID->"24af5050-7666-42ab-bbc0-62b74abc3416",
+ CellID->1241217983],
+Cell[1980, 57, 260, 5, 35, "Categorization",ExpressionUUID->"d9719e54-fd4e-461e-adfd-3981fe88702f",
+ CellID->446195472]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2277, 67, 111, 1, 31, "KeywordsSection",ExpressionUUID->"93ed6fe3-5ff3-467b-9f54-794e293de229",
+ CellID->1244506584],
+Cell[2391, 70, 157, 2, 21, "Keywords",ExpressionUUID->"6bc78f33-3f99-49eb-9483-ab23d2e2209f",
+ CellID->1120856940]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2585, 77, 120, 1, 31, "TemplatesSection",ExpressionUUID->"3cbf33e4-7557-44f3-a7c0-f672e2db09b0",
+ CellID->1682687531],
+Cell[2708, 80, 149, 2, 30, "Template",ExpressionUUID->"15448016-1974-4a2e-95af-279c16c78a50",
+ CellID->2135575435],
+Cell[2860, 84, 138, 2, 30, "Template",ExpressionUUID->"549872b3-c9a1-46b6-8a21-cffaeb8c6751",
+ CellID->1090108031],
+Cell[3001, 88, 135, 2, 30, "Template",ExpressionUUID->"4796a868-1367-439e-84b3-108d97bb4b4f",
+ CellID->979639612],
+Cell[3139, 92, 138, 2, 30, "Template",ExpressionUUID->"3c57d743-a1d3-4f94-b284-f74e4396680e",
+ CellID->2096051118]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3314, 99, 126, 1, 74, "ObjectName",ExpressionUUID->"1ef7a98e-f05e-43ab-93f9-fda7707c6411",
+ CellID->1802631591],
+Cell[3443, 102, 686, 12, 77, "Usage",ExpressionUUID->"2672d7b9-e264-4426-afad-18c5afeb31a6",
+ CellID->1625862453],
+Cell[4132, 116, 253, 3, 27, "Notes",ExpressionUUID->"2faaaa1c-5e8d-41ca-8b4c-d1d215560acf",
+ CellID->75992956],
+Cell[4388, 121, 595, 13, 28, "Notes",ExpressionUUID->"0c4d476d-786e-4f6f-864f-6447931bfd3e",
+ CellID->639440769],
+Cell[4986, 136, 718, 16, 28, "Notes",ExpressionUUID->"9d2143a5-176f-4e18-aba9-b18c03de778f",
+ CellID->1592239419],
+Cell[5707, 154, 514, 12, 28, "Notes",ExpressionUUID->"178c2cf6-31d6-4e9a-9de8-90fd1b99f5d3",
+ CellID->329001905],
+Cell[6224, 168, 1817, 31, 193, "2ColumnTableMod",ExpressionUUID->"32bae8b0-d3bd-4877-8d45-5f5def12e915",
+ CellID->327602145],
+Cell[8044, 201, 307, 6, 27, "Notes",ExpressionUUID->"b1fd5d47-cf66-4bf8-bef7-ef9812dc06f7",
+ CellID->887741587]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8388, 212, 114, 1, 45, "TechNotesSection",ExpressionUUID->"1df9b7d1-5346-4823-b749-f3016b095e9d",
+ CellID->2023386594],
+Cell[8505, 215, 101, 1, 18, "Tutorials",ExpressionUUID->"b38d812d-f679-4c90-8437-f68c907ddf0a",
+ CellID->1776990051]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8643, 221, 137, 1, 32, "RelatedDemonstrationsSection",ExpressionUUID->"16750fd4-f101-45ec-a467-bba4b2377046",
+ CellID->138221643],
+Cell[8783, 224, 113, 1, 18, "RelatedDemonstrations",ExpressionUUID->"bfffe196-f93e-4b5f-bfa7-cb9b485b41ae",
+ CellID->1691342264]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8933, 230, 119, 1, 32, "RelatedLinksSection",ExpressionUUID->"cc4b948d-d542-4dbe-a6a3-4312bea39a61",
+ CellID->773896014],
+Cell[9055, 233, 104, 1, 18, "RelatedLinks",ExpressionUUID->"fe98c72f-05c6-49e0-b92e-6e3c12c606ab",
+ CellID->1308899774]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9196, 239, 110, 1, 32, "SeeAlsoSection",ExpressionUUID->"29343707-d7be-44d9-a76d-4aa07cb0363e",
+ CellID->1454221050],
+Cell[9309, 242, 98, 1, 18, "SeeAlso",ExpressionUUID->"a4eaf404-8d88-4b14-8e9b-e8840ac5ae63",
+ CellID->475679421]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9444, 248, 184, 2, 32, "MoreAboutSection",ExpressionUUID->"c63c8bef-f098-4985-b9ac-32c31b42589a",
+ CellID->1958047610],
+Cell[9631, 252, 101, 1, 18, "MoreAbout",ExpressionUUID->"7f226aa8-6a0f-4f66-91d0-ccb0a8bd1cd0",
+ CellID->1072977206]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9769, 258, 412, 11, 71, "PrimaryExamplesSection",ExpressionUUID->"45337c2e-d73a-40c2-8800-a78f9d7482d6",
+ CellID->2092101092],
+Cell[10184, 271, 211, 2, 24, "ExampleText",ExpressionUUID->"5fd0bb64-d77a-4bbe-b2f1-86e5e2c67968",
+ CellID->1538465975],
+Cell[CellGroupData[{
+Cell[10420, 277, 299, 7, 26, "Input",ExpressionUUID->"ba569526-4119-4d75-8e11-7b5df02bba30",
+ CellID->1756427177],
+Cell[10722, 286, 66286, 1275, 186, "Output",ExpressionUUID->"4e1579c5-fd96-4266-abca-846d118d491f",
+ CellID->445634603]
+}, Open  ]],
+Cell[77023, 1564, 305, 6, 21, "ExampleText",ExpressionUUID->"75d1232a-cf9f-4782-9a5d-fcd07c569b84",
+ CellID->1923980454],
+Cell[CellGroupData[{
+Cell[77353, 1574, 374, 8, 47, "Input",ExpressionUUID->"3fef36cf-c461-40e1-894d-724ef172ac8a",
+ CellID->1238070079],
+Cell[77730, 1584, 53953, 979, 154, "Output",ExpressionUUID->"0615fb8b-dfc7-4608-b40b-a7d989ff6b14",
+ CellID->1606548168]
+}, Open  ]],
+Cell[131698, 2566, 214, 2, 21, "ExampleText",ExpressionUUID->"56177b29-d6f5-4667-8ff8-3edd45973978",
+ CellID->405647497],
+Cell[CellGroupData[{
+Cell[131937, 2572, 345, 7, 26, "Input",ExpressionUUID->"bf8dce58-c200-4000-9644-376552e66fc1",
+ CellID->1558813917],
+Cell[132285, 2581, 6625, 137, 53, "Output",ExpressionUUID->"13540191-606e-4406-9236-d71f0518024f",
+ CellID->849617135]
+}, Open  ]],
+Cell[138925, 2721, 210, 2, 21, "ExampleText",ExpressionUUID->"89360a62-eced-4d5c-9f86-25a0d5269bf6",
+ CellID->1618437933],
+Cell[CellGroupData[{
+Cell[139160, 2727, 383, 8, 47, "Input",ExpressionUUID->"39455135-8025-4fa0-88f7-b9e63f45c6a8",
+ CellID->1310984524],
+Cell[139546, 2737, 9200, 182, 53, "Output",ExpressionUUID->"eb954ac1-cf97-438d-be03-60e19a50f102",
+ CellID->1655411787]
+}, Open  ]],
+Cell[148761, 2922, 233, 3, 21, "ExampleText",ExpressionUUID->"a8fb1f23-2bc1-4874-ada9-4725a63e4541",
+ CellID->1832531525],
+Cell[CellGroupData[{
+Cell[149019, 2929, 438, 8, 47, "Input",ExpressionUUID->"73252799-acfc-467a-b0d5-69b642a8f951",
+ CellID->1288975674],
+Cell[149460, 2939, 174, 3, 25, "Output",ExpressionUUID->"7a0aff3b-a02b-49ae-9b64-5a07b991d5d2",
+ CellID->701041724]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[149683, 2948, 154, 2, 55, "ExtendedExamplesSection",ExpressionUUID->"f0982299-322a-43a3-a0e1-a86ac511b565",
+ CellTags->"ExtendedExamples",
+ CellID->263448019],
+Cell[149840, 2952, 241, 5, 33, "ExampleSection",ExpressionUUID->"36be331f-dc80-49bb-a778-5553fe3d64b2",
+ CellID->211794852],
+Cell[150084, 2959, 265, 5, 21, "ExampleSection",ExpressionUUID->"f9b81565-8a84-4776-ad57-989a90bf4edf",
+ CellID->1211499143],
+Cell[CellGroupData[{
+Cell[150374, 2968, 244, 5, 21, "ExampleSection",ExpressionUUID->"1f7ec995-ed74-431a-ad79-ebcfeec9c436",
+ CellID->2002224432],
+Cell[150621, 2975, 247, 5, 22, "ExampleSubsection",ExpressionUUID->"59f88d13-5789-4622-8fa5-e2f9ba122683",
+ CellID->1251057434],
+Cell[150871, 2982, 247, 5, 18, "ExampleSubsection",ExpressionUUID->"b49743e2-de04-4ad0-bcfe-bbd773ca010e",
+ CellID->1074094744]
+}, Open  ]],
+Cell[151133, 2990, 248, 5, 33, "ExampleSection",ExpressionUUID->"6b684a51-5417-4ff1-b75a-1c1116f3bcad",
+ CellID->972076895],
+Cell[151384, 2997, 259, 5, 21, "ExampleSection",ExpressionUUID->"b758c277-60b2-4249-bd61-e0c7c60b29c2",
+ CellID->1579365298],
+Cell[151646, 3004, 251, 5, 21, "ExampleSection",ExpressionUUID->"31c3e8c6-d953-40ce-989e-1f2a4010b43a",
+ CellID->167829079],
+Cell[151900, 3011, 257, 5, 21, "ExampleSection",ExpressionUUID->"2dab370c-e126-4622-9030-b0e8eef3a530",
+ CellID->1418272367],
+Cell[152160, 3018, 249, 5, 21, "ExampleSection",ExpressionUUID->"4ac982f6-c1c2-417d-a0a2-906c2380b114",
+ CellID->676388235]
+}, Open  ]]
+}
+]
+*)
+
