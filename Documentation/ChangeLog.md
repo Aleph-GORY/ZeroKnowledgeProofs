@@ -5,13 +5,13 @@ Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
  
 ### Added
-- [Guide](https://github.com/Aleph-GORY/ZeroKnowledgeProofs/issues/1)
-  Add 1 guide on how to run the demo.
+- [Guide](https://github.com/Aleph-GORY/ZeroKnowledgeProofs/issues/2)
+  to run the Zero Knowledge Authentication server.
 - [TechnicalNote](https://github.com/Aleph-GORY/ZeroKnowledgeProofs/issues/1)
-  Technical note based on the paper [Towards a zk-SNARK compiler for Wolfram language](https://arxiv.org/pdf/2401.02935.pdf)
+  based on the paper [Towards a zk-SNARK compiler for Wolfram language](https://arxiv.org/pdf/2401.02935.pdf)
  
 ### Changed
-- [ResourceDefinition]()
+- [ResourceDefinition](https://github.com/Aleph-GORY/ZeroKnowledgeProofs/issues/3)
   Added title and images (add API), Fix scope, Add options.
  
 ### Fixed
