@@ -1,0 +1,616 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24287,        608]
+NotebookOptionsPosition[     19256,        503]
+NotebookOutlinePosition[     19796,        521]
+CellTagsIndexPosition[     19753,        518]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ZeroKnowledgeProofs", "GuideTitle",
+ CellID->583004381,ExpressionUUID->"91f2b615-6d02-483f-a512-795ec2fe4949"],
+
+Cell["\<\
+Zero-knowledge proofs (zk-Proofs) are communication protocols by which a \
+prover can demonstrate to a verifier that it possesses a solution to a given \
+public problem without revealing the content of the solution.\
+\>", "GuideAbstract",
+ CellChangeTimes->{{3.916862881564467*^9, 3.916862908486735*^9}},
+ CellID->1180234804,ExpressionUUID->"1deb6469-f177-4d25-a786-f032d83a25e8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->2041202376,ExpressionUUID->"35e387fa-867b-4798-a5cc-10eb53ced563"],
+
+Cell[CellGroupData[{
+
+Cell["Create and verify ZeroKnowledgeProofs", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.916866240455389*^9, 3.916866245414373*^9}, {
+  3.916866355596918*^9, 3.9168663683408747`*^9}, {3.916867678332238*^9, 
+  3.9168676930852423`*^9}, {3.916879414829652*^9, 3.9168794217164516`*^9}},
+ CellID->1919447541,ExpressionUUID->"1be997b5-89b3-48c6-a75a-9f10b10c04df"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GenerateZeroKnowledgeProof",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/GenerateZeroKnowledgeProof"]],
+   "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c40ac8e4-27e1-4161-a8df-4d4f38357a23",ExpressionUUID->
+  "7ebd3f13-0aef-4caf-ba68-9156e712fb27"],
+ " \[LongDash] Compile a problem into a new ZeroKnowledgeProof composed of a \
+PublicProblem and a PrivateSolution."
+}], "GuideText",
+ CellChangeTimes->{{3.916865907209818*^9, 3.916865908723827*^9}, {
+  3.916865939197394*^9, 3.9168659391974163`*^9}, {3.916866269844426*^9, 
+  3.9168663191365633`*^9}, {3.9168667562578487`*^9, 3.9168667893993187`*^9}, {
+  3.916867265737698*^9, 3.916867290818372*^9}},
+ CellID->556830154,ExpressionUUID->"86b3f4ec-8fbb-4c81-98b6-cae2acea4be0"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgePublicProblem",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePublicProblem"]],
+   "InlineGuideFunction",ExpressionUUID->
+  "bf3f9aa2-4e00-44c7-9ffb-ef53e064645d"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgePrivateSolution",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateSolution"]\
+], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"794c7672-0b9b-4bda-a746-5ec03a9e9e81",ExpressionUUID->
+  "1bda0385-8803-4747-9d3d-1c9f4e32b214"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "4c3b9ba1-9c37-42f9-afa6-e21cfe1a1b50"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "d40c8514-3711-4739-bcc3-4798a79b1187", 
+     "0c518333-05bc-47f4-93bb-51f8c2cfe957"], $CellContext`cellobj$$ = 
+    CellObject[
+    "690b3e21-e06a-4eb5-9056-325d2c8fd50e", 
+     "607a8a5a-1da6-4903-9dc7-0cc64843006a"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "690b3e21-e06a-4eb5-9056-325d2c8fd50e"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.916867342466132*^9, 3.916867351419016*^9}},
+ CellID->1576093401,ExpressionUUID->"d4775692-b398-4452-9c0e-5132671c44a4"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GenerateZeroKnowledgeWitness",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/GenerateZeroKnowledgeWitness"]\
+], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"ce8fa4c4-35b4-47ba-a1f3-2304759a86e1",ExpressionUUID->
+  "c61b9196-4f52-48e1-aa3e-a0460179154a"],
+ " \[LongDash] Cipher the PrivateSolution and PublicProblem into a list of \
+homomorphic CipherProblems and CipherSolutions that will be shared with a \
+verifier.    "
+}], "GuideText",
+ CellChangeTimes->{{3.91686603051971*^9, 3.9168660305197268`*^9}, {
+  3.9168663371649942`*^9, 3.916866337165019*^9}, {3.916867370425403*^9, 
+  3.9168674914798803`*^9}},
+ CellID->1401699894,ExpressionUUID->"bc2b8b65-9875-40c3-95f1-f8a81822d913"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgeCipherProblem",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherProblem"]],
+   "InlineGuideFunction",ExpressionUUID->
+  "f07eb3ef-03a0-4345-b9a5-aafe0007368a"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgeCipherSolution",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherSolution"]]\
+, "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"666a866f-3ae7-42a4-b352-d46dbdecb528",ExpressionUUID->
+  "68794e49-d138-4b9c-b13b-f32bd3f157c6"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "7391675d-e372-450f-ab00-a3443fc41f7f"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "d40c8514-3711-4739-bcc3-4798a79b1187", 
+     "0c518333-05bc-47f4-93bb-51f8c2cfe957"], $CellContext`cellobj$$ = 
+    CellObject[
+    "a33ad1be-d797-45bc-bb11-a33916ac726c", 
+     "c7613860-1d66-486b-ba92-cb50dcc475cc"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "a33ad1be-d797-45bc-bb11-a33916ac726c"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.916867510294549*^9, 3.916867524398134*^9}},
+ CellID->638180090,ExpressionUUID->"2fb3ad77-fe2c-434e-a256-eb0e277cf9d7"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["VerifyZeroKnowledgeProof",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/VerifyZeroKnowledgeProof"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"ce8fa4c4-35b4-47ba-a1f3-2304759a86e1",ExpressionUUID->
+  "3f32fa7b-f307-4b06-80d3-fc9a8a04dd0d"],
+ " \[LongDash] Verify the veracity of a ZeroKnowledgeProof for a given \
+PublicProblem based on the proof's witness."
+}], "GuideText",
+ CellChangeTimes->{{3.916866118949836*^9, 3.916866118949856*^9}, {
+  3.916866352072784*^9, 3.916866352072804*^9}, {3.916867558200094*^9, 
+  3.916867651877516*^9}, {3.916879680856099*^9, 3.916879681184877*^9}},
+ CellID->2104691471,ExpressionUUID->"bf0468a7-8d31-4934-abf2-6c95a4fd1f80"]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->437172145,ExpressionUUID->"dac3e2dc-249d-47d6-b8c9-6ece8058997c"],
+
+Cell[CellGroupData[{
+
+Cell["Interactive zkProofs", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.916866420397297*^9, 3.916866425020629*^9}},
+ CellID->884645156,ExpressionUUID->"8a247aaf-af8d-4e61-82b1-33565ab7d1d1"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["GenerateZeroKnowledgeQuery",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/GenerateZeroKnowledgeQuery"]],
+   "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"ce8fa4c4-35b4-47ba-a1f3-2304759a86e1",ExpressionUUID->
+  "867323d1-32d4-47b4-ac32-de1d7bc69f53"],
+ " \[LongDash] Ask the witness of a ZeroKnowledgeProof to retrieve either the \
+CipherSolution or the CipherTransformation."
+}], "GuideText",
+ CellChangeTimes->{{3.916866090661734*^9, 3.9168660906617537`*^9}, {
+  3.916867782282946*^9, 3.916867836098775*^9}, {3.91687952978683*^9, 
+  3.916879542136352*^9}},
+ CellID->1220714759,ExpressionUUID->"95fce9a8-d9d7-4871-aa61-17d2ddc332bc"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["AnswerZeroKnowledgeQuery",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/AnswerZeroKnowledgeQuery"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"ce8fa4c4-35b4-47ba-a1f3-2304759a86e1",ExpressionUUID->
+  "fca00f7f-9403-452b-8a1c-e3a006dd71b1"],
+ " \[LongDash] Return the witness CipherSolution or CipherTransformation as \
+requested by the verifier in a query."
+}], "GuideText",
+ CellChangeTimes->{{3.916866169181636*^9, 3.916866169181656*^9}, {
+  3.916867784245455*^9, 3.916867784245476*^9}, {3.916879510730929*^9, 
+  3.916879520626999*^9}, {3.9168796130095673`*^9, 3.916879710952242*^9}},
+ CellID->1986824281,ExpressionUUID->"b8c7d144-96fd-4581-8e84-06a210113250"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgeQuery",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeQuery"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "38bad31d-278c-461c-a334-e3e02c9e9a3c"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["ZeroKnowledgeResponse",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeResponse"]], 
+  "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"1081bafc-660a-40e1-beac-202cb5f99a8a",ExpressionUUID->
+  "a35b929b-ac3e-4dac-84bb-3d3cf6c67e90"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "a281c36d-0741-4940-aa4f-8d052399a7c9"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "d40c8514-3711-4739-bcc3-4798a79b1187", 
+     "0c518333-05bc-47f4-93bb-51f8c2cfe957"], $CellContext`cellobj$$ = 
+    CellObject[
+    "cb7d1a40-52f4-46fb-9639-17487601c773", 
+     "9bbf61bb-24e0-4e21-8db7-b7931963fdc3"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "cb7d1a40-52f4-46fb-9639-17487601c773"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.916867761676415*^9, 3.916867789121683*^9}},
+ CellID->1952331183,ExpressionUUID->"5606a759-be88-43be-bdc2-611e3c0a7764"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["zk-ZNARK", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.916879433541443*^9, 3.916879437404332*^9}},
+ CellID->1924089094,ExpressionUUID->"8cfd017c-5b70-4ea9-a31a-6872f585beae"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["CompileArithmeticCircuit",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/CompileArithmeticCircuit"]], 
+  "InlineGuideFunction",ExpressionUUID->
+  "cf960040-aca7-4c43-bf79-5b8f6a277b41"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["EvaluateArithmeticCircuitSolution",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/\
+EvaluateArithmeticCircuitSolution"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"c1fe878a-1a9c-47a0-8b84-1bf86d81f0ce",ExpressionUUID->
+  "5e247bdd-38b8-4fdd-8daf-fe12c98ad95a"],
+ StyleBox[" \[FilledVerySmallSquare] ", "InlineSeparator"],
+ Cell[BoxData[
+  ButtonBox["CompileQuadraticArithmeticProgram",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/\
+CompileQuadraticArithmeticProgram"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},
+  CellTags->"b5d59513-48cb-445d-ab7f-b0d69d416909",ExpressionUUID->
+  "682479e8-2329-4526-a61b-c826536e90bc"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "ae35c94a-31fc-44ee-ad71-fed01eff76fb"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "d40c8514-3711-4739-bcc3-4798a79b1187", 
+     "0c518333-05bc-47f4-93bb-51f8c2cfe957"], $CellContext`cellobj$$ = 
+    CellObject[
+    "da443fa1-a74b-4ac7-b5f5-2cc0bb3b92d8", 
+     "5a30f47c-f7de-4adb-b79d-544238ede33c"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "da443fa1-a74b-4ac7-b5f5-2cc0bb3b92d8"]
+}], "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.9168794659609528`*^9, 3.916879495315085*^9}},
+ CellID->779334872,ExpressionUUID->"9e89f72a-5afd-4538-b3ee-2d9371d32361"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->138466804,ExpressionUUID->"93b0b0e2-8b8d-48df-86d1-d202a5ee704a"],
+
+Cell[TextData[ButtonBox["ZeroKnowledge Authentication",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:ArmandoCruz/ZeroKnowledgeProofs/tutorial/\
+ZeroKnowledgeAuthentication"]], "GuideTutorial",
+ CellChangeTimes->{{3.916863444772581*^9, 3.916863474701902*^9}, 
+   3.916863616750024*^9},
+ CellID->1254812088,ExpressionUUID->"0aa07767-39c5-4896-866d-427ecbfed42d"],
+
+Cell[TextData[ButtonBox["zkSNARK Compilation",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:ArmandoCruz/ZeroKnowledgeProofs/tutorial/zkSNARKCompilation"]], \
+"GuideTutorial",
+ CellChangeTimes->{{3.916863564849869*^9, 3.9168635790397577`*^9}, 
+   3.91686360987801*^9},
+ CellID->1591480399,ExpressionUUID->"2c70729a-b42b-466b-8f1f-2a32da7d3524"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->272374429,ExpressionUUID->"5dc0a037-a5b8-4a25-9f62-da8cc2d67b4f"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->781640828,ExpressionUUID->"6b12c5ec-f1ba-4efa-9f79-d192061f075d"],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->942355160,ExpressionUUID->"6bab762e-34fa-4de3-bff7-21200d28377b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->1107355457,ExpressionUUID->"b70e6c10-25e3-4a8a-8768-a8dd4d535da6"],
+
+Cell[TextData[ButtonBox["[WSS22] Implementation of Interactive Zero Knowledge \
+proofs paclet\:200b ",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://community.wolfram.com/groups/-/m/t/2575404"], 
+   None}]], "GuideRelatedLinks",
+ CellChangeTimes->{3.916879978398081*^9},
+ CellID->491099387,ExpressionUUID->"c837cf55-29a8-4ea9-8900-15581525d439"],
+
+Cell[TextData[ButtonBox["Towards a zk-SNARK compiler for Wolfram language",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://arxiv.org/abs/2401.02935"], None}]], "GuideRelatedLinks",
+ CellChangeTimes->{3.916880036455339*^9},
+ CellID->1017861688,ExpressionUUID->"a2751033-60e8-4fa7-a949-714187ede473"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->809674942,ExpressionUUID->"ea7366d5-a790-4ba4-b035-31ef223c2ff1"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"89e32435-1729-415e-bafd-1335904efa4f"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"7d6d092b-1625-4cce-a69c-1816537bd513"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "228dcc7a-ab3a-46a1-81f5-e9f2fe7e6a0d"]
+}], "History",
+ CellID->544873530,ExpressionUUID->"b82c2899-b717-43b4-a840-2484fa4e52e5"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->217402344,ExpressionUUID->"4a371a9d-670c-4948-b75d-9f6d815a97bf"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->357131806,ExpressionUUID->"04c602ca-a200-4095-93cf-789dca49bed1"],
+
+Cell["ArmandoCruz/ZeroKnowledgeProofs", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1965392539,ExpressionUUID->"0ddcf5ef-be83-4509-971e-ccf2261fc963"],
+
+Cell["ArmandoCruz`ZeroKnowledgeProofs`", "Categorization",
+ CellLabel->"Context",
+ CellID->71354007,ExpressionUUID->"d3b553cd-8b29-4880-96d2-556a6a9b964e"],
+
+Cell["ArmandoCruz/ZeroKnowledgeProofs/guide/ZeroKnowledgeProofs", \
+"Categorization",
+ CellLabel->"URI",
+ CellID->538084822,ExpressionUUID->"8d99c3ee-1bbd-472a-8c1e-3a74054c3e99"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->827629647,ExpressionUUID->"4af4469f-ad6e-4d2c-9804-72089b2c3310"],
+
+Cell["XXXX", "Keywords",
+ CellID->1331020325,ExpressionUUID->"819212cd-3c8f-44ab-919a-116c89a13fc5"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1440, 782.25},
+WindowMargins->{{1440, Automatic}, {Automatic, 0}},
+TaggingRules-><|"Paclet" -> "ArmandoCruz/ZeroKnowledgeProofs"|>,
+FrontEndVersion->"14.0 for Linux x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"d40c8514-3711-4739-bcc3-4798a79b1187"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 116, 1, 88, "GuideTitle",ExpressionUUID->"91f2b615-6d02-483f-a512-795ec2fe4949",
+ CellID->583004381],
+Cell[699, 25, 390, 6, 65, "GuideAbstract",ExpressionUUID->"1deb6469-f177-4d25-a786-f032d83a25e8",
+ CellID->1180234804]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1126, 36, 109, 1, 73, "GuideFunctionsSection",ExpressionUUID->"35e387fa-867b-4798-a5cc-10eb53ced563",
+ CellID->2041202376],
+Cell[CellGroupData[{
+Cell[1260, 41, 365, 4, 37, "GuideFunctionsSubsection",ExpressionUUID->"1be997b5-89b3-48c6-a75a-9f10b10c04df",
+ CellID->1919447541],
+Cell[1628, 47, 846, 17, 45, "GuideText",ExpressionUUID->"86b3f4ec-8fbb-4c81-98b6-cae2acea4be0",
+ CellID->556830154],
+Cell[2477, 66, 2206, 54, 51, "InlineGuideFunctionListing",ExpressionUUID->"d4775692-b398-4452-9c0e-5132671c44a4",
+ CellID->1576093401],
+Cell[4686, 122, 803, 17, 45, "GuideText",ExpressionUUID->"bc2b8b65-9875-40c3-95f1-f8a81822d913",
+ CellID->1401699894],
+Cell[5492, 141, 2203, 54, 30, "InlineGuideFunctionListing",ExpressionUUID->"2fb3ad77-fe2c-434e-a256-eb0e277cf9d7",
+ CellID->638180090],
+Cell[7698, 197, 787, 16, 45, "GuideText",ExpressionUUID->"bf0468a7-8d31-4934-abf2-6c95a4fd1f80",
+ CellID->2104691471]
+}, Open  ]],
+Cell[8500, 216, 103, 1, 27, "GuideDelimiter",ExpressionUUID->"dac3e2dc-249d-47d6-b8c9-6ece8058997c",
+ CellID->437172145],
+Cell[CellGroupData[{
+Cell[8628, 221, 197, 2, 37, "GuideFunctionsSubsection",ExpressionUUID->"8a247aaf-af8d-4e61-82b1-33565ab7d1d1",
+ CellID->884645156],
+Cell[8828, 225, 753, 16, 45, "GuideText",ExpressionUUID->"95fce9a8-d9d7-4871-aa61-17d2ddc332bc",
+ CellID->1220714759],
+Cell[9584, 243, 788, 16, 45, "GuideText",ExpressionUUID->"b8c7d144-96fd-4581-8e84-06a210113250",
+ CellID->1986824281],
+Cell[10375, 261, 2177, 54, 30, "InlineGuideFunctionListing",ExpressionUUID->"5606a759-be88-43be-bdc2-611e3c0a7764",
+ CellID->1952331183]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12589, 320, 186, 2, 37, "GuideFunctionsSubsection",ExpressionUUID->"8cfd017c-5b70-4ea9-a31a-6872f585beae",
+ CellID->1924089094],
+Cell[12778, 324, 2641, 64, 52, "InlineGuideFunctionListing",ExpressionUUID->"9e89f72a-5afd-4538-b3ee-2d9371d32361",
+ CellID->779334872]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15468, 394, 118, 1, 75, "GuideTutorialsSection",ExpressionUUID->"93b0b0e2-8b8d-48df-86d1-d202a5ee704a",
+ CellID->138466804],
+Cell[15589, 397, 359, 7, 24, "GuideTutorial",ExpressionUUID->"0aa07767-39c5-4896-866d-427ecbfed42d",
+ CellID->1254812088],
+Cell[15951, 406, 342, 7, 24, "GuideTutorial",ExpressionUUID->"2c70729a-b42b-466b-8f1f-2a32da7d3524",
+ CellID->1591480399]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16330, 418, 190, 2, 75, "GuideMoreAboutSection",ExpressionUUID->"5dc0a037-a5b8-4a25-9f62-da8cc2d67b4f",
+ CellID->272374429],
+Cell[16523, 422, 105, 1, 24, "GuideMoreAbout",ExpressionUUID->"6b12c5ec-f1ba-4efa-9f79-d192061f075d",
+ CellID->781640828],
+Cell[16631, 425, 105, 1, 24, "GuideMoreAbout",ExpressionUUID->"6bab762e-34fa-4de3-bff7-21200d28377b",
+ CellID->942355160]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16773, 431, 125, 1, 75, "GuideRelatedLinksSection",ExpressionUUID->"b70e6c10-25e3-4a8a-8768-a8dd4d535da6",
+ CellID->1107355457],
+Cell[16901, 434, 355, 7, 24, "GuideRelatedLinks",ExpressionUUID->"c837cf55-29a8-4ea9-8900-15581525d439",
+ CellID->491099387],
+Cell[17259, 443, 307, 5, 24, "GuideRelatedLinks",ExpressionUUID->"a2751033-60e8-4fa7-a949-714187ede473",
+ CellID->1017861688]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17603, 453, 110, 1, 72, "MetadataSection",ExpressionUUID->"ea7366d5-a790-4ba4-b035-31ef223c2ff1",
+ CellID->809674942],
+Cell[17716, 456, 476, 12, 27, "History",ExpressionUUID->"b82c2899-b717-43b4-a840-2484fa4e52e5",
+ CellID->544873530],
+Cell[CellGroupData[{
+Cell[18217, 472, 122, 1, 21, "CategorizationSection",ExpressionUUID->"4a371a9d-670c-4948-b75d-9f6d815a97bf",
+ CellID->217402344],
+Cell[18342, 475, 133, 2, 35, "Categorization",ExpressionUUID->"04c602ca-a200-4095-93cf-789dca49bed1",
+ CellID->357131806],
+Cell[18478, 479, 160, 2, 35, "Categorization",ExpressionUUID->"0ddcf5ef-be83-4509-971e-ccf2261fc963",
+ CellID->1965392539],
+Cell[18641, 483, 155, 2, 35, "Categorization",ExpressionUUID->"d3b553cd-8b29-4880-96d2-556a6a9b964e",
+ CellID->71354007],
+Cell[18799, 487, 179, 3, 35, "Categorization",ExpressionUUID->"8d99c3ee-1bbd-472a-8c1e-3a74054c3e99",
+ CellID->538084822]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[19015, 495, 110, 1, 21, "KeywordsSection",ExpressionUUID->"4af4469f-ad6e-4d2c-9804-72089b2c3310",
+ CellID->827629647],
+Cell[19128, 498, 100, 1, 21, "Keywords",ExpressionUUID->"819212cd-3c8f-44ab-919a-116c89a13fc5",
+ CellID->1331020325]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
