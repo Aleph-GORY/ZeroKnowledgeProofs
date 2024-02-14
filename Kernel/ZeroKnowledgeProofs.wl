@@ -6,15 +6,15 @@ BeginPackage["ArmandoCruz`ZeroKnowledgeProofs`"]
 
 ZeroKnowledgePrivateSolution
 ZeroKnowledgePublicProblem
-ZeroKnowledgePrivateCipher
-ZeroKnowledgePublicWitness
+ZeroKnowledgeCipherSolution
+ZeroKnowledgeCipherProblem
 ZeroKnowledgeQuery
 ZeroKnowledgeResponse
 
 GenerateZeroKnowledgeProof
-GenerateZeroKnowledgeProver
+GenerateZeroKnowledgeWitness
 GenerateZeroKnowledgeQuery
-GenerateZeroKnowledgeResponse
+AnswerZeroKnowledgeQuery
 VerifyZeroKnowledgeProof
 
 CompileArithmeticCircuit
@@ -81,16 +81,16 @@ ZeroKnowledgePublicProblem /: MakeBoxes[x : ZeroKnowledgePublicProblem[data_Asso
     StandardForm
   ]
 
-(* ZeroKnowledgePrivateCipher *)
+(* ZeroKnowledgeCipherSolution *)
 (* <|"Type", "Rounds", "PrivateCipherSolutions", "PublicCipherProblems"|> *)
-ZeroKnowledgePrivateCipher[data_Association]["Type"] := data["Type"]
-ZeroKnowledgePrivateCipher[data_Association]["PrivateCipherSolutions"] := data["PrivateCipherSolutions"]
-ZeroKnowledgePrivateCipher[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
-ZeroKnowledgePrivateCipher[data_Association]["Rounds"] := Length[data["PublicCipherProblems"]]
+ZeroKnowledgeCipherSolution[data_Association]["Type"] := data["Type"]
+ZeroKnowledgeCipherSolution[data_Association]["PrivateCipherSolutions"] := data["PrivateCipherSolutions"]
+ZeroKnowledgeCipherSolution[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
+ZeroKnowledgeCipherSolution[data_Association]["Rounds"] := Length[data["PublicCipherProblems"]]
 
-ZeroKnowledgePrivateCipher /: MakeBoxes[x : ZeroKnowledgePrivateCipher[data_Association], StandardForm] := 
+ZeroKnowledgeCipherSolution /: MakeBoxes[x : ZeroKnowledgeCipherSolution[data_Association], StandardForm] := 
   BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgePrivateCipher, x,
+    ZeroKnowledgeCipherSolution, x,
     makeKeyIcon[x, 81],
     {
       BoxForm`SummaryItem[{"Type: ", data["Type"]}],
@@ -103,15 +103,15 @@ ZeroKnowledgePrivateCipher /: MakeBoxes[x : ZeroKnowledgePrivateCipher[data_Asso
     StandardForm
   ]
 
-(* ZeroKnowledgePublicWitness *)
+(* ZeroKnowledgeCipherProblem *)
 (* <|"Type", "Rounds", "PublicCipherProblems"|> *)
-ZeroKnowledgePublicWitness[data_Association]["Type"] := data["Type"]
-ZeroKnowledgePublicWitness[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
-ZeroKnowledgePublicWitness[data_Association]["Rounds"] := Length[data["PublicCipherProblems"]]
+ZeroKnowledgeCipherProblem[data_Association]["Type"] := data["Type"]
+ZeroKnowledgeCipherProblem[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
+ZeroKnowledgeCipherProblem[data_Association]["Rounds"] := Length[data["PublicCipherProblems"]]
 
-ZeroKnowledgePublicWitness /: MakeBoxes[x : ZeroKnowledgePublicWitness[data_Association], StandardForm] := 
+ZeroKnowledgeCipherProblem /: MakeBoxes[x : ZeroKnowledgeCipherProblem[data_Association], StandardForm] := 
   BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgePublicWitness, x,
+    ZeroKnowledgeCipherProblem, x,
     makeKeyIcon[x, 68],
     {
       BoxForm`SummaryItem[{"Type: ", data["Type"]}],
@@ -314,27 +314,27 @@ CipherZeroKnowledgeProof["SAT", privateSolution_] :=
     |>
   ]
 
-(* GenerateZeroKnowledgePrivateCipher *)
-GenerateZeroKnowledgePrivateCipher[privateSolution_, rounds_] := 
+(* GenerateZeroKnowledgeCipherSolution *)
+GenerateZeroKnowledgeCipherSolution[privateSolution_, rounds_] := 
   Module[
     {cipherProofs = Table[
       CipherZeroKnowledgeProof[privateSolution["Type"], privateSolution], 
       rounds
     ]},
-    ZeroKnowledgePrivateCipher[<|
+    ZeroKnowledgeCipherSolution[<|
       "Type" -> privateSolution["Type"],
       "PrivateCipherSolutions" -> cipherProofs[[All, "PrivateCipherSolution"]],
       "PublicCipherProblems" -> cipherProofs[[All, "PublicCipherProblem"]]
     |>]
   ]
 
-(* GenerateZeroKnowledgeProver *)
-GenerateZeroKnowledgeProver[privateSolution_, rounds_ : 4] := 
+(* GenerateZeroKnowledgeWitness *)
+GenerateZeroKnowledgeWitness[privateSolution_, rounds_ : 4] := 
   Module[
-    {privateCipher = GenerateZeroKnowledgePrivateCipher[privateSolution, rounds]},
+    {privateCipher = GenerateZeroKnowledgeCipherSolution[privateSolution, rounds]},
     <|
-      "ZeroKnowledgePrivateCipher" -> privateCipher,
-      "ZeroKnowledgePublicWitness" -> ZeroKnowledgePublicWitness[<|
+      "ZeroKnowledgeCipherSolution" -> privateCipher,
+      "ZeroKnowledgeCipherProblem" -> ZeroKnowledgeCipherProblem[<|
         "Type" -> privateCipher["Type"],
         "PublicCipherProblems" -> privateCipher["PublicCipherProblems"]
       |>]
