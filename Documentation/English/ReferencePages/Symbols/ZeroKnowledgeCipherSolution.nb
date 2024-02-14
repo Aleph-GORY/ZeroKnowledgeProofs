@@ -20,17 +20,17 @@ WindowFrame->Normal*)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["ZeroKnowledgePrivateCipher", "ObjectName",
+Cell["ZeroKnowledgeCipherSolution", "ObjectName",
  CellID->1263983375,ExpressionUUID->"89dac5b7-8a16-401f-8e5f-4636089320c2"],
 
 Cell[TextData[{
  Cell["   ", "ModInfo",ExpressionUUID->"2609511c-d75c-440d-94c4-9b321f23865e"],
  Cell[BoxData[
   RowBox[{
-   ButtonBox["ZeroKnowledgePrivateCipher",
+   ButtonBox["ZeroKnowledgeCipherSolution",
     BaseStyle->"Link",
     ButtonData->
-     "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateCipher"],
+     "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherSolution"],
     "[", "]"}]], "InlineFormula",ExpressionUUID->
   "b6a0300e-9239-4037-9803-38423b62258d"],
  " \[LineSeparator]represents the private part of a zero knowledge prover, it \
@@ -46,28 +46,28 @@ ZeroKnowledgePublicWitness and the cipher solutions to the cipher problems."
 
 Cell[TextData[{
  Cell[BoxData[
-  ButtonBox["ZeroKnowledgePrivateCipher",
+  ButtonBox["ZeroKnowledgeCipherSolution",
    BaseStyle->"Link",
    ButtonData->
-    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateCipher"]],
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherSolution"]],
    "InlineFormula",ExpressionUUID->"a2257570-045d-4327-8da9-ad204609127d"],
  " objects can be used with functions such as__.\nCorresponding pairs of ",
  Cell[BoxData[
-  ButtonBox["ZeroKnowledgePrivateCipher",
+  ButtonBox["ZeroKnowledgeCipherSolution",
    BaseStyle->"Link",
    ButtonData->
-    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateCipher"]],
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherSolution"]],
    "InlineFormula",ExpressionUUID->"dd8df150-62e9-4ff3-9de5-3fff41599aac"],
  " and __ objects can be generated with __.\n",
  Cell[BoxData[
   ButtonBox[
    ButtonBox[
     RowBox[{
-     RowBox[{"ZeroKnowledgePrivateCipher", "[", "...", "]"}], "[", 
+     RowBox[{"ZeroKnowledgeCipherSolution", "[", "...", "]"}], "[", 
      "\"\<\!\(\*StyleBox[\"prop\", \"TI\"]\)\>\"", "]"}],
     BaseStyle->"Link",
     ButtonData->
-     "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateCipher"],
+     "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherSolution"],
    
    BaseStyle->"Link",
    ButtonData->
@@ -76,10 +76,10 @@ Cell[TextData[{
  " can be used to extract properties of the public problem.\nBasic properties \
 for a ",
  Cell[BoxData[
-  ButtonBox["ZeroKnowledgePrivateCipher",
+  ButtonBox["ZeroKnowledgeCipherSolution",
    BaseStyle->"Link",
    ButtonData->
-    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateCipher"]],
+    "paclet:ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherSolution"]],
    "InlineFormula",ExpressionUUID->"1aadebd7-0af9-44f5-bd4a-9b1e6a330a65"],
  " include:\n",
  Cell[BoxData[GridBox[{
@@ -369,7 +369,7 @@ Cell["ArmandoCruz`ZeroKnowledgeProofs`", "Categorization",
  CellID->1958440127,ExpressionUUID->"fe49dd45-be50-4922-b87b-98d7e669e815"],
 
 Cell["\<\
-ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgePrivateCipher\
+ArmandoCruz/ZeroKnowledgeProofs/ref/ZeroKnowledgeCipherSolution\
 \>", "Categorization",
  CellLabel->"URI",
  CellID->1725307809,ExpressionUUID->"9145b0c5-15f8-42e5-aea0-867217b14afd"]
