@@ -27,15 +27,13 @@ Begin["`Private`"]
 
 (* ::Section:: *)
 (*Objects*)
-
-
-makeKeyIcon[data_, colorFunction_] := 
-  ArrayPlot[
-    Partition[IntegerDigits[Hash[data, "SHA256"], 4, 64], 8], 
-    ImageSize -> Dynamic[{Automatic, 3.5*CurrentValue["FontCapHeight"]}], 
-    ColorFunction -> colorFunction, ColorFunctionScaling -> False, 
-    Frame -> None, PlotRangePadding -> None
-  ]
+  makeKeyIcon[data_, colorFunction_] := 
+    ArrayPlot[
+      Partition[IntegerDigits[Hash[data, "SHA256"], 4, 64], 8], 
+      ImageSize -> Dynamic[{Automatic, 3.5*CurrentValue["FontCapHeight"]}], 
+      ColorFunction -> colorFunction, ColorFunctionScaling -> False, 
+      Frame -> None, PlotRangePadding -> None
+    ]
 
 (* 
   ZeroKnowledgePrivateSolution
@@ -193,11 +191,16 @@ makeKeyIcon[data_, colorFunction_] :=
 
 (*
   ZeroKnowledgeResponse
-  <|"Protocol", "QuerySize", "Query", "Response"|>
+  <|
+    "Protocol",
+    "ResponseSize",
+    "Query",
+    "Response"
+  |>
 *)
   ZeroKnowledgeResponse[data_Association]["Protocol"] := data["Protocol"]
   ZeroKnowledgeResponse[data_Association]["ResponseSize"] := Length[data["Response"]]
-  
+
   ZeroKnowledgeResponse[data_Association]["Query"] := data["Query"]
   ZeroKnowledgeResponse[data_Association]["Response"] := data["Response"]
 
@@ -220,256 +223,272 @@ makeKeyIcon[data_, colorFunction_] :=
 
 (* -- Interactive zk-Proofs -- *)
 
-(* Helper functions *)
-generateGraphIsomorphism[size_] := 
-  Thread[Range[size] -> RandomSample[Range[size]]]
-generateSATIsomorphism[size_] := 
-  Thread[Range[size] -> RandomSample[Range[size]]]
+(*
+  Helper functions
+*)
+  generateGraphIsomorphism[size_] := 
+    Thread[Range[size] -> RandomSample[Range[size]]]
+  generateSATIsomorphism[size_] := 
+    Thread[Range[size] -> RandomSample[Range[size]]]
 
-IsomorphicGraph[graph_, isomorphism_] := 
-  Graph[
-    EdgeList[VertexReplace[graph, isomorphism]], 
-    VertexLabels -> Automatic
-  ]
-
-IsomorphicSortedGraph[graph_, isomorphism_] := 
-  Graph[
-    Sort /@ EdgeList[VertexReplace[graph, isomorphism]], 
-    VertexLabels -> Automatic
-  ]
-IsomorphicHamiltonianCycle[cycle_, isomorphism_] := 
-  Sort /@ Thread[
-    UndirectedEdge[Association[isomorphism] /@ First /@ cycle, 
-    Association[isomorphism] /@ Last /@ cycle]
-  ]
-
-(* IsomorphicBooleanFunction[boolf_, isomorphism_] := 
-  ReplaceAll[boolf, i_Integer :> isomorphism[i]] *)
-IsomorphicBooleanFunction[boolf_, isomorphism_] := 
-  With[{permutation = Lookup[isomorphism, Range[Length[isomorphism]]]}, boolf @@ #[[permutation]] &]
-IsomorphicBooleanVector[vector_, isomorphism_] := 
-  Array[vector[[isomorphism[#]]] &, Length[vector]]
-
-(* GenerateZeroKnowledgePrivateSolution  *)
-GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := 
-  Module[
-    { graph = IsomorphicGraph[RandomGraph[{keySize, 4*keySize}], Thread[Range[keySize] -> Range[keySize]]], 
-    isomorphism = generateGraphIsomorphism[keySize]},
-    ZeroKnowledgePrivateSolution[<|
-      "Protocol" -> "Isomorphism",
-      "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
-      "PrivateSolutionSize" -> keySize,
-      "PublicProblemShape" -> "A pair of isomorphic graphs.",
-      "PublicProblemSize" -> {keySize, 4*keySize},
-      "PrivateSolution" -> isomorphism,
-      "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
-    |>]
-  ]
-  
-GenerateZeroKnowledgePrivateSolution["HamiltonianCycle", keySize_ : 30] :=
-  Module[
-    { cycle = Sort /@ EdgeList[IsomorphicGraph[CycleGraph[keySize], generateGraphIsomorphism[keySize]]], 
-    graph = IsomorphicSortedGraph[RandomGraph[{keySize, 5*keySize}], Thread[Range[keySize] -> Range[keySize]]]},
-    ZeroKnowledgePrivateSolution[<|
-      "Protocol" -> "HamiltonianCycle",
-      "PrivateSolutionSize" -> keySize,
-      "PrivateSolution" -> cycle,
-      "PublicProblemSize" -> {keySize, 5*keySize},
-      "PublicProblem" -> 
-      Graph[Union[EdgeList[graph], cycle], VertexLabels -> Automatic]
-    |>]
-  ]
-GenerateZeroKnowledgePrivateSolution["SAT", solution_, booleanFunction_] :=
-  ZeroKnowledgePrivateSolution[<|
-    "Protocol" -> "SAT",
-    "PrivateSolutionSize" -> Length[solution],
-    "PrivateSolution" -> solution,
-    "PublicProblemSize" -> Length[booleanFunction],
-    "PublicProblem" -> booleanFunction
-  |>]
-
-(* GenerateZeroKnowledgeProof *)
-GenerateZeroKnowledgeProof[type_, size_:Null] :=
-  Module[
-    {privateSolution = If[size==Null,
-      GenerateZeroKnowledgePrivateSolution[type],
-      GenerateZeroKnowledgePrivateSolution[type, size]
-    ]},
-    <|
-      "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
-        "Protocol" -> privateSolution["Protocol"],
-        "PublicProblemShape" -> privateSolution["PublicProblemShape"],
-        "PublicProblemSize" -> privateSolution["PublicProblemSize"],
-        "PublicProblem" -> privateSolution["PublicProblem"]
-      |>],
-      "ZeroKnowledgePrivateSolution" -> privateSolution
-    |>
-  ]
-GenerateZeroKnowledgeProof[type_, solution_, problem_] :=
-  Module[
-    {privateSolution = GenerateZeroKnowledgePrivateSolution[type, solution, problem]},
-    <|
-      "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
-        "Protocol" -> privateSolution["Protocol"],
-        "PublicProblemShape" -> privateSolution["PublicProblemShape"],
-        "PublicProblemSize" -> privateSolution["PublicProblemSize"],
-        "PublicProblem" -> privateSolution["PublicProblem"]
-      |>],
-      "ZeroKnowledgePrivateSolution" -> privateSolution
-    |>
-  ]
-
-(* CipherZeroKnowledgeProof *)
-CipherZeroKnowledgeProof["Isomorphism", privateSolution_] := 
-  Module[
-    {cipher = generateGraphIsomorphism[privateSolution["PrivateSolutionSize"]]},
-    <|
-      "PrivateCipherSolution" -> <|
-        "Cipher" -> cipher, 
-        "Solution" -> Association[privateSolution["PrivateSolution"]] /@ 
-          Association[cipher] // Normal
-      |>,
-      "PublicCipherProblem" -> IsomorphicGraph[
-        privateSolution["PublicProblem"] // First, Reverse[cipher, {2}]
-      ]
-    |>
-  ]
-CipherZeroKnowledgeProof["HamiltonianCycle", privateSolution_] := 
-  Module[
-    {cipher = generateGraphIsomorphism[privateSolution["PrivateSolutionSize"]]},
-    <|
-      "PrivateCipherSolution" -> <|
-        "Cipher" -> Reverse[cipher, {2}], 
-        "Solution" -> IsomorphicHamiltonianCycle[
-          privateSolution["PrivateSolution"], 
-          cipher
-        ]
-      |>,
-      "PublicCipherProblem" -> IsomorphicSortedGraph[
-        privateSolution["PublicProblem"], cipher
-      ]
-    |>
-  ]
-CipherZeroKnowledgeProof["SAT", privateSolution_] := 
-  Module[
-    {cipher = Association @ generateGraphIsomorphism[privateSolution["PrivateSolutionSize"]]},
-    <|
-      "PrivateCipherSolution" -> <|
-        "Cipher" -> cipher,
-        "Solution" -> IsomorphicBooleanVector[
-          privateSolution["PrivateSolution"], Association@Reverse[Normal[cipher],{2}]
-        ]
-      |>,
-      "PublicCipherProblem" -> IsomorphicBooleanFunction[
-        privateSolution["PublicProblem"], Association@Reverse[Normal[cipher],{2}]
-      ]
-    |>
-  ]
-
-(* GenerateZeroKnowledgeCipherSolution *)
-GenerateZeroKnowledgeCipherSolution[privateSolution_, rounds_] := 
-  Module[
-    {cipherProofs = Table[
-      CipherZeroKnowledgeProof[privateSolution["Protocol"], privateSolution], 
-      rounds
-    ]},
-    ZeroKnowledgeCipherSolution[<|
-      "Protocol" -> privateSolution["Protocol"],
-      "PrivateCipherSolutions" -> cipherProofs[[All, "PrivateCipherSolution"]],
-      "PublicCipherProblems" -> cipherProofs[[All, "PublicCipherProblem"]]
-    |>]
-  ]
-
-(* GenerateZeroKnowledgeWitness *)
-GenerateZeroKnowledgeWitness[privateSolution_, rounds_ : 4] := 
-  Module[
-    {privateCipher = GenerateZeroKnowledgeCipherSolution[privateSolution, rounds]},
-    <|
-      "ZeroKnowledgeCipherSolution" -> privateCipher,
-      "ZeroKnowledgeCipherProblem" -> ZeroKnowledgeCipherProblem[<|
-        "Protocol" -> privateCipher["Protocol"],
-        "PublicCipherProblems" -> privateCipher["PublicCipherProblems"]
-      |>]
-    |>
-  ]
-
-(* GenerateZeroKnowledgeQuery *)
-ValidQueryList["Isomorphism"] := {"Cipher", "Solution"}
-ValidQueryList["HamiltonianCycle"] := {"Cipher", "Solution"}
-ValidQueryList["SAT"] := {"Cipher", "Solution"}
-
-GenerateZeroKnowledgeQuery[publicWitness_] := 
-  ZeroKnowledgeQuery[<|
-    "Protocol" -> publicWitness["Protocol"],
-    "Query" -> Table[
-      RandomChoice[ValidQueryList[publicWitness["Protocol"]]], 
-      publicWitness["QuerySize"]
+  IsomorphicGraph[graph_, isomorphism_] := 
+    Graph[
+      EdgeList[VertexReplace[graph, isomorphism]], 
+      VertexLabels -> Automatic
     ]
-  |>]
 
-(* AnswerZeroKnowledgeQuery *)
-AnswerZeroKnowledgeQuery["Isomorphism", cipherSolutions_, query_] := cipherSolutions @ query
-AnswerZeroKnowledgeQuery["HamiltonianCycle", cipherSolutions_, query_] := cipherSolutions @ query
-AnswerZeroKnowledgeQuery["SAT", cipherSolutions_, query_] := cipherSolutions @ query
+  IsomorphicSortedGraph[graph_, isomorphism_] := 
+    Graph[
+      Sort /@ EdgeList[VertexReplace[graph, isomorphism]], 
+      VertexLabels -> Automatic
+    ]
+  IsomorphicHamiltonianCycle[cycle_, isomorphism_] := 
+    Sort /@ Thread[
+      UndirectedEdge[Association[isomorphism] /@ First /@ cycle, 
+      Association[isomorphism] /@ Last /@ cycle]
+    ]
+  IsomorphicBooleanFunction[boolf_, isomorphism_] := 
+    With[{permutation = Lookup[isomorphism, Range[Length[isomorphism]]]}, boolf @@ #[[permutation]] &]
+  IsomorphicBooleanVector[vector_, isomorphism_] := 
+    Array[vector[[isomorphism[#]]] &, Length[vector]]
 
-(* GenerateZeroKnowledgeResponse *)
-GenerateZeroKnowledgeResponse[privateCipher_, query_] := 
-  ZeroKnowledgeResponse[<|
-    "Protocol" -> privateCipher["Protocol"],
-    "Query" -> query["Query"],
-    "Response" -> Array[
-      AnswerZeroKnowledgeQuery[
-        privateCipher["Protocol"],
-        privateCipher["PrivateCipherSolutions"][[#]], 
-        query["Query"][[#]]
-      ] &, 
+(* 
+  GenerateZeroKnowledgePrivateSolution
+*)
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := 
+    Module[
+      { graph = IsomorphicGraph[RandomGraph[{keySize, 4*keySize}], Thread[Range[keySize] -> Range[keySize]]], 
+      isomorphism = generateGraphIsomorphism[keySize]},
+      ZeroKnowledgePrivateSolution[<|
+        "Protocol" -> "Isomorphism",
+        "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
+        "PrivateSolutionSize" -> keySize,
+        "PublicProblemShape" -> "A pair of isomorphic graphs.",
+        "PublicProblemSize" -> {keySize, 4*keySize},
+        "PrivateSolution" -> isomorphism,
+        "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
+      |>]
+    ]
+  GenerateZeroKnowledgePrivateSolution["HamiltonianCycle", keySize_ : 30] :=
+    Module[
+      { cycle = Sort /@ EdgeList[IsomorphicGraph[CycleGraph[keySize], generateGraphIsomorphism[keySize]]], 
+      graph = IsomorphicSortedGraph[RandomGraph[{keySize, 5*keySize}], Thread[Range[keySize] -> Range[keySize]]]},
+      ZeroKnowledgePrivateSolution[<|
+        "Protocol" -> "HamiltonianCycle",
+        "PrivateSolutionSize" -> keySize,
+        "PrivateSolution" -> cycle,
+        "PublicProblemSize" -> {keySize, 5*keySize},
+        "PublicProblem" -> 
+        Graph[Union[EdgeList[graph], cycle], VertexLabels -> Automatic]
+      |>]
+    ]
+  GenerateZeroKnowledgePrivateSolution["SAT", solution_, booleanFunction_] :=
+    ZeroKnowledgePrivateSolution[<|
+      "Protocol" -> "SAT",
+      "PrivateSolutionSize" -> Length[solution],
+      "PrivateSolution" -> solution,
+      "PublicProblemSize" -> Length[booleanFunction],
+      "PublicProblem" -> booleanFunction
+    |>]
+
+(* 
+  GenerateZeroKnowledgeProof
+*)
+  GenerateZeroKnowledgeProof[type_, size_:Null] :=
+    Module[
+      {privateSolution = If[size==Null,
+        GenerateZeroKnowledgePrivateSolution[type],
+        GenerateZeroKnowledgePrivateSolution[type, size]
+      ]},
+      <|
+        "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
+          "Protocol" -> privateSolution["Protocol"],
+          "PublicProblemShape" -> privateSolution["PublicProblemShape"],
+          "PublicProblemSize" -> privateSolution["PublicProblemSize"],
+          "PublicProblem" -> privateSolution["PublicProblem"]
+        |>],
+        "ZeroKnowledgePrivateSolution" -> privateSolution
+      |>
+    ]
+  GenerateZeroKnowledgeProof[type_, solution_, problem_] :=
+    Module[
+      {privateSolution = GenerateZeroKnowledgePrivateSolution[type, solution, problem]},
+      <|
+        "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
+          "Protocol" -> privateSolution["Protocol"],
+          "PublicProblemShape" -> privateSolution["PublicProblemShape"],
+          "PublicProblemSize" -> privateSolution["PublicProblemSize"],
+          "PublicProblem" -> privateSolution["PublicProblem"]
+        |>],
+        "ZeroKnowledgePrivateSolution" -> privateSolution
+      |>
+    ]
+
+(* 
+  CipherZeroKnowledgeProof
+*)
+  CipherZeroKnowledgeProof["Isomorphism", privateSolution_] := 
+    Module[
+      {cipher = generateGraphIsomorphism[privateSolution["PrivateSolutionSize"]]},
+      <|
+        "PrivateCipherSolution" -> <|
+          "Cipher" -> cipher, 
+          "Solution" -> Association[privateSolution["PrivateSolution"]] /@ 
+            Association[cipher] // Normal
+        |>,
+        "PublicCipherProblem" -> IsomorphicGraph[
+          privateSolution["PublicProblem"] // First, Reverse[cipher, {2}]
+        ]
+      |>
+    ]
+  CipherZeroKnowledgeProof["HamiltonianCycle", privateSolution_] := 
+    Module[
+      {cipher = generateGraphIsomorphism[privateSolution["PrivateSolutionSize"]]},
+      <|
+        "PrivateCipherSolution" -> <|
+          "Cipher" -> Reverse[cipher, {2}], 
+          "Solution" -> IsomorphicHamiltonianCycle[
+            privateSolution["PrivateSolution"], 
+            cipher
+          ]
+        |>,
+        "PublicCipherProblem" -> IsomorphicSortedGraph[
+          privateSolution["PublicProblem"], cipher
+        ]
+      |>
+    ]
+  CipherZeroKnowledgeProof["SAT", privateSolution_] := 
+    Module[
+      {cipher = Association @ generateGraphIsomorphism[privateSolution["PrivateSolutionSize"]]},
+      <|
+        "PrivateCipherSolution" -> <|
+          "Cipher" -> cipher,
+          "Solution" -> IsomorphicBooleanVector[
+            privateSolution["PrivateSolution"], Association@Reverse[Normal[cipher],{2}]
+          ]
+        |>,
+        "PublicCipherProblem" -> IsomorphicBooleanFunction[
+          privateSolution["PublicProblem"], Association@Reverse[Normal[cipher],{2}]
+        ]
+      |>
+    ]
+
+(*
+  GenerateZeroKnowledgeCipherSolution
+*)
+  GenerateZeroKnowledgeCipherSolution[privateSolution_, rounds_] := 
+    Module[
+      {cipherProofs = Table[
+        CipherZeroKnowledgeProof[privateSolution["Protocol"], privateSolution], 
+        rounds
+      ]},
+      ZeroKnowledgeCipherSolution[<|
+        "Protocol" -> privateSolution["Protocol"],
+        "PrivateCipherSolutions" -> cipherProofs[[All, "PrivateCipherSolution"]],
+        "PublicCipherProblems" -> cipherProofs[[All, "PublicCipherProblem"]]
+      |>]
+    ]
+
+(* 
+  GenerateZeroKnowledgeWitness
+*)
+  GenerateZeroKnowledgeWitness[privateSolution_, rounds_ : 4] := 
+    Module[
+      {privateCipher = GenerateZeroKnowledgeCipherSolution[privateSolution, rounds]},
+      <|
+        "ZeroKnowledgeCipherSolution" -> privateCipher,
+        "ZeroKnowledgeCipherProblem" -> ZeroKnowledgeCipherProblem[<|
+          "Protocol" -> privateCipher["Protocol"],
+          "PublicCipherProblems" -> privateCipher["PublicCipherProblems"]
+        |>]
+      |>
+    ]
+
+(*
+  GenerateZeroKnowledgeQuery
+*)
+  ValidQueryList["Isomorphism"] := {"Cipher", "Solution"}
+  ValidQueryList["HamiltonianCycle"] := {"Cipher", "Solution"}
+  ValidQueryList["SAT"] := {"Cipher", "Solution"}
+
+  GenerateZeroKnowledgeQuery[publicWitness_] := 
+    ZeroKnowledgeQuery[<|
+      "Protocol" -> publicWitness["Protocol"],
+      "Query" -> Table[
+        RandomChoice[ValidQueryList[publicWitness["Protocol"]]], 
+        publicWitness["QuerySize"]
+      ]
+    |>]
+
+(*
+  AnswerZeroKnowledgeQuery
+*)
+  AnswerZeroKnowledgeQuery["Isomorphism", cipherSolutions_, query_] := cipherSolutions @ query
+  AnswerZeroKnowledgeQuery["HamiltonianCycle", cipherSolutions_, query_] := cipherSolutions @ query
+  AnswerZeroKnowledgeQuery["SAT", cipherSolutions_, query_] := cipherSolutions @ query
+
+(*
+  GenerateZeroKnowledgeResponse
+*)
+  GenerateZeroKnowledgeResponse[privateCipher_, query_] := 
+    ZeroKnowledgeResponse[<|
+      "Protocol" -> privateCipher["Protocol"],
+      "Query" -> query["Query"],
+      "Response" -> Array[
+        AnswerZeroKnowledgeQuery[
+          privateCipher["Protocol"],
+          privateCipher["PrivateCipherSolutions"][[#]], 
+          query["Query"][[#]]
+        ] &, 
+        query["QuerySize"]
+      ]
+    |>]
+
+(* 
+  VerifyZeroKnowledgeResponse
+*)
+  VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, "Cipher", response_] := 
+    IsomorphicGraph[cipherProblem, response] == (publicProblem // First)
+  VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, "Solution", response_] := 
+    IsomorphicGraph[cipherProblem, response] == (publicProblem // Last)
+  
+  VerifyZeroKnowledgeResponse["HamiltonianCycle", publicProblem_, cipherProblem_, "Cipher", response_] := 
+    IsomorphicSortedGraph[cipherProblem, response] == publicProblem
+  VerifyZeroKnowledgeResponse["HamiltonianCycle", publicProblem_, cipherProblem_, "Solution", response_] := 
+    And[
+      SubsetQ[EdgeList[cipherProblem], response]
+      (*And[(#//First)!=(#//Last)&/@response],
+      Length[DeleteDuplicates[First/@response]]==First@publicProblem[
+      "PublicProblemSize"]*)
+    ]
+
+  VerifyZeroKnowledgeResponse["SAT", publicProblem_, cipherProblem_, "Cipher", response_] :=(
+    (* Echo[cipherProblem];
+    Echo[response];
+    Echo[IsomorphicBooleanFunction[cipherProblem, response]];
+    Echo[publicProblem]; *)
+    IsomorphicBooleanFunction[cipherProblem, response] @@ List[x[#]&, Length[response]] 
+    === publicProblem @@ List[x[#]&, Length[response]]
+  )
+
+  VerifyZeroKnowledgeResponse["SAT", publicProblem_, cipherProblem_, "Solution", response_] := 
+    cipherProblem @@ response
+    (* (cipherProblem /. ((Global\.b4x[#] -> response[[#]]) & /@ Range[Length[response]])) *)
+    (*True*)
+    (* ToExpression[StringReplace[ToString[cipherProblem], ("x[" <> ToString[#] <> "]" -> ToString[response[[#]]]) & /@ Range[Length[response]]]] *)
+
+  (* VerifyZeroKnowledgeProof  *)
+  VerifyZeroKnowledgeProof[publicProblem_, witness_, query_, response_] := 
+    (* And@@ *)
+    Array[
+      Quiet@Check[VerifyZeroKnowledgeResponse[
+        publicProblem["Protocol"], 
+        publicProblem["PublicProblem"], 
+        witness["PublicCipherProblems"][[#]], 
+        query["Query"][[#]], 
+        response["Response"][[#]]] &, False],
       query["QuerySize"]
     ]
-  |>]
-
-(* VerifyZeroKnowledgeResponse  *)
-VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, "Cipher", response_] := 
-  IsomorphicGraph[cipherProblem, response] == (publicProblem // First)
-VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, "Solution", response_] := 
-  IsomorphicGraph[cipherProblem, response] == (publicProblem // Last)
- 
-VerifyZeroKnowledgeResponse["HamiltonianCycle", publicProblem_, cipherProblem_, "Cipher", response_] := 
-  IsomorphicSortedGraph[cipherProblem, response] == publicProblem
-VerifyZeroKnowledgeResponse["HamiltonianCycle", publicProblem_, cipherProblem_, "Solution", response_] := 
-  And[
-    SubsetQ[EdgeList[cipherProblem], response]
-    (*And[(#//First)!=(#//Last)&/@response],
-    Length[DeleteDuplicates[First/@response]]==First@publicProblem[
-    "PublicProblemSize"]*)
-  ]
-
-VerifyZeroKnowledgeResponse["SAT", publicProblem_, cipherProblem_, "Cipher", response_] :=(
-  (* Echo[cipherProblem];
-  Echo[response];
-  Echo[IsomorphicBooleanFunction[cipherProblem, response]];
-  Echo[publicProblem]; *)
-  IsomorphicBooleanFunction[cipherProblem, response] @@ List[x[#]&, Length[response]] 
-  === publicProblem @@ List[x[#]&, Length[response]]
-)
-
-VerifyZeroKnowledgeResponse["SAT", publicProblem_, cipherProblem_, "Solution", response_] := 
-  cipherProblem @@ response
-  (* (cipherProblem /. ((Global\.b4x[#] -> response[[#]]) & /@ Range[Length[response]])) *)
-  (*True*)
-  (* ToExpression[StringReplace[ToString[cipherProblem], ("x[" <> ToString[#] <> "]" -> ToString[response[[#]]]) & /@ Range[Length[response]]]] *)
-
-(* VerifyZeroKnowledgeProof  *)
-VerifyZeroKnowledgeProof[publicProblem_, witness_, query_, response_] := 
-  (* And@@ *)
-  Array[
-    Quiet@Check[VerifyZeroKnowledgeResponse[
-      publicProblem["Protocol"], 
-      publicProblem["PublicProblem"], 
-      witness["PublicCipherProblems"][[#]], 
-      query["Query"][[#]], 
-      response["Response"][[#]]] &, False],
-    query["QuerySize"]
-  ]
 
 
 (* -- zk-SNARKs -- *)
