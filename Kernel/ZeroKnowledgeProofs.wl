@@ -37,133 +37,180 @@ makeKeyIcon[data_, colorFunction_] :=
     Frame -> None, PlotRangePadding -> None
   ]
 
-(* ZeroKnowledgePrivateSolution *)
-(* <|"Type", "PrivateSolutionSize", "PrivateSolution", "PublicProblemSize", "PublicProblem"|> *)
-ZeroKnowledgePrivateSolution[data_Association]["Type"] := data["Type"]
-ZeroKnowledgePrivateSolution[data_Association]["PrivateSolutionSize"] := data["PrivateSolutionSize"]
-ZeroKnowledgePrivateSolution[data_Association]["PrivateSolution"] := data["PrivateSolution"]
-ZeroKnowledgePrivateSolution[data_Association]["PublicProblemSize"] := data["PublicProblemSize"]
-ZeroKnowledgePrivateSolution[data_Association]["PublicProblem"] := data["PublicProblem"]
+(* 
+  ZeroKnowledgePrivateSolution
+  <|
+    "Protocol", 
+    "PrivateSolutionShape",
+    "PrivateSolutionSize",
+    "PublicProblemShape",
+    "PublicProblemSize",
+    "PrivateSolution",
+    "PublicProblem"
+  |>
+*)
+  ZeroKnowledgePrivateSolution[data_Association]["Protocol"] := data["Protocol"]
+  ZeroKnowledgePrivateSolution[data_Association]["PrivateSolutionShape"] := data["PrivateSolutionShape"]
+  ZeroKnowledgePrivateSolution[data_Association]["PrivateSolutionSize"] := data["PrivateSolutionSize"]
+  ZeroKnowledgePrivateSolution[data_Association]["PublicProblemShape"] := data["PublicProblemShape"]
+  ZeroKnowledgePrivateSolution[data_Association]["PublicProblemSize"] := data["PublicProblemSize"]
 
-ZeroKnowledgePrivateSolution /: MakeBoxes[x : ZeroKnowledgePrivateSolution[data_Association], StandardForm] := 
-  BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgePrivateSolution, x,
-    makeKeyIcon[x, 39],
-    {
-      BoxForm`SummaryItem[{"Type: ", data["Type"]}],
-      BoxForm`SummaryItem[{"Private solution size: ", data["PrivateSolutionSize"]}],
-      BoxForm`SummaryItem[{"Public problem size: ", data["PublicProblemSize"]}]
-    },
-    {
-      BoxForm`SummaryItem[{"Private solution: ", data["PrivateSolution"]}],
-      BoxForm`SummaryItem[{"Public problem: ", data["PublicProblem"]}]
-    },
-    StandardForm
-  ]
+  ZeroKnowledgePrivateSolution[data_Association]["PrivateSolution"] := data["PrivateSolution"]
+  ZeroKnowledgePrivateSolution[data_Association]["PublicProblem"] := data["PublicProblem"]
 
-(* ZeroKnowledgePublicProblem *)
-(* <|"Type", "PublicProblemSize", "PublicProblem"|> *)
-ZeroKnowledgePublicProblem[data_Association]["Type"] := data["Type"]
-ZeroKnowledgePublicProblem[data_Association]["PublicProblemSize"] := data["PublicProblemSize"]
-ZeroKnowledgePublicProblem[data_Association]["PublicProblem"] := data["PublicProblem"]
-
-ZeroKnowledgePublicProblem /: MakeBoxes[x : ZeroKnowledgePublicProblem[data_Association], StandardForm] := 
-  BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgePublicProblem, x,
-    makeKeyIcon[x, 78],
-    {
-      BoxForm`SummaryItem[{"Type: ", data["Type"]}],
-      BoxForm`SummaryItem[{"Public problem size: ", data["PublicProblemSize"]}]
-    },
-    {
-      BoxForm`SummaryItem[{"Public problem: ", data["PublicProblem"]}]
-    },
-    StandardForm
-  ]
-
-(* ZeroKnowledgeCipherSolution *)
-(* <|"Type", "Rounds", "PrivateCipherSolutions", "PublicCipherProblems"|> *)
-ZeroKnowledgeCipherSolution[data_Association]["Type"] := data["Type"]
-ZeroKnowledgeCipherSolution[data_Association]["PrivateCipherSolutions"] := data["PrivateCipherSolutions"]
-ZeroKnowledgeCipherSolution[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
-ZeroKnowledgeCipherSolution[data_Association]["Rounds"] := Length[data["PublicCipherProblems"]]
-
-ZeroKnowledgeCipherSolution /: MakeBoxes[x : ZeroKnowledgeCipherSolution[data_Association], StandardForm] := 
-  BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgeCipherSolution, x,
-    makeKeyIcon[x, 81],
-    {
-      BoxForm`SummaryItem[{"Type: ", data["Type"]}],
-      BoxForm`SummaryItem[{"Number of rounds: ", x["Rounds"]}]
-    },
-    {
-      BoxForm`SummaryItem[{"First private cipher solution: ", First @ data["PrivateCipherSolutions"]}],
-      BoxForm`SummaryItem[{"First public CipherProblem: ", First @ data["PublicCipherProblems"]}]
-    },
-    StandardForm
-  ]
-
-(* ZeroKnowledgeCipherProblem *)
-(* <|"Type", "Rounds", "PublicCipherProblems"|> *)
-ZeroKnowledgeCipherProblem[data_Association]["Type"] := data["Type"]
-ZeroKnowledgeCipherProblem[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
-ZeroKnowledgeCipherProblem[data_Association]["Rounds"] := Length[data["PublicCipherProblems"]]
-
-ZeroKnowledgeCipherProblem /: MakeBoxes[x : ZeroKnowledgeCipherProblem[data_Association], StandardForm] := 
-  BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgeCipherProblem, x,
-    makeKeyIcon[x, 68],
-    {
-      BoxForm`SummaryItem[{"Type: ", data["Type"]}],
-      BoxForm`SummaryItem[{"Number of rounds: ", x["Rounds"]}]
-    },
-    {
-      BoxForm`SummaryItem[{"First public CipherProblem: ", First @ data["PublicCipherProblems"]}]
-    },
-    StandardForm
-  ]
-
-(* ZeroKnowledgeQuery *)
-(* <|"Type", "Rounds", "Queries"|> *)
-ZeroKnowledgeQuery[data_Association]["Type"] := data["Type"]
-ZeroKnowledgeQuery[data_Association]["Queries"] := data["Queries"]
-ZeroKnowledgeQuery[data_Association]["Rounds"] := Length[data["Queries"]]
-
-ZeroKnowledgeQuery /: MakeBoxes[x : ZeroKnowledgeQuery[data_Association], StandardForm] :=
-  BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgeQuery, x,
-    makeKeyIcon[x, 75],
-    {
-      BoxForm`SummaryItem[{"Type: ", data["Type"]}],
-      BoxForm`SummaryItem[{"Number of rounds: ", x["Rounds"]}]
-    },
-    {
-      BoxForm`SummaryItem[{"First query: ", First @ data["Queries"]}]
-    },
-    StandardForm
-  ]
-
-(* ZeroKnowledgeResponse *)
-(* <|"Type", "Rounds", "Queries", "Responses"|> *)
-ZeroKnowledgeResponse[data_Association]["Type"] := data["Type"]
-ZeroKnowledgeResponse[data_Association]["Queries"] := data["Queries"]
-ZeroKnowledgeResponse[data_Association]["Responses"] := data["Responses"]
-ZeroKnowledgeResponse[data_Association]["Rounds"] := Length[data["Responses"]]
-
-ZeroKnowledgeResponse /: MakeBoxes[x : ZeroKnowledgeResponse[data_Association], StandardForm] := 
-  BoxForm`ArrangeSummaryBox[
-    ZeroKnowledgeResponse, x,
-    makeKeyIcon[x, 50],
-    {
-      BoxForm`SummaryItem[{"Type: ", data["Type"]}],
-      BoxForm`SummaryItem[{"Number of rounds: ", x["Rounds"]}]
+  ZeroKnowledgePrivateSolution /: MakeBoxes[x : ZeroKnowledgePrivateSolution[data_Association], StandardForm] := 
+    BoxForm`ArrangeSummaryBox[
+      ZeroKnowledgePrivateSolution, x,
+      makeKeyIcon[x, 39],
+      {
+        BoxForm`SummaryItem[{"Protocol: ", data["Protocol"]}],
+        BoxForm`SummaryItem[{"Private solution shape: ", data["PrivateSolutionShape"]}],
+        BoxForm`SummaryItem[{"Private solution size: ", data["PrivateSolutionSize"]}]
       },
-    {
-      BoxForm`SummaryItem[{"First query: ", First @ data["Queries"]}],
-      BoxForm`SummaryItem[{"First response: ", First @ data["Responses"]}]
+      {
+        BoxForm`SummaryItem[{"Public problem shape: ", data["PublicProblemShape"]}],
+        BoxForm`SummaryItem[{"Public problem size: ", data["PublicProblemSize"]}]
       },
-    StandardForm
-  ]
+      StandardForm
+    ]
+
+(* 
+  ZeroKnowledgePublicProblem
+  <|
+    "Protocol", 
+    "PublicProblemShape,"
+    "PublicProblemSize", 
+    "PublicProblem"
+  |>
+*)
+  ZeroKnowledgePublicProblem[data_Association]["Protocol"] := data["Protocol"]
+  ZeroKnowledgePublicProblem[data_Association]["PublicProblemShape"] := data["PublicProblemShape"]
+  ZeroKnowledgePublicProblem[data_Association]["PublicProblemSize"] := data["PublicProblemSize"]
+
+  ZeroKnowledgePublicProblem[data_Association]["PublicProblem"] := data["PublicProblem"]
+
+  ZeroKnowledgePublicProblem /: MakeBoxes[x : ZeroKnowledgePublicProblem[data_Association], StandardForm] := 
+    BoxForm`ArrangeSummaryBox[
+      ZeroKnowledgePublicProblem, x,
+      makeKeyIcon[x, 78],
+      {
+        BoxForm`SummaryItem[{"Protocol: ", data["Protocol"]}],
+        BoxForm`SummaryItem[{"Public problem shape: ", data["PublicProblemShape"]}],
+        BoxForm`SummaryItem[{"Public problem size: ", data["PublicProblemSize"]}]
+      },{},
+      StandardForm
+    ]
+
+(*
+  ZeroKnowledgeCipherSolution
+  <|
+    "Protocol", 
+    "CipherTransformation",
+    "CipherSolutionsShape",
+    "CipherProblemsShape",
+    "CipherProblemsSize",
+    "PublicCipherProblems",
+    "PrivateCipherSolutions"
+  |>
+*)
+  ZeroKnowledgeCipherSolution[data_Association]["Protocol"] := data["Protocol"]
+  ZeroKnowledgeCipherSolution[data_Association]["CipherTransformation"] := data["CipherTransformation"]
+  ZeroKnowledgeCipherSolution[data_Association]["CipherSolutionsShape"] := data["CipherSolutionsShape"]
+  ZeroKnowledgeCipherSolution[data_Association]["CipherProblemsShape"] := data["CipherProblemsShape"]
+  ZeroKnowledgeCipherSolution[data_Association]["CipherProblemsSize"] := Length[data["PublicCipherProblems"]]
+
+  ZeroKnowledgeCipherSolution[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
+  ZeroKnowledgeCipherSolution[data_Association]["PrivateCipherSolutions"] := data["PrivateCipherSolutions"]
+
+  ZeroKnowledgeCipherSolution /: MakeBoxes[x : ZeroKnowledgeCipherSolution[data_Association], StandardForm] := 
+    BoxForm`ArrangeSummaryBox[
+      ZeroKnowledgeCipherSolution, x,
+      makeKeyIcon[x, 81],
+      {
+        BoxForm`SummaryItem[{"Protocol: ", data["Protocol"]}],
+        BoxForm`SummaryItem[{"Cipher transformation: ", data["CipherTransformation"]}],
+        BoxForm`SummaryItem[{"Number of cipher problems: ", data["CipherProblemsSize"]}],
+        BoxForm`SummaryItem[{"Cipher solution shape: ", data["CipherSolutionsShape"]}]
+      },{
+        BoxForm`SummaryItem[{"Cipher problems shape: ", data["CipherProblemsShape"]}]
+      },
+      StandardForm
+    ]
+
+(*
+  ZeroKnowledgeCipherProblem
+  <|
+    "Protocol", 
+    "CipherTransformation",
+    "CipherProblemsShape",
+    "CipherProblemsSize",
+    "PublicCipherProblems"
+  |>
+*)
+  ZeroKnowledgeCipherProblem[data_Association]["Protocol"] := data["Protocol"]
+  ZeroKnowledgeCipherProblem[data_Association]["CipherTransformation"] := data["CipherTransformation"]
+  ZeroKnowledgeCipherProblem[data_Association]["CipherProblemsShape"] := data["CipherProblemsShape"]
+  ZeroKnowledgeCipherProblem[data_Association]["CipherProblemsSize"] := Length[data["PublicCipherProblems"]]
+
+  ZeroKnowledgeCipherProblem[data_Association]["PublicCipherProblems"] := data["PublicCipherProblems"]
+
+  ZeroKnowledgeCipherProblem /: MakeBoxes[x : ZeroKnowledgeCipherProblem[data_Association], StandardForm] := 
+    BoxForm`ArrangeSummaryBox[
+      ZeroKnowledgeCipherProblem, x,
+      makeKeyIcon[x, 68],
+      {
+        BoxForm`SummaryItem[{"Protocol: ", data["Protocol"]}],
+        BoxForm`SummaryItem[{"Cipher transformation: ", data["CipherTransformation"]}],
+        BoxForm`SummaryItem[{"Number of cipher problems: ", data["CipherProblemsSize"]}],
+        BoxForm`SummaryItem[{"Cipher problems shape: ", data["CipherProblemsShape"]}]
+      },{},
+      StandardForm
+    ]
+
+(* 
+  ZeroKnowledgeQuery
+  <|
+    "Protocol",
+    "Query",
+    "QuerySize"
+  |>
+*)
+  ZeroKnowledgeQuery[data_Association]["Protocol"] := data["Protocol"]
+  ZeroKnowledgeQuery[data_Association]["QuerySize"] := Length[data["Query"]]
+
+  ZeroKnowledgeQuery[data_Association]["Query"] := data["Query"]
+
+  ZeroKnowledgeQuery /: MakeBoxes[x : ZeroKnowledgeQuery[data_Association], StandardForm] :=
+    BoxForm`ArrangeSummaryBox[
+      ZeroKnowledgeQuery, x,
+      makeKeyIcon[x, 75],
+      {
+        BoxForm`SummaryItem[{"Protocol: ", data["Protocol"]}],
+        BoxForm`SummaryItem[{"Query size: ", data["QuerySize"]}]
+      },{},
+      StandardForm
+    ]
+
+(*
+  ZeroKnowledgeResponse
+  <|"Protocol", "QuerySize", "Query", "Response"|>
+*)
+  ZeroKnowledgeResponse[data_Association]["Protocol"] := data["Protocol"]
+  ZeroKnowledgeResponse[data_Association]["ResponseSize"] := Length[data["Response"]]
+  
+  ZeroKnowledgeResponse[data_Association]["Query"] := data["Query"]
+  ZeroKnowledgeResponse[data_Association]["Response"] := data["Response"]
+
+  ZeroKnowledgeResponse /: MakeBoxes[x : ZeroKnowledgeResponse[data_Association], StandardForm] := 
+    BoxForm`ArrangeSummaryBox[
+      ZeroKnowledgeResponse, x,
+      makeKeyIcon[x, 50],
+      {
+        BoxForm`SummaryItem[{"Protocol: ", data["Protocol"]}],
+        BoxForm`SummaryItem[{"Response size: ", data["ResponseSize"]}]
+      },{},
+      StandardForm
+    ]
 
 
 
@@ -204,24 +251,27 @@ IsomorphicBooleanVector[vector_, isomorphism_] :=
   Array[vector[[isomorphism[#]]] &, Length[vector]]
 
 (* GenerateZeroKnowledgePrivateSolution  *)
-GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 30] := 
+GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := 
   Module[
-    { graph = IsomorphicGraph[RandomGraph[{keySize, 5*keySize}], Thread[Range[keySize] -> Range[keySize]]], 
+    { graph = IsomorphicGraph[RandomGraph[{keySize, 4*keySize}], Thread[Range[keySize] -> Range[keySize]]], 
     isomorphism = generateGraphIsomorphism[keySize]},
     ZeroKnowledgePrivateSolution[<|
-      "Type" -> "Isomorphism",
+      "Protocol" -> "Isomorphism",
+      "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
       "PrivateSolutionSize" -> keySize,
+      "PublicProblemShape" -> "A pair of isomorphic graphs.",
+      "PublicProblemSize" -> {keySize, 4*keySize},
       "PrivateSolution" -> isomorphism,
-      "PublicProblemSize" -> {keySize, 5*keySize},
       "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
     |>]
   ]
+  
 GenerateZeroKnowledgePrivateSolution["HamiltonianCycle", keySize_ : 30] :=
   Module[
     { cycle = Sort /@ EdgeList[IsomorphicGraph[CycleGraph[keySize], generateGraphIsomorphism[keySize]]], 
     graph = IsomorphicSortedGraph[RandomGraph[{keySize, 5*keySize}], Thread[Range[keySize] -> Range[keySize]]]},
     ZeroKnowledgePrivateSolution[<|
-      "Type" -> "HamiltonianCycle",
+      "Protocol" -> "HamiltonianCycle",
       "PrivateSolutionSize" -> keySize,
       "PrivateSolution" -> cycle,
       "PublicProblemSize" -> {keySize, 5*keySize},
@@ -231,7 +281,7 @@ GenerateZeroKnowledgePrivateSolution["HamiltonianCycle", keySize_ : 30] :=
   ]
 GenerateZeroKnowledgePrivateSolution["SAT", solution_, booleanFunction_] :=
   ZeroKnowledgePrivateSolution[<|
-    "Type" -> "SAT",
+    "Protocol" -> "SAT",
     "PrivateSolutionSize" -> Length[solution],
     "PrivateSolution" -> solution,
     "PublicProblemSize" -> Length[booleanFunction],
@@ -246,24 +296,26 @@ GenerateZeroKnowledgeProof[type_, size_:Null] :=
       GenerateZeroKnowledgePrivateSolution[type, size]
     ]},
     <|
-      "ZeroKnowledgePrivateSolution" -> privateSolution,
       "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
-        "Type" -> privateSolution["Type"],
+        "Protocol" -> privateSolution["Protocol"],
+        "PublicProblemShape" -> privateSolution["PublicProblemShape"],
         "PublicProblemSize" -> privateSolution["PublicProblemSize"],
         "PublicProblem" -> privateSolution["PublicProblem"]
-      |>]
+      |>],
+      "ZeroKnowledgePrivateSolution" -> privateSolution
     |>
   ]
 GenerateZeroKnowledgeProof[type_, solution_, problem_] :=
   Module[
     {privateSolution = GenerateZeroKnowledgePrivateSolution[type, solution, problem]},
     <|
-      "ZeroKnowledgePrivateSolution" -> privateSolution,
       "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
-        "Type" -> privateSolution["Type"],
+        "Protocol" -> privateSolution["Protocol"],
+        "PublicProblemShape" -> privateSolution["PublicProblemShape"],
         "PublicProblemSize" -> privateSolution["PublicProblemSize"],
         "PublicProblem" -> privateSolution["PublicProblem"]
-      |>]
+      |>],
+      "ZeroKnowledgePrivateSolution" -> privateSolution
     |>
   ]
 
@@ -318,11 +370,11 @@ CipherZeroKnowledgeProof["SAT", privateSolution_] :=
 GenerateZeroKnowledgeCipherSolution[privateSolution_, rounds_] := 
   Module[
     {cipherProofs = Table[
-      CipherZeroKnowledgeProof[privateSolution["Type"], privateSolution], 
+      CipherZeroKnowledgeProof[privateSolution["Protocol"], privateSolution], 
       rounds
     ]},
     ZeroKnowledgeCipherSolution[<|
-      "Type" -> privateSolution["Type"],
+      "Protocol" -> privateSolution["Protocol"],
       "PrivateCipherSolutions" -> cipherProofs[[All, "PrivateCipherSolution"]],
       "PublicCipherProblems" -> cipherProofs[[All, "PublicCipherProblem"]]
     |>]
@@ -335,7 +387,7 @@ GenerateZeroKnowledgeWitness[privateSolution_, rounds_ : 4] :=
     <|
       "ZeroKnowledgeCipherSolution" -> privateCipher,
       "ZeroKnowledgeCipherProblem" -> ZeroKnowledgeCipherProblem[<|
-        "Type" -> privateCipher["Type"],
+        "Protocol" -> privateCipher["Protocol"],
         "PublicCipherProblems" -> privateCipher["PublicCipherProblems"]
       |>]
     |>
@@ -348,10 +400,10 @@ ValidQueryList["SAT"] := {"Cipher", "Solution"}
 
 GenerateZeroKnowledgeQuery[publicWitness_] := 
   ZeroKnowledgeQuery[<|
-    "Type" -> publicWitness["Type"],
-    "Queries" -> Table[
-      RandomChoice[ValidQueryList[publicWitness["Type"]]], 
-      publicWitness["Rounds"]
+    "Protocol" -> publicWitness["Protocol"],
+    "Query" -> Table[
+      RandomChoice[ValidQueryList[publicWitness["Protocol"]]], 
+      publicWitness["QuerySize"]
     ]
   |>]
 
@@ -363,15 +415,15 @@ AnswerZeroKnowledgeQuery["SAT", cipherSolutions_, query_] := cipherSolutions @ q
 (* GenerateZeroKnowledgeResponse *)
 GenerateZeroKnowledgeResponse[privateCipher_, query_] := 
   ZeroKnowledgeResponse[<|
-    "Type" -> privateCipher["Type"],
-    "Queries" -> query["Queries"],
-    "Responses" -> Array[
+    "Protocol" -> privateCipher["Protocol"],
+    "Query" -> query["Query"],
+    "Response" -> Array[
       AnswerZeroKnowledgeQuery[
-        privateCipher["Type"],
+        privateCipher["Protocol"],
         privateCipher["PrivateCipherSolutions"][[#]], 
-        query["Queries"][[#]]
+        query["Query"][[#]]
       ] &, 
-      query["Rounds"]
+      query["QuerySize"]
     ]
   |>]
 
@@ -411,12 +463,12 @@ VerifyZeroKnowledgeProof[publicProblem_, witness_, query_, response_] :=
   (* And@@ *)
   Array[
     Quiet@Check[VerifyZeroKnowledgeResponse[
-      publicProblem["Type"], 
+      publicProblem["Protocol"], 
       publicProblem["PublicProblem"], 
       witness["PublicCipherProblems"][[#]], 
-      query["Queries"][[#]], 
-      response["Responses"][[#]]] &, False],
-    query["Rounds"]
+      query["Query"][[#]], 
+      response["Response"][[#]]] &, False],
+    query["QuerySize"]
   ]
 
 
