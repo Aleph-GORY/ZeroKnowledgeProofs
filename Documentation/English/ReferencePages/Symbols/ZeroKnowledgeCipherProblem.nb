@@ -108,7 +108,7 @@ Cell[TextData[{
       ExpressionUUID->"104d4c9f-873c-46aa-a824-53a48ff3b1cb"]},
     {Cell[
      "      ", "TableRowIcon",ExpressionUUID->
-      "94487ffa-3c61-4e25-8251-8d0b85901559"], "\"\<PublicCipherProblems\>\"",
+      "94487ffa-3c61-4e25-8251-8d0b85901559"], "\"\<PublicCipherProblem\>\"",
       Cell["\<\
 list of the cipher problems that will be shared with the verifier
 \

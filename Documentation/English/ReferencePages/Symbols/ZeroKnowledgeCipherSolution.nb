@@ -96,14 +96,14 @@ for a ",
     {Cell[
      "      ", "TableRowIcon",ExpressionUUID->
       "5ea49e2c-8357-47e8-b2c7-2959d9b89346"], 
-     "\"\<PrivateCipherSolutions\>\"", Cell["\<\
+     "\"\<PrivateCipherSolution\>\"", Cell["\<\
 list of the homomorphic ciphers that transforms the public problem into the \
 public cipher problems and their cipher solutions.
 \
 \>", "TableText",ExpressionUUID->"ad7ee30b-7006-43ef-848f-d6a0181fae6b"]},
     {Cell[
      "      ", "TableRowIcon",ExpressionUUID->
-      "4c9bcc6b-cdbd-4648-9aed-9105d1f9803a"], "\"\<PublicCipherProblems\>\"",
+      "4c9bcc6b-cdbd-4648-9aed-9105d1f9803a"], "\"\<PublicCipherProblem\>\"",
       Cell["\<\
 list of the cipher problems that will be shared with the verifier
 \
