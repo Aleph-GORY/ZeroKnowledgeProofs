@@ -5,12 +5,10 @@
 *)
 
 
-(*
-  Helper functions
+(* 
+  GenerateZeroKnowledgePrivateSolution
 *)
   generateGraphIsomorphism[size_] := 
-    Thread[Range[size] -> RandomSample[Range[size]]]
-  generateSATIsomorphism[size_] := 
     Thread[Range[size] -> RandomSample[Range[size]]]
 
   IsomorphicGraph[graph_, isomorphism_] := 
@@ -19,28 +17,18 @@
       VertexLabels -> Automatic
     ]
 
-  IsomorphicSortedGraph[graph_, isomorphism_] := 
-    Graph[
-      Sort /@ EdgeList[VertexReplace[graph, isomorphism]], 
-      VertexLabels -> Automatic
-    ]
-  IsomorphicHamiltonianCycle[cycle_, isomorphism_] := 
-    Sort /@ Thread[
-      UndirectedEdge[Association[isomorphism] /@ First /@ cycle, 
-      Association[isomorphism] /@ Last /@ cycle]
-    ]
-  IsomorphicBooleanFunction[boolf_, isomorphism_] := 
-    With[{permutation = Lookup[isomorphism, Range[Length[isomorphism]]]}, boolf @@ #[[permutation]] &]
-  IsomorphicBooleanVector[vector_, isomorphism_] := 
-    Array[vector[[isomorphism[#]]] &, Length[vector]]
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", Null] := 
+    GenerateZeroKnowledgePrivateSolution["Isomorphism"]
 
-(* 
-  GenerateZeroKnowledgePrivateSolution
-*)
   GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := 
     Module[
-      { graph = IsomorphicGraph[RandomGraph[{keySize, 4*keySize}], Thread[Range[keySize] -> Range[keySize]]], 
-      isomorphism = generateGraphIsomorphism[keySize]},
+      { 
+        graph = IsomorphicGraph[
+          RandomGraph[{keySize, 8*keySize}],
+          Thread[Range[keySize] -> Range[keySize]]
+        ],
+        isomorphism = generateGraphIsomorphism[keySize]
+      },
       ZeroKnowledgePrivateSolution[<|
         "Protocol" -> "Isomorphism",
         "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
@@ -55,18 +43,31 @@
 (* 
   CipherPrivateSolution
 *)
-  CipherPrivateSolution["Isomorphism", privateSolution_] := 
+  HG2G2[privateSolution_] := privateSolution
+
+  HG2G2Cipher = <|
+    "Name" -> "H-G2G2",
+    "Cipher" -> HG2G2,
+    "CipherSolutionShape" -> "List of isomorphisms between HG2G2 graphs.",
+    "CipherProblemShape" -> "List of pairs of homomorphic G2G2 graphs."
+  |>
+
+  CipherTransformation["Isomorphism"] = HG2G2Cipher
+
+  CipherPrivateSolution["Isomorphism", privateSolution_, opts:OptionsPattern[{Size->5}]] := 
     Module[
-      {cipher = generateGraphIsomorphism[privateSolution["PrivateSolutionSize"]]},
+      {
+        cipher = CipherTransformation["Isomorphism"],
+        cipherSolution = Table[HG2G2[privateSolution], OptionValue[Size]]
+      },
       <|
-        "PrivateCipherSolution" -> <|
-          "Cipher" -> cipher, 
-          "Solution" -> Association[privateSolution["PrivateSolution"]] /@ 
-            Association[cipher] // Normal
-        |>,
-        "PublicCipherProblem" -> IsomorphicGraph[
-          privateSolution["PublicProblem"] // First, Reverse[cipher, {2}]
-        ]
+        "Protocol" -> privateSolution["Protocol"],
+        "CipherTransformation" -> cipher["Name"],
+        "CipherSolutionShape" -> cipher["CipherSolutionShape"],
+        "CipherProblemShape" -> cipher["CipherProblemShape"],
+
+        "PublicCipherProblem" -> First/@cipherSolution,
+        "PrivateCipherSolution" -> First/@cipherSolution
       |>
     ]
 
