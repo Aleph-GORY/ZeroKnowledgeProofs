@@ -29,10 +29,9 @@
       "ResponseSize" -> query["QuerySize"],
       "Query" -> query["Query"],
       "Response" -> Array[
-        AnswerZeroKnowledgeQuery[cipherSolution["Protocol"],
-          cipherSolution["PrivateCipherSolution"][[#]], 
-          query["Query"][[#]]
-        ] &, 
+        cipherSolution["PrivateCipherSolution"][[#]][[
+          query["Query"][[#]]+1
+        ]]&, 
         query["QuerySize"]
       ]
     |>
@@ -47,12 +46,12 @@
         publicProblem["Protocol"], 
         publicProblem["PublicProblem"], 
         witness["PublicCipherProblems"][[#]], 
-        query["Queries"][[#]], 
-        response["Responses"][[#]]
+        query["Query"][[#]], 
+        response["Response"][[#]]
       ] &,
       False
     ],
-    query["Rounds"]
+    query["QuerySize"]
   ]
 
 

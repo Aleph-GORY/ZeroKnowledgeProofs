@@ -85,6 +85,7 @@
   GXORCipher = <|
     "Name" -> "GXOR",
     "Cipher" -> GXOR,
+    "ProblemCipher" -> GXORProblem,
     "CipherSolutionShape" -> "List of isomorphisms between GXOR graphs.",
     "CipherProblemShape" -> "List of pairs of homomorphic GXOR graphs."
   |>
@@ -122,14 +123,14 @@
 (* 
   CipherPrivateSolution
 *)
-  CipherPrivateSolution["Isomorphism", privateSolution_, opts:OptionsPattern[{Size->5}]] := Module[
+  CipherPrivateSolution["Isomorphism", privateSolution_, opts:OptionsPattern[{size->5}]] := Module[
     {
       cipher = CipherTransformation["Isomorphism"]
     },
     cipherSolution = Table[
       cipher["Cipher"][
         privateSolution, Hash[RandomReal[], "SHA"]
-      ], OptionValue[Size]
+      ], OptionValue[size]
     ];
     <|
       "Protocol" -> privateSolution["Protocol"],
@@ -143,10 +144,19 @@
   ]
 
 (* 
-  VerifyZeroKnowledgeResponse
+  VerifyZeroKnowledgeProof
 *)
-  VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, "Cipher", response_] := 
-    IsomorphicGraph[cipherProblem, response] == (publicProblem // First)
-  VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, "Solution", response_] := 
-    IsomorphicGraph[cipherProblem, response] == (publicProblem // Last)
+  VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, 0, isomoorphism_] := Module[{},
+    IsomorphicGraph[First@cipherProblem, isomoorphism] == Last@cipherProblem
+  ]
+  VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, 1, key_] := Module[{}
+    CipherTransformation["Isomorphism"]["ProblemCipher"][publicProblem, key] == cipherProblem
+  ]
 
+  VerifyZeroKnowledgeProof["Isomorphism", publicProblem_, witness_, opts:OptionsPattern[{query->Null, response->Null}]] :=
+    VerifyInteractiveProof[
+      publicProblem, 
+      witness,
+      OptionValue[query],
+      OptionValue[response]
+    ]
