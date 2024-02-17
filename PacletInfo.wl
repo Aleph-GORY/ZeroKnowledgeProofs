@@ -8,7 +8,7 @@ PacletObject[
     "License" -> "Apache-2.0",
     "PublisherID" -> "ArmandoCruz",
     "Version" -> "0.1.0",
-    "WolframVersion" -> "13.+",
+    "WolframVersion" -> "13.1+",
     "Extensions" -> {
       {
         "Kernel",
@@ -22,13 +22,11 @@ PacletObject[
           "ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgeCipherProblem",
           "ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgeCipherSolution",
           "ArmandoCruz`ZeroKnowledgeProofs`VerifyZeroKnowledgeProof",
-          
           "ArmandoCruz`ZeroKnowledgeProofs`GenerateZeroKnowledgePrivateSolution",
           "ArmandoCruz`ZeroKnowledgeProofs`GenerateZeroKnowledgeQuery",
           "ArmandoCruz`ZeroKnowledgeProofs`AnswerZeroKnowledgeQuery",
           "ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgeQuery",
           "ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgeResponse",
-          
           "ArmandoCruz`ZeroKnowledgeProofs`CompileArithmeticCircuit",
           "ArmandoCruz`ZeroKnowledgeProofs`EvaluateArithmeticCircuitSolution",
           "ArmandoCruz`ZeroKnowledgeProofs`CompileQuadraticArithmeticProgram"

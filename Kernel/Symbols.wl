@@ -164,7 +164,7 @@
   ZeroKnowledgeQuery /: MakeBoxes[x : ZeroKnowledgeQuery[data_Association], StandardForm] :=
     BoxForm`ArrangeSummaryBox[
       ZeroKnowledgeQuery, x,
-      makeKeyIcon[x, 75],
+      makeKeyIcon[x, 50],
       {
         BoxForm`SummaryItem[{"Protocol: ", x["Protocol"]}],
         BoxForm`SummaryItem[{"Query size: ", x["QuerySize"]}]
@@ -190,7 +190,7 @@
   ZeroKnowledgeResponse /: MakeBoxes[x : ZeroKnowledgeResponse[data_Association], StandardForm] := 
     BoxForm`ArrangeSummaryBox[
       ZeroKnowledgeResponse, x,
-      makeKeyIcon[x, 50],
+      makeKeyIcon[x, 68],
       {
         BoxForm`SummaryItem[{"Protocol: ", x["Protocol"]}],
         BoxForm`SummaryItem[{"Response size: ", x["ResponseSize"]}]

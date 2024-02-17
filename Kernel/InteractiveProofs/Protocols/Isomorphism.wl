@@ -65,7 +65,7 @@
     (* Add the noise  *)
     Association[Reverse[isomorphismNoise1,{2}]] /@
     Association[privateSolution] /@
-    Association[isomorphismNoise2]
+    Association[isomorphismNoise2] // Normal
   ]
 
   GXOR[privateSolution_, key_] := Module[
@@ -73,18 +73,20 @@
       solution = privateSolution["PrivateSolution"],
       problem = privateSolution["PublicProblem"]
     },
-    <|
-      "problem" -> GXORProblem[problem, key],
-      "solution" -> GXORSolution[solution, key],
-      "key" -> key
-    |>
+    {
+      GXORProblem[problem, key],
+      <|
+        "CipherSolution" -> GXORSolution[solution, key],
+        "CipherKey" -> key
+      |>
+    }
   ]
 
   GXORCipher = <|
     "Name" -> "GXOR",
     "Cipher" -> GXOR,
-    "CipherSolutionShape" -> "List of isomorphisms between HG2G2 graphs.",
-    "CipherProblemShape" -> "List of pairs of homomorphic G2G2 graphs."
+    "CipherSolutionShape" -> "List of isomorphisms between GXOR graphs.",
+    "CipherProblemShape" -> "List of pairs of homomorphic GXOR graphs."
   |>
 
   CipherTransformation["Isomorphism"] = GXORCipher
@@ -122,24 +124,21 @@
 *)
   CipherPrivateSolution["Isomorphism", privateSolution_, opts:OptionsPattern[{Size->5}]] := Module[
     {
-      cipher = CipherTransformation["Isomorphism"],
-      cipherSolution = Table[
-        cipher["Cipher"][
-          privateSolution,
-          Hash[RandomReal[], "SHA"]
-        ], 
-        OptionValue[Size]
-      ]
+      cipher = CipherTransformation["Isomorphism"]
     },
+    cipherSolution = Table[
+      cipher["Cipher"][
+        privateSolution, Hash[RandomReal[], "SHA"]
+      ], OptionValue[Size]
+    ];
     <|
       "Protocol" -> privateSolution["Protocol"],
       "CipherTransformation" -> cipher["Name"],
       "CipherSolutionShape" -> cipher["CipherSolutionShape"],
       "CipherProblemShape" -> cipher["CipherProblemShape"],
 
-      "PublicCipherProblem" -> #["problem"]&/@cipherSolution,
-      "PrivateCipherSolution" -> #["solution"]&/@cipherSolution,
-      "PrivateCipherKey" -> #["key"]&/@cipherSolution,
+      "PublicCipherProblem" -> First/@cipherSolution,
+      "PrivateCipherSolution" -> Last/@cipherSolution
     |>
   ]
 
