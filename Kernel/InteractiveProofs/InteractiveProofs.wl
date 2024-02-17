@@ -12,15 +12,15 @@
 (*
   GenerateZeroKnowledgeQuery
 *)
-GenerateZeroKnowledgeQuery[cipherProblem_] := 
-  ZeroKnowledgeQuery[<|
-    "Protocol" -> cipherProblem["Protocol"],
-    "Query" -> Table[
-      RandomChoice[ValidQueryList[cipherProblem["Type"]]], 
-      cipherProblem["Rounds"]
-    ],
-    "QuerySize" -> 0
-  |>]
+  GenerateZeroKnowledgeQuery[cipherProblem_] := 
+    ZeroKnowledgeQuery[<|
+      "Protocol" -> cipherProblem["Protocol"],
+      "Query" -> Table[
+        RandomChoice[ValidQueryList[cipherProblem["Type"]]], 
+        cipherProblem["Rounds"]
+      ],
+      "QuerySize" -> 0
+    |>]
 
 (*
   AnswerZeroKnowledgeQuery

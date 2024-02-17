@@ -13,7 +13,7 @@
 
   IsomorphicGraph[graph_, isomorphism_] := 
     Graph[
-      EdgeList[VertexReplace[graph, isomorphism]], 
+      RandomSample@EdgeList@VertexReplace[graph, isomorphism],
       VertexLabels -> Automatic
     ]
 
@@ -43,7 +43,39 @@
 (* 
   CipherPrivateSolution
 *)
-  HG2G2[privateSolution_] := privateSolution
+  ResetVertexList[graph_] := Module[{},
+    vertex = VertexList[graph];
+    size = Length@vertex;
+    IsomorphicGraph[graph, Thread[vertex -> RandomSample[Range[size]]]]
+  ]
+
+  MergeGraphVertex[graph_] := Module[{},
+    size = Length@VertexList[graph];
+    ResetVertexList@VertexContract[graph,Partition[RandomSample[Range[size]], 2]]
+  ]
+
+  DeleteGraphVertex[graph_] := Module[{},
+    vertex = VertexList[graph];
+    size = Length@vertex;
+    ResetVertexList@VertexDelete[graph,RandomSample[vertex, size/2]]
+  ]
+
+  HG2G2[privateSolution_, key_] := Module[
+    {
+      G = privateSolution[""]
+    },
+    SeedRandom[key];
+    size = Length@VertexList[G];
+    (* G2 construction *)
+    G2 = DeleteGraphVertex@MergeGraphVertex[G];
+    (* H2 construction *)
+    H2 = MergeGraphVertex@DeleteGraphVertex[G];
+    (* G2G2 construction *)
+    G2G2 = DeleteGraphVertex@DeleteGraphVertex[
+      GraphProduct[G2,H2,"Conormal"]
+    ];
+    {G2,H2,G2G2}
+  ]
 
   HG2G2Cipher = <|
     "Name" -> "H-G2G2",
