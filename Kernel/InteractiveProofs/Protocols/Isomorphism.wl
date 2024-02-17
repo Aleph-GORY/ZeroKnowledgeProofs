@@ -4,8 +4,12 @@
   Interactive zk-Proof protocol based on Isomorphism NP complete problem
 *)
 
+(* ::Section:: *)
+(* Cipher algoritms *)
 
-(* Graph functions *)
+(* 
+  Graph functions
+*)
   generateGraphIsomorphism[size_] := Thread[
     Range[size] -> RandomSample[Range[size]]
   ]
@@ -20,31 +24,6 @@
     size = Length@vertex;
     key = Thread[vertex -> RandomSample[Range[size]]];
     {IsomorphicGraph[graph, key],key}
-  ]
-
-(* 
-  GenerateZeroKnowledgePrivateSolution
-*)
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", Null] := 
-    GenerateZeroKnowledgePrivateSolution["Isomorphism"]
-
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := Module[
-    { 
-      graph = IsomorphicGraph[
-        RandomGraph[{keySize, 8*keySize}],
-        Thread[Range[keySize] -> Range[keySize]]
-      ],
-      isomorphism = generateGraphIsomorphism[keySize]
-    },
-    ZeroKnowledgePrivateSolution[<|
-      "Protocol" -> "Isomorphism",
-      "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
-      "PrivateSolutionSize" -> keySize,
-      "PublicProblemShape" -> "A pair of isomorphic graphs.",
-      "PublicProblemSize" -> {keySize, 4*keySize},
-      "PrivateSolution" -> isomorphism,
-      "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
-    |>]
   ]
 
 (* 
@@ -110,6 +89,34 @@
 
   CipherTransformation["Isomorphism"] = GXORCipher
 
+
+(* ::Section:: *)
+(* Protocol definition *)
+
+(* 
+  GenerateZeroKnowledgePrivateSolution
+*)
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", Null] := GenerateZeroKnowledgePrivateSolution["Isomorphism"]
+
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := Module[
+    { 
+      graph = IsomorphicGraph[
+        RandomGraph[{keySize, 8*keySize}],
+        Thread[Range[keySize] -> Range[keySize]]
+      ],
+      isomorphism = generateGraphIsomorphism[keySize]
+    },
+    ZeroKnowledgePrivateSolution[<|
+      "Protocol" -> "Isomorphism",
+      "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
+      "PrivateSolutionSize" -> keySize,
+      "PublicProblemShape" -> "A pair of isomorphic graphs.",
+      "PublicProblemSize" -> {keySize, 4*keySize},
+      "PrivateSolution" -> isomorphism,
+      "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
+    |>]
+  ]
+
 (* 
   CipherPrivateSolution
 *)
@@ -135,19 +142,6 @@
       "PrivateCipherKey" -> #["key"]&/@cipherSolution,
     |>
   ]
-
-(*
-  GenerateZeroKnowledgeQuery
-*)
-  ValidQueryList["Isomorphism"] := {"Cipher", "Solution"}
-  GenerateZeroKnowledgeQuery[publicWitness_] := 
-    ZeroKnowledgeQuery[<|
-      "Protocol" -> publicWitness["Protocol"],
-      "Query" -> Table[
-        RandomChoice[ValidQueryList[publicWitness["Protocol"]]], 
-        publicWitness["QuerySize"]
-      ]
-    |>]
 
 (* 
   VerifyZeroKnowledgeResponse

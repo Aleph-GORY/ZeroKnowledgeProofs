@@ -12,21 +12,19 @@
 (*
   GenerateZeroKnowledgeQuery
 *)
-  GenerateZeroKnowledgeQuery[cipherProblem_] := 
-    ZeroKnowledgeQuery[<|
+  GenerateZeroKnowledgeQuery[cipherProblem_] := ZeroKnowledgeQuery[
+    <|
       "Protocol" -> cipherProblem["Protocol"],
-      "Query" -> Table[
-        RandomChoice[ValidQueryList[cipherProblem["Type"]]], 
-        cipherProblem["Rounds"]
-      ],
-      "QuerySize" -> 0
-    |>]
+      "Query" -> Table[RandomInteger[], cipherProblem["CipherProblemSize"]],
+      "QuerySize" -> cipherProblem["CipherProblemSize"]
+    |>
+  ]
 
 (*
   AnswerZeroKnowledgeQuery
 *)
-  AnswerZeroKnowledgeQuery[cipherSolution_, query_] := 
-    ZeroKnowledgeResponse[<|
+  AnswerZeroKnowledgeQuery[cipherSolution_, query_] := ZeroKnowledgeResponse[
+    <|
       "Protocol" -> cipherSolution["Protocol"],
       "ResponseSize" -> query["QuerySize"],
       "Query" -> query["Query"],
@@ -37,24 +35,24 @@
         ] &, 
         query["QuerySize"]
       ]
-    |>]
+    |>
+  ]
 
 (*
   VerifyInteractiveProof
 *)
-  VerifyInteractiveProof[publicProblem_, witness_, query_, response_] := 
-    Array[
-      Quiet@Check[
-        VerifyZeroKnowledgeResponse[
-          publicProblem["Protocol"], 
-          publicProblem["PublicProblem"], 
-          witness["PublicCipherProblems"][[#]], 
-          query["Queries"][[#]], 
-          response["Responses"][[#]]
-        ] &,
-        False
-      ],
-      query["Rounds"]
-    ]
+  VerifyInteractiveProof[publicProblem_, witness_, query_, response_] := Array[
+    Quiet@Check[
+      VerifyZeroKnowledgeResponse[
+        publicProblem["Protocol"], 
+        publicProblem["PublicProblem"], 
+        witness["PublicCipherProblems"][[#]], 
+        query["Queries"][[#]], 
+        response["Responses"][[#]]
+      ] &,
+      False
+    ],
+    query["Rounds"]
+  ]
 
 
