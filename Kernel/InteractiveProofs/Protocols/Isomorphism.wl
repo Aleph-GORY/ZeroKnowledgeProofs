@@ -5,103 +5,136 @@
 *)
 
 
-(* 
-  GenerateZeroKnowledgePrivateSolution
-*)
-  generateGraphIsomorphism[size_] := 
-    Thread[Range[size] -> RandomSample[Range[size]]]
+(* Graph functions *)
+  generateGraphIsomorphism[size_] := Thread[
+    Range[size] -> RandomSample[Range[size]]
+  ]
 
-  IsomorphicGraph[graph_, isomorphism_] := 
-    Graph[
-      RandomSample@EdgeList@VertexReplace[graph, isomorphism],
-      VertexLabels -> Automatic
-    ]
+  IsomorphicGraph[graph_, isomorphism_] := Graph[
+    RandomSample@EdgeList@VertexReplace[graph, isomorphism],
+    VertexLabels -> Automatic
+  ]
 
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", Null] := 
-    GenerateZeroKnowledgePrivateSolution["Isomorphism"]
-
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := 
-    Module[
-      { 
-        graph = IsomorphicGraph[
-          RandomGraph[{keySize, 8*keySize}],
-          Thread[Range[keySize] -> Range[keySize]]
-        ],
-        isomorphism = generateGraphIsomorphism[keySize]
-      },
-      ZeroKnowledgePrivateSolution[<|
-        "Protocol" -> "Isomorphism",
-        "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
-        "PrivateSolutionSize" -> keySize,
-        "PublicProblemShape" -> "A pair of isomorphic graphs.",
-        "PublicProblemSize" -> {keySize, 4*keySize},
-        "PrivateSolution" -> isomorphism,
-        "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
-      |>]
-    ]
-
-(* 
-  CipherPrivateSolution
-*)
   ResetVertexList[graph_] := Module[{},
     vertex = VertexList[graph];
     size = Length@vertex;
-    IsomorphicGraph[graph, Thread[vertex -> RandomSample[Range[size]]]]
+    key = Thread[vertex -> RandomSample[Range[size]]];
+    {IsomorphicGraph[graph, key],key}
   ]
 
-  MergeGraphVertex[graph_] := Module[{},
-    size = Length@VertexList[graph];
-    ResetVertexList@VertexContract[graph,Partition[RandomSample[Range[size]], 2]]
+(* 
+  GenerateZeroKnowledgePrivateSolution
+*)
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", Null] := 
+    GenerateZeroKnowledgePrivateSolution["Isomorphism"]
+
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := Module[
+    { 
+      graph = IsomorphicGraph[
+        RandomGraph[{keySize, 8*keySize}],
+        Thread[Range[keySize] -> Range[keySize]]
+      ],
+      isomorphism = generateGraphIsomorphism[keySize]
+    },
+    ZeroKnowledgePrivateSolution[<|
+      "Protocol" -> "Isomorphism",
+      "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
+      "PrivateSolutionSize" -> keySize,
+      "PublicProblemShape" -> "A pair of isomorphic graphs.",
+      "PublicProblemSize" -> {keySize, 4*keySize},
+      "PrivateSolution" -> isomorphism,
+      "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
+    |>]
   ]
 
-  DeleteGraphVertex[graph_] := Module[{},
-    vertex = VertexList[graph];
-    size = Length@vertex;
-    ResetVertexList@VertexDelete[graph,RandomSample[vertex, size/2]]
-  ]
-
-  HG2G2[privateSolution_, key_] := Module[
+(* 
+  GXOR Cipher
+*)
+  GXORProblem[publicProblem_, key_] := Module[
     {
-      G = privateSolution[""]
+      G = publicProblem[[1]],
+      H = publicProblem[[2]]
     },
     SeedRandom[key];
     size = Length@VertexList[G];
-    (* G2 construction *)
-    G2 = DeleteGraphVertex@MergeGraphVertex[G];
-    (* H2 construction *)
-    H2 = MergeGraphVertex@DeleteGraphVertex[G];
-    (* G2G2 construction *)
-    G2G2 = DeleteGraphVertex@DeleteGraphVertex[
-      GraphProduct[G2,H2,"Conormal"]
+    (* Noise *)
+    isomorphismNoise1 = generateGraphIsomorphism[size];
+    isomorphismNoise2 = generateGraphIsomorphism[size];
+    graphNoise = EdgeList@IsomorphicGraph[
+      RandomGraph[{size, 8*size}],
+      Thread[Range[size] -> Range[size]]
     ];
-    {G2,H2,G2G2}
+    (* Add the noise  *)
+    noiseG = IsomorphicGraph[Graph[
+      RandomSample@SymmetricDifference[EdgeList[G], graphNoise],
+      VertexLabels -> Automatic
+    ], isomorphismNoise1];
+    noiseH = IsomorphicGraph[Graph[
+      RandomSample@SymmetricDifference[EdgeList[H], graphNoise],
+      VertexLabels -> Automatic
+    ], isomorphismNoise2];
+    (* Return CipherProblem *)
+    {noiseG, noiseH}
   ]
 
-  HG2G2Cipher = <|
-    "Name" -> "H-G2G2",
-    "Cipher" -> HG2G2,
+  GXORSolution[privateSolution_, key_] := Module[{},
+    SeedRandom[key];
+    size = Length@privateSolution;
+    (* Noise *)
+    isomorphismNoise1 = generateGraphIsomorphism[size];
+    isomorphismNoise2 = generateGraphIsomorphism[size];
+    (* Add the noise  *)
+    Association[Reverse[isomorphismNoise1,{2}]] /@
+    Association[privateSolution] /@
+    Association[isomorphismNoise2]
+  ]
+
+  GXOR[privateSolution_, key_] := Module[
+    {
+      solution = privateSolution["PrivateSolution"],
+      problem = privateSolution["PublicProblem"]
+    },
+    <|
+      "problem" -> GXORProblem[problem, key],
+      "solution" -> GXORSolution[solution, key],
+      "key" -> key
+    |>
+  ]
+
+  GXORCipher = <|
+    "Name" -> "GXOR",
+    "Cipher" -> GXOR,
     "CipherSolutionShape" -> "List of isomorphisms between HG2G2 graphs.",
     "CipherProblemShape" -> "List of pairs of homomorphic G2G2 graphs."
   |>
 
-  CipherTransformation["Isomorphism"] = HG2G2Cipher
+  CipherTransformation["Isomorphism"] = GXORCipher
 
-  CipherPrivateSolution["Isomorphism", privateSolution_, opts:OptionsPattern[{Size->5}]] := 
-    Module[
-      {
-        cipher = CipherTransformation["Isomorphism"],
-        cipherSolution = Table[HG2G2[privateSolution], OptionValue[Size]]
-      },
-      <|
-        "Protocol" -> privateSolution["Protocol"],
-        "CipherTransformation" -> cipher["Name"],
-        "CipherSolutionShape" -> cipher["CipherSolutionShape"],
-        "CipherProblemShape" -> cipher["CipherProblemShape"],
+(* 
+  CipherPrivateSolution
+*)
+  CipherPrivateSolution["Isomorphism", privateSolution_, opts:OptionsPattern[{Size->5}]] := Module[
+    {
+      cipher = CipherTransformation["Isomorphism"],
+      cipherSolution = Table[
+        cipher["Cipher"][
+          privateSolution,
+          Hash[RandomReal[], "SHA"]
+        ], 
+        OptionValue[Size]
+      ]
+    },
+    <|
+      "Protocol" -> privateSolution["Protocol"],
+      "CipherTransformation" -> cipher["Name"],
+      "CipherSolutionShape" -> cipher["CipherSolutionShape"],
+      "CipherProblemShape" -> cipher["CipherProblemShape"],
 
-        "PublicCipherProblem" -> First/@cipherSolution,
-        "PrivateCipherSolution" -> First/@cipherSolution
-      |>
-    ]
+      "PublicCipherProblem" -> #["problem"]&/@cipherSolution,
+      "PrivateCipherSolution" -> #["solution"]&/@cipherSolution,
+      "PrivateCipherKey" -> #["key"]&/@cipherSolution,
+    |>
+  ]
 
 (*
   GenerateZeroKnowledgeQuery
