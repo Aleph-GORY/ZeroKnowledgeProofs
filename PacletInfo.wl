@@ -13,7 +13,7 @@ PacletObject[
       {
         "Kernel",
         "Root" -> "Kernel",
-        "Context" -> "ArmandoCruz`ZeroKnowledgeProofs`",
+        "Context" -> {"ArmandoCruz`ZeroKnowledgeProofs`"},
         "Symbols" -> {
           "ArmandoCruz`ZeroKnowledgeProofs`GenerateZeroKnowledgeProof",
           "ArmandoCruz`ZeroKnowledgeProofs`ZeroKnowledgePublicProblem",

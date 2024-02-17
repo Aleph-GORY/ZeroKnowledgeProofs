@@ -2,8 +2,6 @@
 
 BeginPackage["ArmandoCruz`ZeroKnowledgeProofs`"]
 
-(* Declare your package's public symbols here. *)
-
 ZeroKnowledgePrivateSolution;
 ZeroKnowledgePublicProblem;
 ZeroKnowledgeCipherSolution;
@@ -21,10 +19,10 @@ CompileArithmeticCircuit;
 EvaluateArithmeticCircuitSolution;
 CompileQuadraticArithmeticProgram;
 
-Get["ArmandoCruz`ZeroKnowledgeProofs`InteractiveProofs`"]
-(* Needs["ArmandoCruz`ZeroKnowledgeProofs`Kernel`InteractiveProofs`InteractiveProofs"] *)
 
 Begin["`Private`"]
+
+<<"ArmandoCruz`ZeroKnowledgeProofs`InteractiveProofs`InteractiveProofs`"
 
 (* ::Section:: *)
 (*Objects*)
@@ -278,7 +276,7 @@ Begin["`Private`"]
         "CipherProblemShape" -> cipherSolution["CipherProblemShape"],
         "CipherProblemSize" -> cipherSolution["CipherProblemSize"],
         "PublicCipherProblem" -> cipherSolution["PublicCipherProblem"],
-        "PrivateCipherSolution" -> cipherSolution["PrivateCipherSolution"],
+        "PrivateCipherSolution" -> cipherSolution["PrivateCipherSolution"]
       |>]
     ]
 
@@ -295,7 +293,7 @@ Begin["`Private`"]
           "CipherTransformation" -> cipherSolution["CipherTransformation"],
           "CipherProblemShape" -> cipherSolution["CipherProblemShape"],
           "CipherProblemSize" -> cipherSolution["CipherProblemSize"],
-          "PublicCipherProblem" -> cipherSolution["PublicCipherProblem"],
+          "PublicCipherProblem" -> cipherSolution["PublicCipherProblem"]
         |>]
       |>
     ]

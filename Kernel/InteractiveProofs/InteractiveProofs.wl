@@ -4,12 +4,7 @@
   Implementation of interactive zero knowledge proofs
 *)
 
-BeginPackage["ArmandoCruz`ZeroKnowledgeProofs`InteractiveProofs`InteractiveProofs`"]
-
-
-Get["ArmandoCruz`ZeroKnowledgeProofs`InteractiveProofs`Protocols`Isomorphism`"]
-
-Begin["`Private`"]
+<<"ArmandoCruz`ZeroKnowledgeProofs`InteractiveProofs`Protocols`Isomorphism`"
 
 (* ::Section:: *)
 (*Definitions*)
@@ -47,21 +42,19 @@ GenerateZeroKnowledgeQuery[cipherProblem_] :=
 (*
   VerifyInteractiveProof
 *)
-VerifyInteractiveProof[publicProblem_, witness_, query_, response_] := 
-  Array[
-    Quiet@Check[
-      VerifyZeroKnowledgeResponse[
-        publicProblem["Protocol"], 
-        publicProblem["PublicProblem"], 
-        witness["PublicCipherProblems"][[#]], 
-        query["Queries"][[#]], 
-        response["Responses"][[#]]
-      ] &,
-      False
-    ],
-    query["Rounds"]
-  ]
+  VerifyInteractiveProof[publicProblem_, witness_, query_, response_] := 
+    Array[
+      Quiet@Check[
+        VerifyZeroKnowledgeResponse[
+          publicProblem["Protocol"], 
+          publicProblem["PublicProblem"], 
+          witness["PublicCipherProblems"][[#]], 
+          query["Queries"][[#]], 
+          response["Responses"][[#]]
+        ] &,
+        False
+      ],
+      query["Rounds"]
+    ]
 
-End[]
 
-EndPackage[]
