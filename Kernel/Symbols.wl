@@ -1,6 +1,7 @@
 (* ::Package:: *)
 (* 
   # Symbols zkProofs
+  Basic objects referenced in all ZeroKnowledgeProof Protocol.
 *)
 
 

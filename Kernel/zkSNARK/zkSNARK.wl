@@ -1,6 +1,9 @@
 (* ::Package:: *)
 
-(* -- zk-SNARKs -- *)
+(*
+	# zkSNARK
+	Implementation of non-interactive zkSNARK proofs.
+*)
 
 (* - Arithmetic circuits - *)
 inputStyle={TreeElementStyle->LightBlue,TreeLayout->Left};
