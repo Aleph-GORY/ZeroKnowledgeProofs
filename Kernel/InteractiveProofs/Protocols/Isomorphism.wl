@@ -157,8 +157,9 @@
   VerifyZeroKnowledgeProof
 *)
   VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, 0, isomorphism_] := Module[{},
+    size = Length[isomorphism];
     G = IsomorphicSortedGraph[First[cipherProblem], isomorphism];
-    H = IsomorphicSortedGraph[Last[cipherProblem], Thread[Range[keySize] -> Range[keySize]]];
+    H = IsomorphicSortedGraph[Last[cipherProblem], Thread[Range[size] -> Range[size]]];
     G == H
   ]
   VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, 1, key_] := Module[
