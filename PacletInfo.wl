@@ -7,7 +7,7 @@ PacletObject[
     "Creator" -> "Armando Benjam\[IAcute]n Cruz Hinojosa",
     "License" -> "Apache-2.0",
     "PublisherID" -> "ArmandoCruz",
-    "Version" -> "1.0.0",
+    "Version" -> "1.0.1",
     "WolframVersion" -> "13.1+",
     "Extensions" -> {
       {
