@@ -24,6 +24,7 @@ Begin["`Private`"]
 
 <<"ArmandoCruz`ZeroKnowledgeProofs`Symbols`"
 <<"ArmandoCruz`ZeroKnowledgeProofs`InteractiveProofs`InteractiveProofs`"
+<<"ArmandoCruz`ZeroKnowledgeProofs`zkSNARK`zkSNARK`"
 
 
 (* ::Section:: *)
