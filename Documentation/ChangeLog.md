@@ -1,6 +1,6 @@
 # Change Log
  
-## [Unreleased] - 2024-02-16
+## [Unreleased] - 
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
  
@@ -12,7 +12,7 @@ straightforward as possible.
  
 ### Fixed
  
-## [1.0.0] - 2024-02-16
+## [1.0.0] - 2024-02-18
 Refactorization of the framework to align with new witness architecture.
  
 ### Added
