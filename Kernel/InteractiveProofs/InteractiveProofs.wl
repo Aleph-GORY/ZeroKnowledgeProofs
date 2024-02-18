@@ -45,7 +45,7 @@
       VerifyZeroKnowledgeResponse[
         publicProblem["Protocol"], 
         publicProblem["PublicProblem"], 
-        witness["PublicCipherProblems"][[#]], 
+        witness["PublicCipherProblem"][[#]], 
         query["Query"][[#]], 
         response["Response"][[#]]
       ] &,
