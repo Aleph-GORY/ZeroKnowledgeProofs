@@ -109,22 +109,23 @@
 (* 
   GenerateZeroKnowledgePrivateSolution
 *)
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", Null] := GenerateZeroKnowledgePrivateSolution["Isomorphism"]
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", opts: OptionsPattern[{Seed->Null, Size->64}]] := Module[{},
+    seed = OptionValue[Seed];
+    key = If[seed === Null, Hash[RandomReal[], "SHA"], seed];
+    size = OptionValue[Size];
+    SeedRandom[key];
 
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := Module[
-    { 
-      graph = IsomorphicGraph[
-        RandomGraph[{keySize, 8*keySize}],
-        Thread[Range[keySize] -> Range[keySize]]
-      ],
-      isomorphism = generateGraphIsomorphism[keySize]
-    },
+    graph=IsomorphicGraph[
+      RandomGraph[{size, 8*size}],
+      Thread[Range[size] -> Range[size]]
+    ];
+    isomorphism = generateGraphIsomorphism[size];
     ZeroKnowledgePrivateSolution[<|
       "Protocol" -> "Isomorphism",
       "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
-      "PrivateSolutionSize" -> keySize,
+      "PrivateSolutionSize" -> size,
       "PublicProblemShape" -> "A pair of isomorphic graphs.",
-      "PublicProblemSize" -> {keySize, 4*keySize},
+      "PublicProblemSize" -> {size, 4*size},
       "PrivateSolution" -> isomorphism,
       "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
     |>]
