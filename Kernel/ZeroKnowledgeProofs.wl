@@ -34,9 +34,9 @@ Begin["`Private`"]
 (* 
   GenerateZeroKnowledgeProof
 *)
-  GenerateZeroKnowledgeProof[protocol_, shape_:Null] :=
+  GenerateZeroKnowledgeProof[protocol_, opts: OptionsPattern[]] :=
     Module[
-      {privateSolution = GenerateZeroKnowledgePrivateSolution[protocol, shape]},
+      {privateSolution = GenerateZeroKnowledgePrivateSolution[protocol, opts]},
       <|
         "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
           "Protocol" -> privateSolution["Protocol"],
@@ -47,9 +47,9 @@ Begin["`Private`"]
         "ZeroKnowledgePrivateSolution" -> privateSolution
       |>
     ]
-  GenerateZeroKnowledgeProof[protocol_, solution_] :=
+  GenerateZeroKnowledgeProof[protocol_, solution_, opts: OptionsPattern[]] :=
     Module[
-      {privateSolution = GenerateZeroKnowledgePrivateSolution[protocol, solution]},
+      {privateSolution = GenerateZeroKnowledgePrivateSolution[protocol, solution, opts]},
       <|
         "ZeroKnowledgePublicProblem" -> ZeroKnowledgePublicProblem[<|
           "Protocol" -> privateSolution["Protocol"],
