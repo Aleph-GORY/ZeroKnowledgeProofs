@@ -19,7 +19,7 @@
     VertexLabels -> Automatic
   ]
   IsomorphicSortedGraph[graph_, isomorphism_] := Graph[
-    Sort /@ EdgeList[VertexReplace[graph, isomorphism]], 
+    Sort[Sort /@ EdgeList[VertexReplace[graph, isomorphism]]],
     VertexLabels -> Automatic
   ]
 
@@ -40,42 +40,37 @@
 *)
   GXORProblem[publicProblem_, key_] := Module[
     {
-      P1 = publicProblem[[1]],
       P2 = publicProblem[[2]]
     },
     SeedRandom[key];
-    size = Length@VertexList[P1];
+    size = Length@VertexList[P2];
     (* Cipher *)
-    isomorphismCipher = generateGraphIsomorphism[size];
     graphCipher1 = generateGraphIsomorphism[size];
     graphCipher2 = generateGraphIsomorphism[size];
     (* Apply cipher  *)
-    cipherP1 = GraphXor[
-      IsomorphicGraph[P1, graphCipher1],
-      IsomorphicGraph[P1, graphCipher2]
-    ];
-    cipherP2 = GraphXor[
-      IsomorphicGraph[P2, 
-        Association[graphCipher1]/@
-        Association[isomorphismCipher]//Normal
-      ],
+    cipherProblem = GraphXor[
+      IsomorphicGraph[P2, graphCipher2],
       IsomorphicGraph[P2, 
         Association[graphCipher2]/@
-        Association[isomorphismCipher]//Normal
+        Association[graphCipher1]//Normal
       ]
     ];
     (* Return CipherProblem *)
-    {cipherP1, cipherP2}
+    cipherProblem
   ]
 
   GXORSolution[privateSolution_, key_] := Module[{},
     SeedRandom[key];
     size = Length@privateSolution;
     (* Cipher *)
-    isomorphismCipher = generateGraphIsomorphism[size];
+    graphCipher1 = generateGraphIsomorphism[size];
+    graphCipher2 = generateGraphIsomorphism[size];
     (* Apply cipher  *)
-    Association[isomorphismCipher] /@
-    Association[privateSolution] // Normal
+    {
+      Normal[Association[graphCipher2]/@Association[privateSolution]],
+      Normal[Association[graphCipher2]/@Association[graphCipher1]/@Association[privateSolution]]
+    }
+    (* privateSolution *)
   ]
 
   GXOR[privateSolution_, key_] := Module[
@@ -109,22 +104,23 @@
 (* 
   GenerateZeroKnowledgePrivateSolution
 *)
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", Null] := GenerateZeroKnowledgePrivateSolution["Isomorphism"]
+  GenerateZeroKnowledgePrivateSolution["Isomorphism", opts: OptionsPattern[{Seed->Null, Size->64}]] := Module[{},
+    seed = OptionValue[Seed];
+    key = If[seed === Null, Hash[RandomReal[], "SHA"], seed];
+    size = OptionValue[Size];
+    SeedRandom[key];
 
-  GenerateZeroKnowledgePrivateSolution["Isomorphism", keySize_ : 64] := Module[
-    { 
-      graph = IsomorphicGraph[
-        RandomGraph[{keySize, 8*keySize}],
-        Thread[Range[keySize] -> Range[keySize]]
-      ],
-      isomorphism = generateGraphIsomorphism[keySize]
-    },
+    graph=IsomorphicGraph[
+      RandomGraph[{size, 8*size}],
+      Thread[Range[size] -> Range[size]]
+    ];
+    isomorphism = generateGraphIsomorphism[size];
     ZeroKnowledgePrivateSolution[<|
       "Protocol" -> "Isomorphism",
       "PrivateSolutionShape" -> "Isomorphism betweeen two graphs.",
-      "PrivateSolutionSize" -> keySize,
+      "PrivateSolutionSize" -> size,
       "PublicProblemShape" -> "A pair of isomorphic graphs.",
-      "PublicProblemSize" -> {keySize, 4*keySize},
+      "PublicProblemSize" -> {size, 4*size},
       "PrivateSolution" -> isomorphism,
       "PublicProblem" -> {graph, IsomorphicGraph[graph, isomorphism]}
     |>]
@@ -157,9 +153,14 @@
   VerifyZeroKnowledgeProof
 *)
   VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, 0, isomorphism_] := Module[{},
-    size = Length[isomorphism];
-    G = IsomorphicSortedGraph[First[cipherProblem], isomorphism];
-    H = IsomorphicSortedGraph[Last[cipherProblem], Thread[Range[size] -> Range[size]]];
+    size = Length[isomorphism[[1]]];
+    P1 =publicProblem[[1]];
+    PC1 = GraphXor[
+      IsomorphicGraph[P1, isomorphism[[1]]],
+      IsomorphicGraph[P1, isomorphism[[2]]]
+    ];
+    G = IsomorphicSortedGraph[PC1, Thread[Range[size] -> Range[size]]];
+    H = IsomorphicSortedGraph[cipherProblem, Thread[Range[size] -> Range[size]]];
     G == H
   ]
   VerifyZeroKnowledgeResponse["Isomorphism", publicProblem_, cipherProblem_, 1, key_] := Module[
